@@ -52,7 +52,7 @@ const model = {
 				},
 				{
 					navn: "Jostein Gjessing Bay",
-					dob: 1105007,
+					dob: 110500,
 					tilhoerlighet: "Bø Ungdomsskule",
 					opptjentePoeng: 12,
 				}
