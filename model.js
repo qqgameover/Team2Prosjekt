@@ -101,6 +101,39 @@ const model = {
 				}
 			},
 		},
+		statistikk: {
+			antallMeldinger: 1,
+			sendteMeldinger: [
+				{
+					meldingData: {
+						avsender: "Kasper",
+						mottaker: "Olga",
+						innhold: "Jeg elsker deg ikke lenger!!!!1!!!2!!!",
+					},
+				}],
+			instanser: [
+
+				{ instansB: { antallPoeng: 30, antallElever: 19, instans: "larvik" } },
+				{ instansC: { antallPoeng: 109, antallElever: 19, instans: "Mellomhagen ungdomsskole" } },
+				{ instansG: { antallPoeng: 362, antallElever: 29, instans: "Valby Grunnskole" } },
+			],
+			folkOgFe: [
+				{
+					navn: "Kasper Løvold",
+					ssn: 100699,
+					tilhoerlighet: "Mellomhagen ungdomsskole",
+					opptjentePoeng: 3006,
+
+				},
+				{
+					navn: "Jostein Gjessing Bay",
+					ssn: 1105007,
+					tilhoerlighet: "Bø Ungdomsskule",
+					opptjentePoeng: 12,
+				}
+			]
+
+		},
 		lagaand: {
 			categoryOne: {
 				taskOne: {
@@ -175,6 +208,6 @@ const model = {
 	}
 }
 
-console.log(model.data.meldinger.utbox.dineSendteMeldinger[0].melding)
+console.log(model.data.statistikk.folkOgFe)
 
 
