@@ -16,13 +16,13 @@ const model = {
 		{
 			navn: "push-ups",
 			poeng: [1, 2, 5],
-			antall: [5, 10, 20],
+			variasjonIoppgaven: [5, 10, 20],
 			kategori: "fysisk",
 		},
 		{
 			navn: "Slappe av",
 			poeng: [1, 2, 5],
-			oppgaver: [],
+			variasjonIoppgaven: [],
 			kategori: "Lagånd"
 		}
 		],
