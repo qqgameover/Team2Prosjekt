@@ -8,99 +8,24 @@ const model = {
 		password: null,
 	},
 	data: {
-		mentalStyrke: {
-			categoryOne: {
-				name: "Indre fred",
-				taskOne: {
-					name: "Be til en ny gud",
-					poeng: 1,
-				},
-				taskTwo: {
-					name: "Finn opp en ny gud",
-					poeng: 2,
-				},
-				taskThree: {
-					name: "Tving med elevene til å bli med i din overlegne religion",
-					poeng: 5,
-				}
-			},
-			categoryTwo: {
-				name: "",
-				taskOne: {
-					name: "",
-					poeng: 1
-				},
-				taskTwo: {
-					name: "",
-					poeng: 2
-				},
-				taskThree: {
-					name: "",
-					poeng: 5
-				}
-			},
-			categoryThree: {
-				name: "",
-				taskOne: {
-					name: "",
-					poeng: 1
-				},
-				taskTwo: {
-					name: "",
-					poeng: 2
-				},
-				taskThree: {
-					name: "",
-					poeng: 5
-				}
-			}
+		tasks: [{
+			navn: "sit-ups",
+			poeng: 1,
+			kategori: "fysisk",
 		},
-		fysisk: {
-			categoryOne: {
-				taskOne: {
-					name: "5 shit-ups",
-					poeng: 1,
-				},
-				taskTwo: {
-					name: "10 shit-ups",
-					poeng: 2,
-				},
-				taskThree: {
-					name: "20 shit-ups",
-					poeng: 5,
-				}
-			},
-			categoryTwo: {
-				name: "",
-				taskOne: {
-					name: "",
-					poeng: 1
-				},
-				taskTwo: {
-					name: "",
-					poeng: 2
-				},
-				taskThree: {
-					name: "",
-					poeng: 5
-				}
-			},
-			categoryThree: {
-				name: "",
-				taskOne: {
-					name: "",
-					poeng: 1
-				},
-				taskTwo: {
-					name: "",
-					poeng: 2
-				},
-				taskThree: {
-					name: "",
-					poeng: 5
-				}
-			},
+		{
+			navn: "push-ups",
+			poeng: [1, 2, 5],
+			antall: [5, 10, 20],
+			kategori: "fysisk",
 		},
+		{
+			navn: "Slappe av",
+			poeng: [1, 2, 5],
+			oppgaver: [],
+			kategori: "Lagånd"
+		}
+		],
 		statistikk: {
 			antallMeldinger: 1,
 			sendteMeldinger: [
@@ -120,65 +45,19 @@ const model = {
 			folkOgFe: [
 				{
 					navn: "Kasper Løvold",
-					ssn: 100699,
+					dob: 100699,
 					tilhoerlighet: "Mellomhagen ungdomsskole",
 					opptjentePoeng: 3006,
 
 				},
 				{
 					navn: "Jostein Gjessing Bay",
-					ssn: 1105007,
+					dob: 1105007,
 					tilhoerlighet: "Bø Ungdomsskule",
 					opptjentePoeng: 12,
 				}
 			]
 
-		},
-		lagaand: {
-			categoryOne: {
-				taskOne: {
-					name: "Banke opp Ola",
-					poeng: 1,
-				},
-				taskTwo: {
-					name: "Mobbe Ola til han har flere poeng",
-					poeng: 2,
-				},
-				taskThree: {
-					name: "Tving en lærer med på mcdonalds",
-					poeng: 5,
-				}
-			},
-			categoryTwo: {
-				name: "",
-				taskOne: {
-					name: "",
-					poeng: 1
-				},
-				taskTwo: {
-					name: "",
-					poeng: 2
-				},
-				taskThree: {
-					name: "",
-					poeng: 5
-				}
-			},
-			categoryThree: {
-				name: "",
-				taskOne: {
-					name: "",
-					poeng: 1
-				},
-				taskTwo: {
-					name: "",
-					poeng: 2
-				},
-				taskThree: {
-					name: "",
-					poeng: 5
-				}
-			},
 		},
 		meldinger: {
 			ledd0: ["du er tatt på fersken i å"],
@@ -208,6 +87,15 @@ const model = {
 	}
 }
 
+
+
 console.log(model.data.statistikk.folkOgFe)
 
 
+function sortbyCat(kategori) {
+	for (let i = 0; i < model.data.tasks.length; i++) {
+		if (model.data.tasks[i].kategori == kategori) {
+			viewTegnoppting.push(model.data.tasks[i])
+		}
+	}
+}
