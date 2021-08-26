@@ -1,13 +1,21 @@
 const model = {
 	app: {
 		currentPage: null,
-		currentUser: null
+		currentUser: null,
+
 	},
 	inputFields: {
 		userName: null,
 		password: null,
 	},
 	data: {
+		taskNodes: [
+			{ id: 1, name: 'Fysisk', parent: null, videoUrl: '' },
+			{ id: 2, name: 'Sit-ups', parent: 1, videoUrl: '' },
+			{ id: 3, name: '5 sit-ups', parent: 2, videoUrl: '', points: 1 },
+			{ id: 4, name: '10 sit-ups', parent: 2, videoUrl: '', points: 1 },
+			{ id: 5, name: '20 sit-ups', parent: 2, videoUrl: '', points: 1 },
+		],
 		tasks: [{
 			navn: "sit-ups",
 			poeng: 1,
@@ -28,19 +36,19 @@ const model = {
 		],
 		statistikk: {
 			antallMeldinger: 1,
-			sendteMeldinger: [
-				{
-					meldingData: {
-						avsender: "Kasper",
-						mottaker: "Olga",
-						innhold: "Jeg elsker deg ikke lenger!!!!1!!!2!!!",
-					},
-				}],
+			sendteMeldinger: [{
+				avsender: "Kasper",
+				mottaker: "Olga",
+				innhold: "Jeg elsker deg ikke lenger!!!!1!!!2!!!",
+			}],
 			instanser: [
 
 				{ instansB: { antallPoeng: 30, antallElever: 19, instans: "larvik" } },
 				{ instansC: { antallPoeng: 109, antallElever: 19, instans: "Mellomhagen ungdomsskole" } },
 				{ instansG: { antallPoeng: 362, antallElever: 29, instans: "Valby Grunnskole" } },
+			],
+			achievements: [
+				{ user: 'terje@kolderup.net', date: '2021-08-10', time: '10:23', task: 3 },
 			],
 			folkOgFe: [
 				{
@@ -48,17 +56,24 @@ const model = {
 					dob: 100699,
 					tilhoerlighet: "Mellomhagen ungdomsskole",
 					opptjentePoeng: 3006,
-
+					epost: "epost"
 				},
 				{
 					navn: "Jostein Gjessing Bay",
 					dob: 110500,
 					tilhoerlighet: "Bø Ungdomsskule",
 					opptjentePoeng: 12,
+					epost: "epost"
 				}
 			]
 
 		},
+		muligeMeldinger: [
+			{ text: "du er tatt på fersken i å", ledd: 0 },
+			{ text: "være støttende", ledd: 1 },
+			{ text: "hjelpe andre", ledd: 1 },
+		],
+
 		meldinger: {
 			ledd0: ["du er tatt på fersken i å"],
 			ledd1: ["være støttende", "hjelpe andre", "invitere andre med", "bli kjent med nye", "inkludere andre",
