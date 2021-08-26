@@ -2,6 +2,7 @@ const model = {
 	app: {
 		currentPage: null,
 		currentUser: null,
+		currentTaskId: 2,
 
 	},
 	inputFields: {
