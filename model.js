@@ -17,24 +17,6 @@ const model = {
 			{ id: 4, name: '10 sit-ups', parent: 2, videoUrl: '', points: 1 },
 			{ id: 5, name: '20 sit-ups', parent: 2, videoUrl: '', points: 1 },
 		],
-		tasks: [{
-			navn: "sit-ups",
-			poeng: 1,
-			kategori: "fysisk",
-		},
-		{
-			navn: "push-ups",
-			poeng: [1, 2, 5],
-			variasjonIoppgaven: [5, 10, 20],
-			kategori: "fysisk",
-		},
-		{
-			navn: "Slappe av",
-			poeng: [1, 2, 5],
-			variasjonIoppgaven: [],
-			kategori: "Lagånd"
-		}
-		],
 		statistikk: {
 			antallMeldinger: 1,
 			sendteMeldinger: [{
