@@ -1,12 +1,19 @@
+#mainView {
+    background: #F4F4F4;
+  } 
 
-/* Kenneth */
-.grid-containerMain {
+  .grid-container {
     display: grid;
     grid-template-columns: auto auto;
-}
+    ;
 
-.grid-itemMain {
-    padding: 20px;
-    font-size: 30px;
+  }
+  
+  .grid-item {
+    border: 1px solid rgba(0, 0, 0, 0);
+    padding: 17vh;
+    margin:2vh;
+    font-size: 40px;
     text-align: center;
-}
+    background-color: #82848f;
+  }
