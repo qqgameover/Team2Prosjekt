@@ -18,7 +18,7 @@
 	<script src="/js/meldingView.js"></script>
 	<script src="/js/mainView.js"></script>
 	<script src="/js/leaderboardView.js"></script>
-	<script src="/js/loginview.js"></script>
+	<script src="/js/kategorierViews.js"></script>
 	<script src="/js/loginview.js"></script>
 
 </head>
@@ -28,11 +28,11 @@
 	<div id="app"></div>
 	<script>
 
-		function updateView() {
+		function updateView(pageId) {
 
-			if (model.app.currentpage == 'meldinger') html = updateViewMeldinger();      //Kasper   
-			if (model.app.currentpage == 'kategorier') html = updateViewKategorier();    //Jostein
-			if (model.app.currentpage == 'main') html = updateViewMain();                //Kenneth
+			if (model.app.currentpage == 'meldinger') html = updateViewMeldinger();      	//Kasper   
+			if (model.app.currentpage == 'kategorier') html = updateViewKategorier(pageId);  //Jostein
+			if (model.app.currentpage == 'main') html = updateViewMain();                	//Kenneth
 			if (model.app.currentpage == 'leaderboard') html = updateViewLeaderboard();  //Mailinn
 
 			document.getElementById("app").innerHTML = html;
