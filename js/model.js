@@ -27,10 +27,12 @@ const model = {
 				innhold: "",
 			}],
 			instanser: [
+				{ id: 1, skole: "Mellomhagen Ungdomsskole", parent: null, klasse: null, points: 309 },
+				{ id: 1, skole: "Olgas eldrehjem", parent: null, klasse: null, points: 13 },
+				{ id: 1, skole: "Egget Skole", parent: null, klasse: null, points: 3119 },
+				{ id: 2, klasse: "8b", parent: 1, points: 301, besteElev: "Tobias Nilsen" },
+				{ id: 3, klasse: "5a", parent: 1, points: 11, besteElev: "Terje Nilsen" },
 
-				{ instansB: { antallPoeng: 30, antallElever: 19, instans: "larvik" } },
-				{ instansC: { antallPoeng: 109, antallElever: 19, instans: "Mellomhagen ungdomsskole" } },
-				{ instansG: { antallPoeng: 362, antallElever: 29, instans: "Valby Grunnskole" } },
 			],
 			achievements: [
 				{ user: 'terje@kolderup.net', date: '2021-08-10', time: '10:23', task: 3 },
@@ -87,7 +89,7 @@ const model = {
 
 			{ text: "stå på", ledd: 2 },
 			{ text: "fortsette akkurat sånn", ledd: 2 },
-			{ text: "fortsatt være den flotte personen du er", ledd: 2 },
+			{ text: "fortsatt å være den flotte personen du er", ledd: 2 },
 			{ text: "stå på videre", ledd: 2 },
 			{ text: "gjerne gjøre det igjen", ledd: 2 },
 			{ text: "gjenta suksessen", ledd: 2 },
