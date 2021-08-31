@@ -13,10 +13,11 @@ const model = {
 		taskNodes: [
 			{ id: 1, name: 'Fysisk', parent: null, videoUrl: '' },
 			{ id: 2, name: 'Sit-ups', parent: 1, videoUrl: '' },
-			{ id: 3, name: 'Mental-styrke', parent: 1, videoUrl: '' },
+			{ id: 3, name: 'Mental-styrke', parent: null, videoUrl: '' },
 			{ id: 4, name: '5 sit-ups', parent: 2, videoUrl: '', points: 1 },
-			{ id: 5, name: '10 sit-ups', parent: 2, videoUrl: '', points: 1 },
-			{ id: 6, name: '20 sit-ups', parent: 2, videoUrl: '', points: 1 },
+			{ id: 5, name: '10 sit-ups', parent: 2, videoUrl: '', points: 2 },
+			{ id: 6, name: '20 sit-ups', parent: 2, videoUrl: '', points: 5 },
+
 		],
 		statistikk: {
 			antallMeldinger: 1,
