@@ -1,11 +1,28 @@
 .leaderboard-grid {
     display: grid;
-    grid-row: auto auto auto;
-    width: 100%;
-    grid-column-gap: 50px;
+    /* grid-row: 33% 33% 33%; */
+    grid-template-columns: 33% 33% 33%;
+    grid-column-gap: 10px;
 }
 
 .leaderboardTable, .trTable, .thTable, .tdLeaderboard {
-    border: 1px solid #333;
+    border: 1px solid #ddd;
     border-collapse: collapse;
 }
+
+.leaderboardTable {
+    width: 100%;
+
+}
+
+.thTable {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #82848f;
+    color: white;
+}
+
+.trTable tr:nth-child(even){background-color: #f2f2f2;}
+
+.trTable tr:hover {background-color: #ddd;}
