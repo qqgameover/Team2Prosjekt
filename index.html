@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- <link rel="stylesheet" href="/css/global.css"> -->
+	<link rel="stylesheet" href="/css/global.css">
 	<link rel="stylesheet" href="/css/meldinger.css">
 	<!-- <link rel="stylesheet" href="/css/kategorier.css"> -->
 	<link rel="stylesheet" href="/css/mainstyle.css">
@@ -27,6 +27,8 @@
 
 	<div id="app"></div>
 	<script>
+		updateView(1);
+
 		function updateView(pageId) {
 			if (model.app.currentPage == 'meldinger') {
 				html = updateViewMeldinger();
@@ -43,7 +45,28 @@
 			document.getElementById("app").innerHTML = html;
 
 		};
+		//Globale controllere
+		//Controller for å komme til hjem siden
 
+		function gotoH() {
+			model.app.currentPage = 'main';
+			updateView();
+		}
+
+		function gotoKategorier() {
+			model.app.currentPage = "kategorier";
+			updateView(1);
+		}
+
+		function gotoLederbrett() {
+			model.app.currentPage = "leaderboard";
+			updateView();
+		}
+
+		function gotoMeldinger() {
+			model.app.currentPage = "meldinger";
+			updateView();
+		}
 
 	</script>
 
