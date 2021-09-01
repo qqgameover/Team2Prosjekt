@@ -69,6 +69,5 @@ function updateViewMeldinger() {
 	<div class="containerForFluff">
 	<button onclick="sendMessage()">Send melding</button>
 	</div>`
-
 	return html;
 }
