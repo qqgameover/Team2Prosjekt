@@ -18,8 +18,9 @@ function updateViewKategorier(pageid) {
 	taskManager(pageid);
 	html +=
 		`<div class="navbar">
-		<a href="#Hjem" onclick="gotoH()">Hjem</a>
-	</div>`
+			<a href="#Lederbrett" onclick="gotoLederbrett()">Lederbrett</a>
+			<a href="#Hjem" onclick="gotoH()">Hjem</a>
+		</div>`
 
 	return html;
 	function pageid(id) {
