@@ -5,9 +5,9 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="/css/global.css">
+	<!-- <link rel="stylesheet" href="/css/global.css"> -->
 	<link rel="stylesheet" href="/css/meldinger.css">
-	<link rel="stylesheet" href="/css/kategorier.css">
+	<!-- <link rel="stylesheet" href="/css/kategorier.css"> -->
 	<link rel="stylesheet" href="/css/mainstyle.css">
 	<link rel="stylesheet" href="/css/leaderboard.css">
 
@@ -27,17 +27,22 @@
 
 	<div id="app"></div>
 	<script>
-
 		function updateView(pageId) {
+			if (model.app.currentPage == 'meldinger') {
+				html = updateViewMeldinger();
+			}   //Kasper   
+			if (model.app.currentPage == 'kategorier') {
+				html = updateViewKategorier(pageId);
+			} 	//Jostein
+			if (model.app.currentPage == 'main') {
+				html = updateViewMain();
+			}	//Kenneth
+			if (model.app.currentPage == 'leaderboard') {
+				html = updateViewLeaderboard();
+			}   //Mailinn
+			app.innerHTML = html;
 
-			if (model.app.currentpage == 'meldinger') html = updateViewMeldinger();      	//Kasper   
-			if (model.app.currentpage == 'kategorier') html = updateViewKategorier(pageId);  //Jostein
-			if (model.app.currentpage == 'main') html = updateViewMain();                	//Kenneth
-			if (model.app.currentpage == 'leaderboard') html = updateViewLeaderboard();  //Mailinn
-
-			document.getElementById("app").innerHTML = html;
-
-		}
+		};
 
 
 	</script>
