@@ -2,7 +2,7 @@
     display: grid;
     /* grid-row: 33% 33% 33%; */
     grid-template-columns: 33% 33% 33%;
-    grid-column-gap: 10px;
+    grid-column-gap: 5px;
 }
 
 .leaderboardTable, .trTable, .thTable, .tdLeaderboard {
@@ -26,3 +26,6 @@
 .trTable tr:nth-child(even){background-color: #f2f2f2;}
 
 .trTable tr:hover {background-color: #ddd;}
+
+
+
