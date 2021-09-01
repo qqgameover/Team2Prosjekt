@@ -4,6 +4,7 @@ let rankingSkole = [];
 let rankingKlasse = [];
 let rankingIndivid = [];
 function updateViewLeaderboard() {
+	let html = "";
 	html = `
 	<div class="leaderboard-grid">        
 		<table class="leaderboardTable">
@@ -39,15 +40,15 @@ function updateViewLeaderboard() {
 			console.log(sortedArray)
 			rankingSkole = sortedArray;
 		}
-		if (model.app.currentUser.parent == model.data.statistikk.instanser[i].id) {
-			rankingKlasse.push(model.data.statistikk.instanser[i]);
-			const sortedArray = rankingKlasse.sort((a, b) => {
-				if (a.points < b.points) return 1;
-				return -1;
-			})
-			console.log(sortedArray);
-			rankingKlasse = sortedArray;
-		}
+		// if (model.app.currentUser.parent == model.data.statistikk.instanser[i].id) {
+		// 	rankingKlasse.push(model.data.statistikk.instanser[i]);
+		// 	const sortedArray = rankingKlasse.sort((a, b) => {
+		// 		if (a.points < b.points) return 1;
+		// 		return -1;
+		// 	})
+		// 	console.log(sortedArray);
+		// 	rankingKlasse = sortedArray;
+		// }
 		//html += createTableRow(i)
 		//;
 	}
