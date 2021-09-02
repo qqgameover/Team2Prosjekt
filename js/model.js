@@ -2,6 +2,7 @@ const model = {
 	app: {
 		currentPage: 'main',
 		currentUser: null,
+		currentUserKlasse: 4,
 		currentTaskId: 2,
 
 	},
@@ -62,32 +63,16 @@ const model = {
 			}],
 			instanser: [
 				{ id: 1, skole: "Mellomhagen Ungdomsskole", parent: null, klasse: null, points: 309 },
-				{ id: 1, skole: "Olgas eldrehjem", parent: null, klasse: null, points: 13 },
-				{ id: 1, skole: "Egget Skole", parent: null, klasse: null, points: 3119 },
-				{ id: 2, klasse: "8b", parent: 1, points: 301, besteElev: "Tobias Nilsen" },
-				{ id: 3, klasse: "5a", parent: 1, points: 11, besteElev: "Terje Nilsen" },
-
+				{ id: 2, skole: "Olgas eldrehjem", parent: null, klasse: null, points: 13 },
+				{ id: 3, skole: "Egget Skole", parent: null, klasse: null, points: 3119 },
+				{ id: 4, klasse: "8b", parent: 1, points: 301, besteElev: "Tobias Nilsen" },
+				{ id: 5, klasse: "5a", parent: 1, points: 11, besteElev: "Terje Nilsen" },
+				{ id: 6, parent: 4, points: 301, navn: "Bob", userName: 'bobMarley@gmail.com' },
+				{ id: 7, parent: 5, points: 301, navn: "Julia", userName: 'juliaElise@gmail.com' },
 			],
 			achievements: [
 				{ user: 'terje@kolderup.net', date: '2021-08-10', time: '10:23', task: 3 },
 			],
-			folkOgFe: [
-				{
-					navn: "Kasper Løvold",
-					dob: 100699,
-					tilhoerlighet: "Mellomhagen ungdomsskole",
-					opptjentePoeng: 3006,
-					epost: "kasper35@live.no"
-				},
-				{
-					navn: "Jostein Gjessing Bay",
-					dob: 110500,
-					tilhoerlighet: "Bø Ungdomsskule",
-					opptjentePoeng: 12,
-					epost: "Jogba@live.no"
-				}
-			]
-
 		},
 		muligeMeldinger: [
 			{ text: "du er tatt på fersken i å", ledd: 0 },
@@ -150,17 +135,5 @@ const model = {
 				]
 			},
 		},
-	}
-}
-
-
-console.log(model.data.statistikk.folkOgFe)
-
-
-function sortbyCat(kategori) {
-	for (let i = 0; i < model.data.tasks.length; i++) {
-		if (model.data.tasks[i].kategori == kategori) {
-			viewTegnoppting.push(model.data.tasks[i])
-		}
 	}
 }
