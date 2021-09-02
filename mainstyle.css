@@ -26,6 +26,20 @@ background-color: white;
     margin: 2px;
   }
 }
+@media screen and (min-width: 1080px) {
+  .grid-item {
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    height: 30vh;
+  }
+  .mainGrid {
+    row-gap: auto;
+    align-items: center;
+    
+  }
+}
+
 
 * {
   box-sizing: border-box;
