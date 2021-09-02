@@ -27,14 +27,14 @@
 
 	<div id="app"></div>
 	<script>
-		updateView(1);
+		updateView();
 
 		function updateView(pageId) {
 			if (model.app.currentPage == 'meldinger') {
 				html = updateViewMeldinger();
 			}   //Kasper   
 			if (model.app.currentPage == 'kategorier') {
-				html = updateViewKategorier(pageId);
+				html = updateViewKategorier();
 			} 	//Jostein
 			if (model.app.currentPage == 'main') {
 				html = updateViewMain();
@@ -53,9 +53,9 @@
 			updateView();
 		}
 
-		function gotoKategorier() {
+		function gotoKategorier(id) {
 			model.app.currentPage = "kategorier";
-			updateView(1);
+			pagemanager(id);
 		}
 
 		function gotoLederbrett() {
