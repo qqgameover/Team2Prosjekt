@@ -72,6 +72,7 @@ function updateViewMeldinger() {
 	<button class="sendButton" onclick="sendMessage()">Send melding</button>
 	</div>
 	<div class="navbar">
+		<a href="#Lederbrett" onclick="gotoLederbrett()">Lederbrett</a>
 		<a href="#Hjem" onclick="gotoH()">Hjem</a>
 	</div>`
 	return html;
