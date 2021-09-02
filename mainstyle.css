@@ -1,7 +1,7 @@
 .mainGrid {
   display: grid;
   grid-template-columns: 50% 50%;
-  justify-content: center;
+  place-content: center;
   padding: 40px;
   margin: auto;
   height: 80vh;
@@ -17,26 +17,13 @@ text-align: center;
 background-color: white;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px), (min-height: 1920px) {
   .grid-item, .mainGrid  {
     display: block;
     width: 100%;
     height: 10px;
     font-size: 25px;
     margin: 2px;
-  }
-}
-@media screen and (min-width: 1080px) {
-  .grid-item {
-    display: inline-block;
-    align-items: center;
-    justify-content: center;
-    height: 30vh;
-  }
-  .mainGrid {
-    row-gap: auto;
-    align-items: center;
-    
   }
 }
 
