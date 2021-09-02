@@ -1,6 +1,7 @@
 #app {
     padding: 0px;
     margin: 0px;
+    background-color: #FFE4E1;
 }
 
 body {
@@ -11,7 +12,7 @@ body {
 
 /* Place the navbar at the bottom of the page, and make it stick */
 .navbar {
-    background-color: #333;
+    background-color: rgb(220, 20, 60);
     overflow: hidden;
     position: fixed;
     bottom: 0;
