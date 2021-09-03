@@ -12,28 +12,30 @@ function updateViewLeaderboard() {
 	rankingIndivid = [];
 	let html = "";
 	html = `
-	<div class="leaderboard-grid">        
-		<table class="leaderboardTable">
-			<tr class="trTable">
-				<th class="thTable">Skole</th>
-				<th class="thTable">Poeng</th>
-			</tr>
-		</table>
 
-		<table class="leaderboardTable">
-			<tr class="trTable">
-				<th class="thTable">Klasse</th>
-				<th class="thTable">Poeng</th>
-			</tr>	
-		</table>
+		<div class="leaderboard-grid">        
+			<table class="leaderboardTable">
+				<tr>
+					<th class="thTableA">Skole</th>
+					<th class="thTableB">Poeng</th>
+				</tr>
+			</table>
 
-		<table class="leaderboardTable">
-			<tr class="trTable">
-				<th class="thTable">Elev i din klasse</th>
-				<th class="thTable">Poeng</th>
-			</tr>
-		</table>
-	</div>	
+			<table class="leaderboardTable">
+				<tr>
+					<th class="thTableA">Klasse</th>
+					<th class="thTableB">Poeng</th>
+				</tr>	
+			</table>
+
+			<table class="leaderboardTable">
+				<tr>
+					<th class="thTableA">Elev i din klasse</th>
+					<th class="thTableB">Poeng</th>
+				</tr>
+			</table>
+		</div>
+		
 
 	<div class="navbar">
 		<a href="#Lederbrett" onclick="gotoLederbrett()">Lederbrett</a>
@@ -41,6 +43,7 @@ function updateViewLeaderboard() {
 	</div>
     
 		`;
+
 	// brukes til å sortere de leaderboardsa. Kan systemet burde være robust nok til å fungere for x antall
 	// klasse, skoler og elever, men vi tar ikke hennsyn til antall elever per klasse. Dette kan legges til
 
@@ -109,23 +112,23 @@ function skoleRanking() {
 	klasseRankingRows = "";
 	for (let i = 0; i < rankingSkole.length; i++) {
 		skoleRankingRows +=
-			`<tr class="trTable">
-				<td class="tdLeaderboard">${rankingSkole[i].skole}</td>
-				<td class="tdLeaderboard">${rankingSkole[i].points}</td>
+			`<tr>
+				<td class="skole">${rankingSkole[i].skole}</td>
+				<td class="skolepoeng">${rankingSkole[i].points}</td>
 			</tr>`;
 	}
 	for (let i = 0; i < rankingKlasse.length; i++) {
 		klasseRankingRows +=
-			`<tr class="trTable">
-				<td class="tdLeaderboard">${rankingKlasse[i].klasse}</td>
-				<td class="tdLeaderboard">${rankingKlasse[i].points}</td>
+			`<tr>
+				<td class="klasse">${rankingKlasse[i].klasse}</td>
+				<td class="klassepoeng">${rankingKlasse[i].points}</td>
 			</tr>`;
 	}
 	for (let i = 0; i < rankingIndivid.length; i++) {
 		elevRankingRows +=
-			`<tr class="trTable">
-				<td class="tdLeaderboard">${rankingIndivid[i].navn}</td>
-				<td class="tdLeaderboard">${rankingIndivid[i].points}</td>
+			`<tr>
+				<td class="elev">${rankingIndivid[i].navn}</td>
+				<td class="elevpoeng">${rankingIndivid[i].points}</td>
 			</tr>`;
 	}
 	return createTableRow(skoleRankingRows, klasseRankingRows, elevRankingRows);
