@@ -1,7 +1,7 @@
 const model = {
 	app: {
 		currentPage: 'main',
-		currentUser: null,
+		currentUser: "Bob",
 		currentUserKlasse: 4,
 		currentTaskId: 2,
 
@@ -26,6 +26,9 @@ const model = {
 			{ id: 12, name: 'Lagaand2', parent: 4, videoUrl: '' },
 			{ id: 13, name: 'Lagaand3', parent: 4, videoUrl: '' },
 			{ id: 14, name: '5 sit-ups', parent: 5, videoUrl: '', points: 1 },
+			{ id: 50, name: '3 sit-ups', parent: 5, videoUrl: '', points: 1 },
+			{ id: 51, name: '4 sit-ups', parent: 5, videoUrl: '', points: 1 },
+			{ id: 52, name: '7 sit-ups', parent: 5, videoUrl: '', points: 1 },
 			{ id: 15, name: '10 sit-ups', parent: 5, videoUrl: '', points: 2 },
 			{ id: 16, name: '20 sit-ups', parent: 5, videoUrl: '', points: 5 },
 			{ id: 17, name: '5 push-ups', parent: 6, videoUrl: '', points: 1 },
@@ -52,7 +55,6 @@ const model = {
 			{ id: 38, name: 'Lagaand3a', parent: 13, videoUrl: '', points: 1 },
 			{ id: 39, name: 'Lagaand3b', parent: 13, videoUrl: '', points: 2 },
 			{ id: 40, name: 'Lagaand3c', parent: 13, videoUrl: '', points: 5 },
-
 		],
 		statistikk: {
 			antallMeldinger: 1,
@@ -62,14 +64,27 @@ const model = {
 				innhold: "",
 			}],
 			instanser: [
-				{ id: 1, skole: "Mellomhagen Ungdomsskole", parent: null, klasse: null, points: 309 },
-				{ id: 2, skole: "Olgas eldrehjem", parent: null, klasse: null, points: 13 },
-				{ id: 3, skole: "Egget Skole", parent: null, klasse: null, points: 3119 },
-				{ id: 4, klasse: "8b", parent: 1, points: 301, besteElev: "Tobias Nilsen" },
-				{ id: 5, klasse: "5a", parent: 1, points: 11, besteElev: "Terje Nilsen" },
-				{ id: 6, parent: 4, points: 301, navn: "Bob", userName: 'bobMarley@gmail.com' },
-				{ id: 7, parent: 5, points: 301, navn: "Julia", userName: 'juliaElise@gmail.com' },
+				{ id: 1, skole: "UngdomsskoleA", parent: null, klasse: null, points: 3009, navn: null },
+				{ id: 2, skole: "UngdomsskoleB", parent: null, klasse: null, points: 2003, navn: null },
+				{ id: 3, skole: "UngdomsskoleC", parent: null, klasse: null, points: 3119, navn: null },
+				{ id: 18, klasse: "8A", parent: 1, points: 301, besteElev: "Tobias", navn: null },
+				{ id: 4, klasse: "8B", parent: 1, points: 320, besteElev: "Jeanette", navn: null },
+				{ id: 5, klasse: "5A", parent: 1, points: 299, besteElev: "Sharlotte", navn: null },
+				{ id: 19, klasse: "5B", parent: 1, points: 285, besteElev: "Kaja", navn: null },
+				{ id: 6, parent: 4, points: 55, navn: "Bob", userName: 'bobMarley@gmail.com' },
+				{ id: 7, parent: 4, points: 60, navn: "Julia", userName: 'juliaElise@gmail.com' },
+				{ id: 8, parent: 5, points: 67, navn: "Mari", userName: 'Mari@gmail.com' },
+				{ id: 9, parent: 5, points: 44, navn: "Hanne", userName: 'Hanne@gmail.com' },
+				{ id: 10, parent: 5, points: 36, navn: "Jens", userName: 'Jens@gmail.com' },
+				{ id: 11, parent: 5, points: 51, navn: "Petter", userName: 'Petter@gmail.com' },
+				{ id: 12, parent: 5, points: 82, navn: "Jonas", userName: 'Jonas@gmail.com' },
+				{ id: 13, parent: 5, points: 56, navn: "Kari", userName: 'Kari@gmail.com' },
+				{ id: 14, parent: 4, points: 63, navn: "Mette", userName: 'Mette@gmail.com' },
+				{ id: 15, parent: 4, points: 99, navn: "Henriette", userName: 'Henriette@gmail.com' },
+				{ id: 16, parent: 4, points: 24, navn: "Lise", userName: 'Lise@gmail.com' },
+				{ id: 17, parent: 4, points: 48, navn: "Susanne", userName: 'Susannee@gmail.com' },
 			],
+
 			achievements: [
 				{ user: 'terje@kolderup.net', date: '2021-08-10', time: '10:23', task: 3 },
 			],
