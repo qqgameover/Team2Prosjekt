@@ -2,7 +2,7 @@
 
 let leddValg = [[], [], [], []];
 let mottaker = "";
-
+let mottakerUserName = "";
 function updateViewMeldinger() {
 	let html = "";
 	let leddArray = [[], [], [], []];
@@ -26,7 +26,7 @@ function updateViewMeldinger() {
 	html = `
 	<div id="top" class="containerMessages">
 		<lable for="messageSearch">Send melding til noen!</lable>
-		<input oninput="searchName(this.value) ; mottaker = this.value" type="text" id="messageSearch" value = "${mottaker}"/>
+		<input oninput="mottakerUserName = searchName(this.value) ; mottaker = this.value" type="text" id="messageSearch" value = "${mottaker}"/>
 	</div>
 	<div class="containerMessages"> `
 
@@ -48,7 +48,7 @@ function updateViewMeldinger() {
 	<div class="containerForFluff">
 	<p id="valgt melding">${leddValg[0]} ${leddValg[1]} ${leddValg[2]} ${leddValg[3]}</p>
 	<button class="sendButton" 
-		onclick="sendMessage(leddValg[0], leddValg[1], leddValg[2], leddValg[3], mottaker, model.app.currentUser)">
+		onclick="sendMessage(leddValg[0], leddValg[1], leddValg[2], leddValg[3], mottakerUserName, model.app.currentUser)">
 		Send melding
 	</button>
 	</div>
