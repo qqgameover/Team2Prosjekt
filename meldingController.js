@@ -1,3 +1,5 @@
+//Kasper B)
+
 function searchName(searchVal) {
 	const search = model.data.statistikk.instanser.map(function (α) {
 		return { navn: α.navn, userName: α.userName };
