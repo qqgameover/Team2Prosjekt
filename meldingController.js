@@ -12,7 +12,6 @@ function searchName(searchVal) {
 		}
 	})
 	if (!findPerson) {
-		console.log("WOW")
 		return;
 	}
 	return findPerson.userName
@@ -22,12 +21,10 @@ function sendMessage(ledd0, ledd1, ledd2, ledd3, motakker, avsender) {
 	model.data.statistikk.antallMeldinger++;
 	model.data.statistikk.sendteMeldinger.push(
 		{
+			meldingId: model.data.statistikk.antallMeldinger,
 			avsender: avsender,
 			mottaker: motakker,
-			ledd0: ledd0,
-			ledd1: ledd1,
-			ledd2: ledd2,
-			ledd3: ledd3,
+			melding: `${ledd0} ${ledd1} ${ledd2} ${ledd3}`
 		});
 	model.data.statistikk.achievements.push(
 		{
