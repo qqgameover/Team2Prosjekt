@@ -11,6 +11,7 @@ function updateViewKategorier() {
 								encrypted-media; gyroscope; picture-in-picture" 
 								allowfullscreen>
 							</iframe>
+							
 						<div id="kategoriknapper">
 					
 	`;
@@ -33,7 +34,7 @@ function updateViewKategorier() {
 	taskManager(pageid);
 	html +=
 		`</div>
-		</div>
+		 </div>
 			</div>
 	<div class="navbar">
 		<a href="#Lederbrett" onclick="gotoLederbrett()">Lederbrett</a>
