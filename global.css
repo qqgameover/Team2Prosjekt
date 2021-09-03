@@ -1,12 +1,13 @@
 #app {
     padding: 0px;
     margin: 0px;
-    background-color: #FFE4E1;
+    background-color: rgb(247, 231, 231);
 }
 
 body {
     margin: 0px;
     padding: 0px;
+    background-color: rgb(247, 231, 231);
 }
 
 
