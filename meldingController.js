@@ -55,7 +55,7 @@ function sendMessage(ledd0, ledd1, ledd2, ledd3, motakker, avsender) {
 	model.data.statistikk.achievements.push(
 		{
 			user: avsender,
-			data: new Date(),
+			date: new Date(),
 			task: 0,
 			pointsEarned: 1,
 		});
