@@ -26,7 +26,7 @@ function updateViewMeldinger() {
 	html = `
 	<div id="top" class="containerMessages">
 		<lable for="messageSearch">Send melding til noen!</lable>
-		<input oninput="mottakerUserName = searchName(this.value) ; mottaker = this.value" type="text" id="messageSearch" value = "${mottaker}"/>
+		<input oninput="mottakerUserName = findUserName(this.value) ; mottaker = this.value" type="text" id="messageSearch" value = "${mottaker}"/>
 	</div>
 	<div class="containerMessages"> `
 
