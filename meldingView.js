@@ -26,7 +26,7 @@ function updateViewMeldinger() {
 	html = `
 	<div id="top" class="containerMessages">
 		<lable for="messageSearch">Send melding til noen!</lable>
-		<input oninput="mottakerUserName = findUserName(this.value) ; mottaker = this.value" type="text" id="messageSearch" value = "${mottaker}"/>
+		<input oninput="searchName(this.value) ; mottakerUserName = findUserName(this.value) ; mottaker = this.value" type="text" id="messageSearch" value = "${mottaker}"/>
 	</div>
 	<div class="containerMessages"> `
 
@@ -34,9 +34,13 @@ function updateViewMeldinger() {
 		html += `<select id="select${j}" onchange="leddValg[${j}] = this.value; updateView()" id="leddValg[${j}]" multiple>`
 		for (let i = 0; i < leddArray[j].length; i++) {
 			if (leddValg[j] == leddArray[j][i].text) {
-				html += `<option selected value="${leddArray[j][i].text}">${leddArray[j][i].text}</option>`
+				html += `<option selected value="${leddArray[j][i].text}">
+					${leddArray[j][i].text}
+				</option>`
 			} else {
-				html += `<option value="${leddArray[j][i].text}">${leddArray[j][i].text}</option>`
+				html += `<option value="${leddArray[j][i].text}">
+					${leddArray[j][i].text}
+				</option>`
 			}
 		}
 		html += `</select>`
