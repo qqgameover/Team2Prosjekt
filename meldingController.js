@@ -3,9 +3,13 @@
 function searchName(searchVal) {
 	const splitNameArray = [];
 	const suggestedNamesArray = [];
+	const returnToArray = [];
 	const search = model.data.statistikk.instanser.map(function (α) {
 		return { navn: α.navn, userName: α.userName };
 	});
+	const returnToArrayFunc = suggestedNamesArray.forEach((name, index) => {
+		returnToArray.push(name.join(""))
+	})
 	function splitNameArrayFunc() {
 		search.forEach((person) => {
 			if (!person.navn) return;
@@ -16,6 +20,7 @@ function searchName(searchVal) {
 
 	//Vet ikke hvorfor, men dette funker jo fett.
 	//Ikke rør det plz, det er turbo cursed, mvh Kasper
+
 	const currentSearchValue = searchVal.split("");
 	const findPerson = splitNameArray.forEach((name, index) => {
 		name.forEach((char, index) => {
@@ -29,10 +34,7 @@ function searchName(searchVal) {
 			}
 		})
 	})
-	const returnToArray = [];
-	const returnToArrayFunc = suggestedNamesArray.forEach((name, index) => {
-		returnToArray.push(name.join(""))
-	})
+
 	console.log(suggestedNamesArray)
 	if (returnToArray.length > 0) {
 		console.log("fant en person")
@@ -68,11 +70,20 @@ function sendMessage(ledd0, ledd1, ledd2, ledd3, motakker, avsender) {
 }
 
 function findUserName(searchVal) {
-	const search = model.data.statistikk.instanser.map(function (α) {
+	const search = model.data.statistikk.instanser.map((α) => {
 		return { navn: α.navn, userName: α.userName };
 	});
-	const findPerson = search.find((person) => {
-		if (person.navn = searchVal) {
+	const searchValUppercased = searchVal.toUpperCase()
+	const personNameUppercased = search.map((p) => {
+		if (!p.navn) {
+			return;
+		} else {
+			return { navn: p.navn.toUpperCase(), userName: p.userName }
+		}
+	})
+	const filteredNames = personNameUppercased.filter((p) => p);
+	const findPerson = filteredNames.find((person) => {
+		if (person.navn == searchValUppercased) {
 			return person.userName
 		} else {
 			return false;
