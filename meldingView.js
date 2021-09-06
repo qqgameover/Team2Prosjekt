@@ -23,10 +23,13 @@ function updateViewMeldinger() {
 		}
 	}
 	ledd();
+	let suggestions = suggestionPrinter(mottaker);
 	html = `
 	<div id="top" class="containerMessages">
 		<lable for="messageSearch">Send melding til noen!</lable>
-		<input oninput="searchName(this.value) ; mottakerUserName = findUserName(this.value) ; mottaker = this.value" type="text" id="messageSearch" value = "${mottaker}"/>
+		<input id="focusInput" onclick="focusMethod(this.id)" oninput="searchName(this.value) ; mottakerUserName = findUserName(this.value) ; 
+		mottaker = this.value ; updateView() ; focusMethod(this.id)" ; value = "${mottaker}" autofocus="true"/>
+		${suggestions}
 	</div>
 	<div class="containerMessages"> `
 
@@ -52,7 +55,8 @@ function updateViewMeldinger() {
 	<div class="containerForFluff">
 	<p id="valgt melding">${leddValg[0]} ${leddValg[1]} ${leddValg[2]} ${leddValg[3]}</p>
 	<button class="sendButton" 
-		onclick="sendMessage(leddValg[0], leddValg[1], leddValg[2], leddValg[3], mottakerUserName, model.app.currentUser)">
+		onclick="sendMessage(leddValg[0], leddValg[1], leddValg[2], leddValg[3], mottakerUserName, model.app.currentUser) ;
+		 mottaker = '' ; updateView()">
 		Send melding
 	</button>
 	</div>
