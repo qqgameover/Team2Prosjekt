@@ -1,3 +1,7 @@
+
+let db = firebase.firestore();
+let meldingerCollection = db.collection("messages")
+
 const model = {
 	app: {
 		currentPage: 'main',
@@ -57,12 +61,15 @@ const model = {
 			{ id: 40, name: 'Lagaand3c', parent: 13, videoUrl: '', points: 5 },
 		],
 		statistikk: {
-			antallMeldinger: 1,
-			sendteMeldinger: [{
-				avsender: "Kasper",
-				mottaker: "Olga",
-				innhold: "",
-			}],
+			antallMeldinger: 0,
+			getMessages: meldingerCollection.onSnapshot(function (collectionSnapshot) {
+				model.data.statistikk.meldinger = [];
+				const snapshotData = collectionSnapshot.forEach((meldingSnapShot) => {
+					model.data.statistikk.meldinger.push(meldingSnapShot.data())
+				});
+				model.data.statistikk.antallMeldinger = model.data.statistikk.meldinger.length
+			}),
+			meldinger: [],
 			instanser: [
 				{ id: 1, skole: "UngdomsskoleA", parent: null, klasse: null, points: 3009, navn: null },
 				{ id: 2, skole: "UngdomsskoleB", parent: null, klasse: null, points: 2003, navn: null },
