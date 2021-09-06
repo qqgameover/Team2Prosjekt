@@ -20,7 +20,9 @@
 	<script src="leaderboardView.js"></script>
 	<script src="kategorierViews.js"></script>
 	<script src="loginview.js"></script>
+
 	<script src="meldingController.js"></script>
+	<script src="poengController.js"></script>
 
 </head>
 
@@ -29,11 +31,14 @@
 	<div id="app"></div>
 	<script>
 
-		//Fikse oppsett på leaderboardet, og gjøre det slik formene er like.
-		//Gjøre slik at de divene til oppgavene er sentrerte
 		//Fikse opp designet generelt på siden og bestemme oss for font og farger vi skal bruke.
-		//Begynne på controller funksjoner, slik som addPoints() og sendMessage(). 
-
+		//Begynne på controller funksjoner, slik som addPoints() og sendMessage(). GJORT
+		//Kasper har lyst til å begynne på firebase, og google authentication, men føler han(jeg) trenger godkjenning fra lærere! 
+		//Gjøre det pent so Mailinn blir lykkelig. 
+		pointsCounterMessages();
+		pointsCounterMental();
+		pointsCounterFysisk();
+		pointsCounterLag();
 		updateView();
 
 		function updateView(pageId) {
