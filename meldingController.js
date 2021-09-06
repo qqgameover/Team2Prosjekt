@@ -1,5 +1,10 @@
 //Kasper B)
+let db = firebase.firestore();
+let meldingerCollection = db.collection("messages")
 
+meldingerCollection.onSnapshot(function (meldingerCollection) {
+	console.log(meldingerCollection)
+})
 
 function searchName(input) {
 	const searchUnfilted = model.data.statistikk.instanser.map(function (α) {
@@ -49,7 +54,7 @@ function sendMessage(_ledd0, _ledd1, _ledd2, _ledd3, _motakker, _avsender) {
 			subtaskId: 0,
 			points: 1,
 		});
-
+	pointsCounterMessages();
 }
 
 function findUserName(searchVal) {
@@ -85,3 +90,5 @@ function focusMethod(e) {
 	element.value = '';
 	element.value = val;
 }
+
+
