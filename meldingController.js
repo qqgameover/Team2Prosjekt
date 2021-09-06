@@ -1,53 +1,35 @@
 //Kasper B)
 
-function searchName(searchVal) {
-	const splitNameArray = [];
-	const suggestedNamesArray = [];
-	const returnToArray = [];
-	const search = model.data.statistikk.instanser.map(function (α) {
-		return { navn: α.navn, userName: α.userName };
+
+function searchName(input) {
+	const searchUnfilted = model.data.statistikk.instanser.map(function (α) {
+		return α.navn;
 	});
-	const returnToArrayFunc = suggestedNamesArray.forEach((name, index) => {
-		returnToArray.push(name.join(""))
-	})
-	function splitNameArrayFunc() {
-		search.forEach((person) => {
-			if (!person.navn) return;
-			splitNameArray.push(person.navn.split(""));
-		})
+	const searchFiltered = searchUnfilted.filter((p) => p)
+	if (input == '') {
+		return [];
 	}
-	splitNameArrayFunc();
-
-	//Vet ikke hvorfor, men dette funker jo fett.
-	//Ikke rør det plz, det er turbo cursed, mvh Kasper
-
-	const currentSearchValue = searchVal.split("");
-	const findPerson = splitNameArray.forEach((name, index) => {
-		name.forEach((char, index) => {
-			if (currentSearchValue[index] == char) {
-				if (!suggestedNamesArray.includes(name)) {
-					suggestedNamesArray.push(name);
-				}
-			} if (suggestedNamesArray.length == 0) {
-				console.log("Den er tom")
-				return false;
-			}
-		})
-	})
-
-	console.log(suggestedNamesArray)
-	if (returnToArray.length > 0) {
-		console.log("fant en person")
-		return returnToArray;
-	} else {
-		console.log("false")
-		return;
+	const reg = new RegExp(input, "i")
+	return searchFiltered.filter((term) => {
+		if (term.match(reg)) {
+			return term;
+		} else {
+			return;
+		}
+	});
+}
+function suggestionPrinter(input) {
+	let list = '';
+	let terms = searchName(input);
+	for (i = 0; i < terms.length; i++) {
+		list += `<li onclick="mottaker = '${terms[i]}' ; mottakerUserName = findUserName('${terms[i]}') ; updateView()">` + terms[i] + '</li>';
 	}
+	return '<ul>' + list + '</ul>';
 }
 
 
-function sendMessage(ledd0, ledd1, ledd2, ledd3, motakker, avsender) {
-	if (!motakker) {
+function sendMessage(_ledd0, _ledd1, _ledd2, _ledd3, _motakker, _avsender) {
+	if (!_motakker) {
 		alert("Ingen mottaker funnet");
 		return;
 	}
@@ -55,16 +37,17 @@ function sendMessage(ledd0, ledd1, ledd2, ledd3, motakker, avsender) {
 	model.data.statistikk.sendteMeldinger.push(
 		{
 			meldingId: model.data.statistikk.antallMeldinger,
-			avsender: avsender,
-			mottaker: motakker,
-			melding: `${ledd0} ${ledd1} ${ledd2} ${ledd3}`
+			avsender: _avsender,
+			mottaker: _motakker,
+			melding: `${_ledd0} ${_ledd1} ${_ledd2} ${_ledd3}`
 		});
 	model.data.statistikk.achievements.push(
 		{
-			user: avsender,
+			user: _avsender,
 			date: new Date(),
-			task: 0,
-			pointsEarned: 1,
+			taskId: 0,
+			subtaskId: 0,
+			points: 1,
 		});
 
 }
@@ -95,3 +78,10 @@ function findUserName(searchVal) {
 	else return findPerson.userName;
 }
 
+function focusMethod(e) {
+	let element = document.getElementById(e)
+	element.focus();
+	var val = element.value;
+	element.value = '';
+	element.value = val;
+}
