@@ -6,6 +6,17 @@
 	font-size: 20px;
 	width: 100%;
 }
+
+#focusInput{
+	max-width: 300px;
+	display: inline-block;
+}
+
+input{
+	max-width: 300px;
+	display: inline-block;
+}
+
 .containerForFluff {
 	padding: 10px, 5px;
 	display: flex;
@@ -16,6 +27,7 @@
 	align-items: center;
 	justify-content: center;
 }
+
 #select0, #select1, #select2, #select3{
 	-webkit-appearance: button;
 	-moz-appearance: button;
