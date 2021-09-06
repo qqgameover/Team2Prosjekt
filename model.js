@@ -86,7 +86,7 @@ const model = {
 			],
 
 			achievements: [
-				{ user: 'terje@kolderup.net', date: '2021-08-10', time: '10:23', task: 3 },
+				{ user: 'terje@kolderup.net', date: '2021-08-10', time: '10:23', taskId: 3, subtaskId: 3, points: 5, },
 			],
 		},
 		muligeMeldinger: [
