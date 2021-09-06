@@ -7,16 +7,6 @@
 	width: 100%;
 }
 
-#focusInput{
-	max-width: 300px;
-	display: inline-block;
-}
-
-input{
-	max-width: 300px;
-	display: inline-block;
-}
-
 .containerForFluff {
 	padding: 10px, 5px;
 	display: flex;
