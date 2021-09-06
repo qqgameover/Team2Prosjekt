@@ -1,10 +1,4 @@
 //Kasper B)
-let db = firebase.firestore();
-let meldingerCollection = db.collection("messages")
-
-meldingerCollection.onSnapshot(function (meldingerCollection) {
-	console.log(meldingerCollection)
-})
 
 function searchName(input) {
 	const searchUnfilted = model.data.statistikk.instanser.map(function (α) {
@@ -39,13 +33,14 @@ function sendMessage(_ledd0, _ledd1, _ledd2, _ledd3, _motakker, _avsender) {
 		return;
 	}
 	model.data.statistikk.antallMeldinger++;
-	model.data.statistikk.sendteMeldinger.push(
-		{
-			meldingId: model.data.statistikk.antallMeldinger,
-			avsender: _avsender,
-			mottaker: _motakker,
-			melding: `${_ledd0} ${_ledd1} ${_ledd2} ${_ledd3}`
-		});
+	let melding =
+	{
+		meldingId: model.data.statistikk.antallMeldinger,
+		avsender: _avsender,
+		mottaker: _motakker,
+		melding: `${_ledd0} ${_ledd1} ${_ledd2} ${_ledd3}`
+	}
+	meldingerCollection.add(melding);
 	model.data.statistikk.achievements.push(
 		{
 			user: _avsender,
