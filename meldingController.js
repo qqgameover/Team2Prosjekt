@@ -40,15 +40,16 @@ function sendMessage(_ledd0, _ledd1, _ledd2, _ledd3, _motakker, _avsender) {
 		mottaker: _motakker,
 		melding: `${_ledd0} ${_ledd1} ${_ledd2} ${_ledd3}`
 	}
-	meldingerCollection.add(melding);
-	model.data.statistikk.achievements.push(
-		{
-			user: _avsender,
-			date: new Date(),
-			taskId: 0,
-			subtaskId: 0,
-			points: 1,
-		});
+	model.data.statistikk.meldinger.push(melding);
+	let meldingAch =
+	{
+		user: _avsender,
+		date: new Date(),
+		taskId: 0,
+		subtaskId: 0,
+		points: 1,
+	}
+	model.data.statistikk.achievements.push(meldingAch)
 	pointsCounterMessages();
 }
 

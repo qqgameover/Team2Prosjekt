@@ -1,14 +1,12 @@
-
-let db = firebase.firestore();
-let meldingerCollection = db.collection("messages")
-
 const model = {
 	app: {
 		currentPage: 'main',
 		currentUser: "Bob",
 		currentUserKlasse: 4,
 		currentTaskId: 2,
-
+		currentVideo: '',
+		pageId: 1,
+		pageList: [],
 	},
 	inputFields: {
 		userName: null,
@@ -17,22 +15,22 @@ const model = {
 	data: {
 		taskNodes: [
 			{ id: 1, name: 'mainView', parent: null },
-			{ id: 2, name: 'Fysisk', parent: 1, videoUrl: '' },
-			{ id: 3, name: 'Mental-styrke', parent: 1, videoUrl: '' },
-			{ id: 4, name: 'Lagaand', parent: 1, videoUrl: '' },
-			{ id: 5, name: 'Sit-ups', parent: 2, videoUrl: '' },
-			{ id: 6, name: 'Push-ups', parent: 2, videoUrl: '' },
-			{ id: 7, name: 'Burpees', parent: 2, videoUrl: '' },
-			{ id: 8, name: 'Mental-Styrke1', parent: 3, videoUrl: '' },
-			{ id: 9, name: 'Mental-Styrke2', parent: 3, videoUrl: '' },
-			{ id: 10, name: 'Mental-Styrke3', parent: 3, videoUrl: '' },
-			{ id: 11, name: 'Lagaand1', parent: 4, videoUrl: '' },
-			{ id: 12, name: 'Lagaand2', parent: 4, videoUrl: '' },
-			{ id: 13, name: 'Lagaand3', parent: 4, videoUrl: '' },
-			{ id: 14, name: '5 sit-ups', parent: 5, videoUrl: '', points: 1 },
-			{ id: 50, name: '3 sit-ups', parent: 5, videoUrl: '', points: 1 },
-			{ id: 51, name: '4 sit-ups', parent: 5, videoUrl: '', points: 1 },
-			{ id: 52, name: '7 sit-ups', parent: 5, videoUrl: '', points: 1 },
+			{ id: 2, name: 'Fysisk', parent: 1, videoUrl: 'https://www.youtube.com/embed/eLX1yEfWStY', },
+			{ id: 3, name: 'Mental-styrke', parent: 1, videoUrl: 'https://www.youtube.com/embed/JB-G_o9WB9E', },
+			{ id: 4, name: 'Lagaand', parent: 1, videoUrl: '', },
+			{ id: 5, name: 'Sit-ups', parent: 2, videoUrl: '', },
+			{ id: 6, name: 'Push-ups', parent: 2, videoUrl: '', },
+			{ id: 7, name: 'Burpees', parent: 2, videoUrl: '', },
+			{ id: 8, name: 'Mental-Styrke1', parent: 3, videoUrl: '', },
+			{ id: 9, name: 'Mental-Styrke2', parent: 3, videoUrl: '', },
+			{ id: 10, name: 'Mental-Styrke3', parent: 3, videoUrl: '', },
+			{ id: 11, name: 'Lagaand1', parent: 4, videoUrl: '', },
+			{ id: 12, name: 'Lagaand2', parent: 4, videoUrl: '', },
+			{ id: 13, name: 'Lagaand3', parent: 4, videoUrl: '', },
+			{ id: 14, name: '5 sit-ups', parent: 5, videoUrl: '', points: 1, },
+			// { id: 50, name: '3 sit-ups', parent: 5, videoUrl: '', points: 1 },
+			// { id: 51, name: '4 sit-ups', parent: 5, videoUrl: '', points: 1 },
+			// { id: 52, name: '7 sit-ups', parent: 5, videoUrl: '', points: 1 },
 			{ id: 15, name: '10 sit-ups', parent: 5, videoUrl: '', points: 2 },
 			{ id: 16, name: '20 sit-ups', parent: 5, videoUrl: '', points: 5 },
 			{ id: 17, name: '5 push-ups', parent: 6, videoUrl: '', points: 1 },
@@ -62,13 +60,6 @@ const model = {
 		],
 		statistikk: {
 			antallMeldinger: 0,
-			getMessages: meldingerCollection.onSnapshot(function (collectionSnapshot) {
-				model.data.statistikk.meldinger = [];
-				const snapshotData = collectionSnapshot.forEach((meldingSnapShot) => {
-					model.data.statistikk.meldinger.push(meldingSnapShot.data())
-				});
-				model.data.statistikk.antallMeldinger = model.data.statistikk.meldinger.length
-			}),
 			meldinger: [],
 			instanser: [
 				{ id: 1, skole: "UngdomsskoleA", parent: null, klasse: null, points: 3009, navn: null },
@@ -90,11 +81,9 @@ const model = {
 				{ id: 15, parent: 4, points: 99, navn: "Henriette", userName: 'Henriette@gmail.com' },
 				{ id: 16, parent: 4, points: 24, navn: "Lise", userName: 'Lise@gmail.com' },
 				{ id: 17, parent: 4, points: 48, navn: "Susanne", userName: 'Susannee@gmail.com' },
+				{ id: 20, parent: 4, points: 55, navn: "Terje", userName: 'terje@kolderup.net' },
 			],
-
-			achievements: [
-				{ user: 'terje@kolderup.net', date: '2021-08-10', time: '10:23', taskId: 3, subtaskId: 3, points: 5, },
-			],
+			achievements: [],
 		},
 		muligeMeldinger: [
 			{ text: "du er tatt på fersken i å", ledd: 0 },

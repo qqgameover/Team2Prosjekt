@@ -1,112 +1,144 @@
 //Kasper var her!!!!
+//Mailinn var her lengst :D 
+//Jostein var her egentlig ganske mye
 
-let poengForMessages = 0;
-let poengForMental = 0;
-let poengForFysisk = 0;
-let poengForLag = 0;
 
-let colorMessages = 'white';
-let colorMental = 'white';
-let colorFysisk = 'white';
-let colorLag = 'white';
+
+let gradientMessage = 'blue, orange';
+let gradientMental = 'blue, orange';
+let gradientFysisk = 'blue, orange';
+let gradientLag = 'blue, orange';
 
 function pointsCounterMessages() {
-
+	let poengForMessages = 0;
 	for (let i = 0; i < model.data.statistikk.achievements.length; i++) {
 		if (model.data.statistikk.achievements[i].taskId == 0) {
 			poengForMessages += model.data.statistikk.achievements[i].points
 			console.log(poengForMessages)
 		}
 		if (poengForMessages === 0) {
-			colorMessages = 'darkorange';
+			gradientMessage = 'darkorange, yellow';
 		}
 		else if (poengForMessages <= 3) {
-			colorMessages = 'orange';
+			gradientMessage = 'lightgreen, yellow';
 		}
 		else if (poengForMessages <= 10) {
-			colorMessages = 'lightgreen';
+			gradientMessage = 'green, yellow';
 		}
 		else if (poengForMessages <= 15) {
-			colorMessages = 'green';
+			gradientMessage = 'darkgreen, lightgreen';
 		}
 		else if (poengForMessages <= 20) {
-			colorMessages = 'darkgreen';
+			gradientMessage = 'darkgreen, green';
 		}
-
 	}
 }
 
 function pointsCounterMental() {
-
+	let poengForMental = 0;
 	for (let i = 0; i < model.data.statistikk.achievements.length; i++) {
 		if (model.data.statistikk.achievements[i].taskId == 3) {
 			poengForMental += model.data.statistikk.achievements[i].points
 			console.log(poengForMental)
 		}
 		if (poengForMental === 0) {
-			colorMental = 'darkorange';
+			gradientMental = 'darkorange, yellow';
 		}
 		else if (poengForMental <= 3) {
-			colorMental = 'orange';
+			gradientMental = 'lightgreen, yellow';
 		}
 		else if (poengForMental <= 10) {
-			colorMental = 'lightgreen';
+			gradientMental = 'green, yellow';
 		}
 		else if (poengForMental <= 15) {
-			colorMental = 'green';
+			gradientMental = 'darkgreen, lightgreen';
 		}
 		else if (poengForMental <= 20) {
-			colorMental = 'darkgreen';
+			gradientMental = 'darkgreen, green';
 		}
 	}
 }
 
 function pointsCounterFysisk() {
-
+	let poengForFysisk = 0;
 	for (let i = 0; i < model.data.statistikk.achievements.length; i++) {
 		if (model.data.statistikk.achievements[i].taskId == 2) {
 			poengForMental += model.data.statistikk.achievements[i].points
 			console.log(poengForpfysisk)
 		}
 		if (poengForFysisk === 0) {
-			colorFysisk = 'darkorange';
+			gradientFysisk = 'darkorange, yellow';
 		}
 		else if (poengForFysisk <= 3) {
-			colorFysisk = 'orange';
+			gradientFysisk = 'lightgreen, yellow';
 		}
 		else if (poengForFysisk <= 10) {
-			colorFysisk = 'lightgreen';
+			gradientFysisk = 'green, yellow';
 		}
 		else if (poengForFysisk <= 15) {
-			colorFysisk = 'green';
+			gradientFysisk = 'darkgreen, lightgreen';
 		}
 		else if (poengForFysisk <= 20) {
-			colorFysisk = 'darkgreen';
+			gradientFysisk = 'darkgreen, green';
 		}
 	}
 }
 
 function pointsCounterLag() {
-
+	let poengForLag = 0;
 	for (let i = 0; i < model.data.statistikk.achievements.length; i++) {
 		if (model.data.statistikk.achievements[i].taskId == 4) {
 			poengForMental += model.data.statistikk.achievements[i].points
 			console.log(poenglag)
 		}
 		if (poengForLag === 0) {
-			colorLag = 'darkorange';
+			gradientLag = 'darkorange, yellow';
 		}
 		else if (poengForLag <= 3) {
-			colorLag = 'orange';
+			gradientLag = 'lightgreen, yellow';
 		}
 		else if (poengForLag <= 10) {
-			colorLag = 'lightgreen';
+			gradientLag = 'green, yellow';
 		}
 		else if (poengForLag <= 15) {
-			colorLag = 'green';
+			gradientLag = 'darkgreen, lightgreen';
 		}
 		else if (poengForLag <= 20) {
-			colorLag = 'darkgreen';
+			gradientLag = 'darkgreen, green';
 		}
 	}
+}
+
+function sigmaMaleGrindset() {
+	const achievementsMap = model.data.statistikk.achievements.map((θ) => {
+		return { user: θ.user, date: θ.date, time: θ.time, taskId: θ.taskId, points: θ.points, pointsNotAdded: θ.pointsNotAdded, };
+	});
+	const instanserMap = model.data.statistikk.instanser.map((r) => {
+		return r;
+	})
+	const foundUnAddedPoints = achievementsMap.forEach((achievements, index) => {
+		const σMaleGrindset = instanserMap.find((Ω, instIndex) => {
+			if (Ω.userName == achievements.user && achievements.pointsNotAdded == true) {
+				model.data.statistikk.instanser[instIndex] = { id: Ω.id, parent: Ω.parent, points: Ω.points + achievements.points, navn: Ω.navn, userName: Ω.userName }
+				model.data.statistikk.achievements[index] = { user: achievements.user, date: achievements.date, time: achievements.time, taskId: achievements.taskId, points: achievements.points, pointsNotAdded: false }
+			}
+		});
+		return σMaleGrindset;
+	});
+	return foundUnAddedPoints;
+}
+
+
+const addpoints = () => {
+	const search = model.data.statistikk.instanser.map((α) => {
+		return { navn: α.navn, userName: α.userName };
+	});
+	const findPerson = search.find((person) => {
+		if (person.navn == model.app.currentUser) {
+			return person.userName
+		} else {
+			return false;
+		}
+	});
+	return findPerson;
 }

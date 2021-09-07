@@ -4,6 +4,8 @@
     display: grid;
     grid-template-columns: 33% 33% 33%;
     grid-column-gap: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 table, tr, th {
@@ -34,6 +36,10 @@ td {
 }
 
 tr:nth-child(even){background-color: white;}
+
+tr {
+     background-color: whitesmoke;
+ }
 
 tr:hover {background-color: #ddd;}
 

@@ -5,7 +5,7 @@ function updateViewKategorier() {
 						<div class="visual">
 							<iframe 
 								id="video"
-								src="https://www.youtube.com/embed/JB-G_o9WB9E" 
+								src="${model.app.currentVideo}" 
 								title="YouTube video player" frameborder="0" 
 								allow="accelerometer; autoplay; clipboard-write; 
 								encrypted-media; gyroscope; picture-in-picture" 
@@ -19,7 +19,7 @@ function updateViewKategorier() {
 	let tasks = [];
 	const taskManager = () => {
 		for (let i = 0; i < model.data.taskNodes.length; i++) {
-			if (model.data.taskNodes[i].parent == pageid) {
+			if (model.data.taskNodes[i].parent == model.app.pageId) {
 				tasks.push(model.data.taskNodes[i]);
 			}
 		}
@@ -38,7 +38,11 @@ function updateViewKategorier() {
 			</div>
 	<div class="navbar">
 		<a href="#Lederbrett" onclick="gotoLederbrett()">Lederbrett</a>
-		<a href="#Hjem" onclick="gotoH()">Hjem</a>
+
+		<a href="#" class="next round" onclick="goForward()">&#8250;</a>
+		<a href="#Hjem" onclick="gotoH()" class="fa fa-home"></a>
+		<a href="#" class="previous round" onclick="goBack()">&#8249;</a>
+
 	</div>`
 
 
@@ -47,8 +51,8 @@ function updateViewKategorier() {
 }
 function pagemanager(id) {
 	if (id < 14) {
-		pageid = id;
-
+		model.app.pageId = id;
+		model.app.currentVideo = model.data.taskNodes[id - 1].videoUrl;
 	}
 	else {
 		addpoints();
