@@ -1,0 +1,70 @@
+
+
+.leaderboard-grid {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-column-gap: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+table, tr, th {
+    border: 1px solid rgb(220, 20, 60);
+    border-collapse: collapse;
+    padding: 10px;
+}
+
+td {
+
+    border: none;
+    border-collapse: collapse;
+    padding: 10px;
+}
+
+.thTableA, .thTableB {
+    text-align: left;
+    background-color: rgb(220, 20, 60);
+    color: white;
+}
+
+.thTableB {
+    text-align: right;
+}
+
+.skolepoeng, .klassepoeng, .elevpoeng {
+    text-align: right;
+}
+
+tr:nth-child(even){background-color: white;}
+
+tr {
+     background-color: whitesmoke;
+ }
+
+tr:hover {background-color: #ddd;}
+
+@media screen and (max-width: 600px) {
+    .leaderboard-grid {
+        display: grid;
+        grid-template-columns: auto;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    th {
+        display: none;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .leaderboardTable {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    #app {
+        margin-top: 20px;
+    }
+  }
+

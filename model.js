@@ -6,7 +6,8 @@ const model = {
 		currentTaskId: 2,
 		currentVideo: '',
 		pageId: 1,
-		pageList: [],
+		previousPage: [],
+		previousPageId: [],
 	},
 	inputFields: {
 		userName: null,

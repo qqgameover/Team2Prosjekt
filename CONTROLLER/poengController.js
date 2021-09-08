@@ -109,36 +109,37 @@ function pointsCounterLag() {
 	}
 }
 
-function sigmaMaleGrindset() {
-	const achievementsMap = model.data.statistikk.achievements.map((θ) => {
-		return { user: θ.user, date: θ.date, time: θ.time, taskId: θ.taskId, points: θ.points, pointsNotAdded: θ.pointsNotAdded, };
+function addPoints() {
+	const achievementsMap = model.data.statistikk.achievements.map((achievements) => {
+		return { user: achievements.user, date: achievements.date, time: achievements.time, taskId: achievements.taskId, points: achievements.points, pointsNotAdded: achievements.pointsNotAdded, };
 	});
-	const instanserMap = model.data.statistikk.instanser.map((r) => {
-		return r;
+	const instanserMap = model.data.statistikk.instanser.map((x) => {
+		return x;
 	})
 	const foundUnAddedPoints = achievementsMap.forEach((achievements, index) => {
-		const σMaleGrindset = instanserMap.find((Ω, instIndex) => {
-			if (Ω.userName == achievements.user && achievements.pointsNotAdded == true) {
-				model.data.statistikk.instanser[instIndex] = { id: Ω.id, parent: Ω.parent, points: Ω.points + achievements.points, navn: Ω.navn, userName: Ω.userName }
+		const maleGrindset = instanserMap.find((instanser, instIndex) => {
+			if (instanser.navn == achievements.user && achievements.pointsNotAdded == true) {
+				console.log("lets gooooo")
+				model.data.statistikk.instanser[instIndex] = { id: instanser.id, parent: instanser.parent, points: instanser.points + achievements.points, navn: instanser.navn, userName: instanser.userName }
 				model.data.statistikk.achievements[index] = { user: achievements.user, date: achievements.date, time: achievements.time, taskId: achievements.taskId, points: achievements.points, pointsNotAdded: false }
 			}
 		});
-		return σMaleGrindset;
+		return maleGrindset;
 	});
 	return foundUnAddedPoints;
 }
 
 
-const addpoints = () => {
-	const search = model.data.statistikk.instanser.map((α) => {
-		return { navn: α.navn, userName: α.userName };
-	});
-	const findPerson = search.find((person) => {
-		if (person.navn == model.app.currentUser) {
-			return person.userName
-		} else {
-			return false;
-		}
-	});
-	return findPerson;
-}
+// const addpoints = () => {
+// 	const search = model.data.statistikk.instanser.map((α) => {
+// 		return { navn: α.navn, userName: α.userName };
+// 	});
+// 	const findPerson = search.find((person) => {
+// 		if (person.navn == model.app.currentUser) {
+// 			return person.userName
+// 		} else {
+// 			return false;
+// 		}
+// 	});
+// 	return findPerson;
+// }

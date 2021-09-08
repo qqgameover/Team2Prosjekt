@@ -41,16 +41,16 @@ function sendMessage(_ledd0, _ledd1, _ledd2, _ledd3, _motakker, _avsender) {
 		melding: `${_ledd0} ${_ledd1} ${_ledd2} ${_ledd3}`
 	}
 	model.data.statistikk.meldinger.push(melding);
-	let meldingAch =
-	{
+	model.data.statistikk.achievements.push({
 		user: _avsender,
 		date: new Date(),
 		taskId: 0,
 		subtaskId: 0,
 		points: 1,
-	}
-	model.data.statistikk.achievements.push(meldingAch)
-	pointsCounterMessages();
+		pointsNotAdded: true,
+	})
+	console.log("ITS HAPPENING")
+	addPoints();
 }
 
 function findUserName(searchVal) {

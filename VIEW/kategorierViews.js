@@ -53,7 +53,7 @@ function pagemanager(id) {
 	if (id < 14) {
 		model.app.pageId = id;
 		model.app.currentVideo = model.data.taskNodes[id - 1].videoUrl;
-		model.app.previousPageId.push(model.data.taskNodes[id - 1].parent)
+
 	}
 	else {
 		addpoints();

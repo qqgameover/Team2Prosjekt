@@ -38,3 +38,10 @@ function goBack() {
 function goForward() {
 	window.history.forward();
 }
+
+const tilbake = () => {
+	if (model.app.previousPage = "kategorier") { pagemanager(model.app.previousPageId); model.app.previousPage.push(); }
+	if (model.app.previousPage = "main") { updateView() }
+	if (model.app.previousPage = "meldinger") { updateview() }
+	if (model.app.previousPage = "leaderboard") { updateview() }
+}
