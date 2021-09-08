@@ -34,12 +34,17 @@ td {
 .skolepoeng, .klassepoeng, .elevpoeng {
     text-align: right;
 }
+<<<<<<< Updated upstream
 
 tr:nth-child(even){background-color: white;}
 
 tr {
      background-color: whitesmoke;
  }
+=======
+
+tr:nth-child(even){background-color: white;}
+>>>>>>> Stashed changes
 
 tr:hover {background-color: #ddd;}
 
