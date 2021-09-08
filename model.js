@@ -7,7 +7,7 @@ const model = {
 		currentVideo: '',
 		pageId: 1,
 		previousPage: [],
-		previousPageId: [],
+
 	},
 	inputFields: {
 		userName: null,
@@ -87,7 +87,7 @@ const model = {
 			achievements: [],
 		},
 		muligeMeldinger: [
-			{ text: "du er tatt på fersken i å", ledd: 0 },
+			{ text: "Du er tatt på fersken i å", ledd: 0 },
 			{ text: "være støttende", ledd: 1 },
 			{ text: "hjelpe andre", ledd: 1 },
 			{ text: "invitere andre med", ledd: 1 },

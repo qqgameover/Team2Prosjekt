@@ -1,13 +1,13 @@
 //Kasper var her!!!!
-//Mailinn var her lengst :D 
+//Mailinn var her lengst :D
 //Jostein var her egentlig ganske mye
 
 
 
-let gradientMessage = 'blue, orange';
-let gradientMental = 'blue, orange';
-let gradientFysisk = 'blue, orange';
-let gradientLag = 'blue, orange';
+let gradientMessage = 'orange, yellow';
+let gradientMental = 'orange, yellow';
+let gradientFysisk = 'orange, yellow';
+let gradientLag = 'orange, yellow';
 
 function pointsCounterMessages() {
 	let poengForMessages = 0;
@@ -113,8 +113,8 @@ function addPoints() {
 	const achievementsMap = model.data.statistikk.achievements.map((achievements) => {
 		return { user: achievements.user, date: achievements.date, time: achievements.time, taskId: achievements.taskId, points: achievements.points, pointsNotAdded: achievements.pointsNotAdded, };
 	});
-	const instanserMap = model.data.statistikk.instanser.map((x) => {
-		return x;
+	const instanserMap = model.data.statistikk.instanser.map((element) => {
+		return element;
 	})
 	const foundUnAddedPoints = achievementsMap.forEach((achievements, index) => {
 		const maleGrindset = instanserMap.find((instanser, instIndex) => {

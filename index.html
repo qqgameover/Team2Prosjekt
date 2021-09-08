@@ -20,7 +20,7 @@
 	<script src="model.js"></script>
 
 	<script src="VIEW/meldingView.js"></script>
-	<script src="mainView.js"></script>
+	<script src="VIEW/mainView.js"></script>
 	<script src="VIEW/leaderboardView.js"></script>
 	<script src="VIEW/kategorierViews.js"></script>
 
@@ -69,7 +69,15 @@
 		//Globale controllere
 		//Controller for å komme til hjem siden
 
+		function lastPage(id) {
+			if (model.app.currentPage = "main") { model.app.previousPage.push("gotoH()"); }
+			else if (model.app.currentPage = "leaderboard") { model.app.previousPage.push("gotoLederbrett()"); }
+			else if (model.app.currentPage = "meldinger") { model.app.previousPage.push("gotoMeldinger()"); }
+			else if (model.app.currentPage = "kategorier") { pagemanager(id); }
+		}
+
 		function gotoH() {
+			model.app.previousPage = [];
 			model.app.currentPage = 'main';
 			updateView();
 		}
@@ -80,15 +88,28 @@
 		}
 
 		function gotoLederbrett() {
+			lastPage(567);
 			model.app.currentPage = "leaderboard";
 			updateView();
 		}
 
 		function gotoMeldinger() {
+			lastPage();
 			model.app.currentPage = "meldinger";
 			updateView();
 		}
 
+		//Ikke ferdig - Let it be
+		//Jostein bruker den store tenkemuskelen
+
+		function goBack() {
+			console.log(model.app.previousPage)
+			if (model.app.previousPage.length != 0) {
+				let destinationPage = model.app.previousPage.pop();
+				eval(destinationPage);
+			}
+			else console.log("utafor if")
+		}
 	</script>
 
 </body>

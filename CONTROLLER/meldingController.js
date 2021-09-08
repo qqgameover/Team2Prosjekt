@@ -23,7 +23,7 @@ function suggestionPrinter(input) {
 	for (i = 0; i < terms.length; i++) {
 		list += `<li onclick="mottaker = '${terms[i]}' ; mottakerUserName = findUserName('${terms[i]}') ; updateView()">` + terms[i] + '</li>';
 	}
-	return '<ul>' + list + '</ul>';
+	return '<div id="suggestionsList">' + list + '</div>';
 }
 
 

@@ -56,10 +56,10 @@
     }
 } */
 
-@media screen and (max-width: 1050px) {
-    #kategoriknapper {
-        /* position: absolute; */
-    }
+@media screen and (max-width: 1370px) {
+    /* #kategoriknapper {
+         position: absolute; 
+    } */
     #video {
         width: 100%;
         /* height: 50%; */

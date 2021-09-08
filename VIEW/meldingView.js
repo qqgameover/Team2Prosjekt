@@ -25,11 +25,12 @@ function updateViewMeldinger() {
 	ledd();
 	let suggestions = suggestionPrinter(mottaker);
 	html = `
-	<div id="top" class="containerMessages">
-		<lable for="messageSearch">Send melding til noen!</lable>
+	<div id="top"></div> 
+	<div class="containerInput">
+		<label for="messageSearch">Send melding til:
 		<input id="focusInput" onclick="focusMethod(this.id)" oninput="searchName(this.value) ; mottakerUserName = findUserName(this.value) ; 
-		mottaker = this.value ; updateView() ; focusMethod(this.id)" ; value = "${mottaker}" autofocus="true"/>
-		${suggestions}
+		mottaker = this.value ; updateView() ; focusMethod(this.id)" ; value = "${mottaker}" autofocus="true"/></label>
+			<div id="suggestions">${suggestions}</div>
 	</div>
 	<div class="containerMessages"> `
 
@@ -53,16 +54,16 @@ function updateViewMeldinger() {
 	</div>
 	</div>
 	<div class="containerForFluff">
-	<p id="valgt melding">${leddValg[0]} ${leddValg[1]} ${leddValg[2]} ${leddValg[3]}</p>
+	<p id="valgtMelding">${leddValg[0]} ${leddValg[1]} ${leddValg[2]} ${leddValg[3]}</p>
 	<button class="sendButton" 
 		onclick="sendMessage(leddValg[0], leddValg[1], leddValg[2], leddValg[3], mottakerUserName, model.app.currentUser) ;
 		 mottaker = '' ; updateView()">
 		Send melding
 	</button>
 	</div>
+
 	<div class="navbar">
 		<a href="#Lederbrett" onclick="gotoLederbrett()">Lederbrett</a>
-		<a href="#" class="next round" onclick="goForward()">&#8250;</a>
 		<a href="#Hjem" onclick="gotoH()" class="fa fa-home"></a>
 		<a href="#" class="previous round" onclick="goBack()">&#8249;</a>
 

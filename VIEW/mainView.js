@@ -19,8 +19,6 @@ function updateViewMain() {
 	
 	<div class="navbar">
 		<a href="#Lederbrett" onclick="gotoLederbrett()">Lederbrett</a>
-		
-		<a href="#" class="next round" onclick="goForward()">&#8250;</a>
 		<a href="#Hjem" onclick="gotoH()" class="fa fa-home"></a>
 		<a href="#" class="previous round" onclick="goBack()">&#8249;</a>
 	</div>
@@ -29,19 +27,3 @@ function updateViewMain() {
 	return html;
 }
 
-//Ikke ferdig - To Be Continued
-
-function goBack() {
-	window.history.back();
-}
-
-function goForward() {
-	window.history.forward();
-}
-
-const tilbake = () => {
-	if (model.app.previousPage = "kategorier") { pagemanager(model.app.previousPageId); model.app.previousPage.push(); }
-	if (model.app.previousPage = "main") { updateView() }
-	if (model.app.previousPage = "meldinger") { updateview() }
-	if (model.app.previousPage = "leaderboard") { updateview() }
-}

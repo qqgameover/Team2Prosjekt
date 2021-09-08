@@ -39,7 +39,6 @@ function updateViewLeaderboard() {
 
 	<div class="navbar">
 		<a href="#Lederbrett" onclick="gotoLederbrett()">Lederbrett</a>
-		<a href="#" class="next round" onclick="goForward()">&#8250;</a>
 		<a href="#Hjem" onclick="gotoH()" class="fa fa-home"></a>
 		<a href="#" class="previous round" onclick="goBack()">&#8249;</a>
 	</div>
