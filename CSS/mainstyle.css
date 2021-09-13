@@ -7,6 +7,22 @@
   height: 80vh;
 }
 
+.headerMain{
+  position: relative;
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#pointsG {
+  border: 2px black;
+  padding: 20px;
+  margin-top: 30px;
+  margin-bottom: 0px;
+  max-height: 10px;
+}
+
 .grid-item {
 border: 2px solid  black;
 border-radius: 10px;
@@ -16,6 +32,14 @@ max-width: 860px;
 font-size: 40px;
 text-align: center;
 /* background-color: white; */
+}
+
+.gridInsideAGrid{
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  /* grid-column-gap: 30px; */
+  grid-template-areas: "gradientM1" "gradientM2" "gradientM3";
+  justify-content: center;
 }
 
 @media screen and (max-width: 600px), (min-height: 1920px) {

@@ -5,13 +5,10 @@
 function updateViewKategorier() {
 	let html = `<div class="parent">
 						<div class="visual">
-							<iframe 
-								id="video"
-								src="${model.app.currentVideo}" 
-								title="YouTube video player" frameborder="0" 
-								allow="accelerometer; autoplay; clipboard-write; 
-								encrypted-media; gyroscope; picture-in-picture" 
-								allowfullscreen>
+				
+
+							<iframe width="560" height="315" src="${model.app.currentVideo}" 
+							frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"; fs="0";>
 							</iframe>
 							
 						<div id="kategoriknapper">
