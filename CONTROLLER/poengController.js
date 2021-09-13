@@ -126,20 +126,9 @@ function addPoints() {
 		});
 		return maleGrindset;
 	});
+	pointsCounterMessages();
+	pointsCounterMental();
+	pointsCounterLag();
+	pointsCounterFysisk();
 	return foundUnAddedPoints;
 }
-
-
-// const addpoints = () => {
-// 	const search = model.data.statistikk.instanser.map((α) => {
-// 		return { navn: α.navn, userName: α.userName };
-// 	});
-// 	const findPerson = search.find((person) => {
-// 		if (person.navn == model.app.currentUser) {
-// 			return person.userName
-// 		} else {
-// 			return false;
-// 		}
-// 	});
-// 	return findPerson;
-// }

@@ -1,7 +1,7 @@
 
 
 // Jostein
-let pageid = "";
+
 function updateViewKategorier() {
 	let html = `<div class="parent">
 						<div class="visual">
@@ -33,7 +33,7 @@ function updateViewKategorier() {
 					</button>`
 		}
 	}
-	taskManager(pageid);
+	taskManager();
 	html +=
 		`</div>
 		 </div>
@@ -51,12 +51,10 @@ function updateViewKategorier() {
 }
 function pagemanager(id) {
 	if (id == 567) {
-		console.log("i leaderboard if")
 		html = updateViewLeaderboard();
 		document.getElementById("app").innerHTML = html;
 	}
 	else if (id == 1) {
-		console.log("i home if")
 		html = updateViewMain();
 		document.getElementById("app").innerHTML = html;
 	}
