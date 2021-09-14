@@ -16,8 +16,8 @@ const model = {
 	data: {
 		taskNodes: [
 			{ id: 1, name: 'mainView', parent: null },
-			{ id: 2, name: 'Fysisk', parent: 1, videoUrl: 'https://www.youtube.com/embed/eLX1yEfWStY?rel=0&amp;controls=0', },
-			{ id: 3, name: 'Mental-styrke', parent: 1, videoUrl: 'https://www.youtube.com/embed/JB-G_o9WB9E?rel=0&amp;controls=0?modestbranding=1;', },
+			{ id: 2, name: 'Fysisk', parent: 1, videoUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0;showinfo=0&modestbranding=1;' },
+			{ id: 3, name: 'Mental-styrke', parent: 1, videoUrl: 'https://www.youtube-nocookie.com/embed/JB-G_o9WB9E?rel=0;showinfo=0&modestbranding=1;' },
 			{ id: 4, name: 'Lagaand', parent: 1, videoUrl: '', },
 			{ id: 5, name: 'Sit-ups', parent: 2, videoUrl: '', },
 			{ id: 6, name: 'Push-ups', parent: 2, videoUrl: '', },
@@ -149,3 +149,31 @@ const model = {
 		},
 	}
 }
+
+getData();
+async function getData() {
+	try {
+		model.data.statistikk.meldinger = [];
+		const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQNw10gr74fMdO2wuZGzBYwBzuJsTcJZXmEP3daKXHJO1fEJy0Af-qlusaIn_kBrSrSk7BSWog-xcC7/pub?output=csv';
+		let response = await axios.get(url);
+		let responseToArray = await response.data.split(/(?:\\[rn]|[\r\n]+)+/g);
+		const prettyfiedData = [];
+		const splitData = [];
+		let i, j, temporary, chunk = 1;
+		for (i = 0, j = responseToArray.length; i < j; i += chunk) {
+			temporary = responseToArray.slice(i, i + chunk);
+			prettyfiedData.push(temporary);
+		}
+		for (i = 0; i < prettyfiedData.length; i++) {
+			const string = prettyfiedData[i].toString()
+			splitData.push(string.split(","));
+		}
+		const toObjects = splitData.map((data) => {
+			return { tid: data[0], avsender: data[1], mottaker: data[2], ledd0: data[3], ledd1: data[4], ledd2: data[5], ledd3: data[7] }
+		})
+		model.data.statistikk.meldinger.push(toObjects);
+	} catch (e) {
+		console.log(e);
+	}
+}
+

@@ -3,6 +3,7 @@
 let leddValg = [[], [], [], []];
 let mottaker = "";
 let mottakerUserName = "";
+let suggestions = "";
 function updateViewMeldinger() {
 	let html = "";
 	let leddArray = [[], [], [], []];
@@ -23,14 +24,19 @@ function updateViewMeldinger() {
 		}
 	}
 	ledd();
-	let suggestions = suggestionPrinter(mottaker);
 	html = `
 	<div id="top"></div> 
 	<div class="containerInput">
 		<label for="messageSearch">Send melding til:
-		<input id="focusInput" onclick="focusMethod(this.id)" oninput="searchName(this.value) ; mottakerUserName = findUserName(this.value) ; 
-		mottaker = this.value ; updateView() ; focusMethod(this.id)" ; value = "${mottaker}" autofocus="true"/></label>
-			<div id="suggestions">${suggestions}</div>
+			<input id="focusInput" 
+				onclick="suggestions = suggestionPrinter(null); updateView() ; focusMethod(this.id)" 
+				oninput="suggestions = suggestionPrinter(this.value) ; 
+				mottakerUserName = findUserName(this.value) ; 
+				mottaker = this.value ; updateView() ; 
+				focusMethod(this.id)" ; value = "${mottaker}"
+			/>
+		</label>
+		<div id="suggestions">${suggestions}</div>
 	</div>
 	<div class="containerMessages"> `
 

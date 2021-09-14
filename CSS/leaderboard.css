@@ -1,4 +1,7 @@
-
+.tableParent{
+    margin-top: 100px;
+    position: relative;
+}
 
 .leaderboard-grid {
     display: grid;

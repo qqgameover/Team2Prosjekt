@@ -5,27 +5,35 @@ function searchName(input) {
 		return α.navn;
 	});
 	const searchFiltered = searchUnfilted.filter((p) => p)
-	if (input == '') {
-		return [];
-	}
 	const reg = new RegExp(input, "i")
-	return searchFiltered.filter((term) => {
-		if (term.match(reg)) {
-			return term;
-		} else {
-			return;
+	if (input == null) {
+		{
+			return searchFiltered;
 		}
-	});
+	} else {
+		return searchFiltered.filter((term) => {
+			if (term.match(reg)) {
+				return term;
+			} else {
+				return;
+			}
+		});
+	}
 }
+
 function suggestionPrinter(input) {
-	let list = '';
 	let terms = searchName(input);
+	suggestions = "";
+	return makeSuggestions(terms);
+}
+
+function makeSuggestions(terms) {
+	let list = '';
 	for (i = 0; i < terms.length; i++) {
 		list += `<li onclick="mottaker = '${terms[i]}' ; mottakerUserName = findUserName('${terms[i]}') ; updateView()">` + terms[i] + '</li>';
 	}
 	return '<div id="suggestionsList">' + list + '</div>';
 }
-
 
 function sendMessage(_ledd0, _ledd1, _ledd2, _ledd3, _motakker, _avsender) {
 	if (!_motakker) {

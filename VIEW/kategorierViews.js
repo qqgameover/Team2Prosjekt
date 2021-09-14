@@ -5,9 +5,7 @@
 function updateViewKategorier() {
 	let html = `<div class="parent">
 						<div class="visual">
-				
-
-							<iframe width="560" height="315" src="${model.app.currentVideo}" 
+							<iframe width="1160" height="515" src="${model.app.currentVideo}" 
 							frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"; fs="0";>
 							</iframe>
 							

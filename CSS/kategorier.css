@@ -16,18 +16,25 @@
 
 .parent {
     /* display: grid; */
-    margin-left: 25px;
-    margin-right:25px;
     place-items: center;
     /* align-items: center;
     justify-content: center; */
+    max-width: 500px;
+    margin: auto;
+    
 }
  
 .visual {
-    padding-top: 5px;
-    object-fit: fill;
-    /* align-items: center;
+    
+/*  align-items: center;
     justify-content: center; */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding-bottom: 100px;
+
+
 }
 
 #video {
@@ -41,6 +48,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 /* @media screen and (max-width: 600px) {
     #kategoriknapper {
