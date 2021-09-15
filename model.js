@@ -228,31 +228,7 @@ async function handleSignoutClick(event) {
 	updateView();
 }
 
-function listLabels() {
-	gapi.client.gmail.users.labels.list({
-		'userId': 'me'
-	}).then(function (response) {
-		var labels = response.result.labels;
-		console.log('Labels:');
 
-		if (labels && labels.length > 0) {
-			for (i = 0; i < labels.length; i++) {
-				var label = labels[i];
-				console.log(label.name)
-			}
-		} else {
-			console.log('No Labels found.');
-		}
-	});
-}
-
-function updateSigninStatus(isSignedIn) {
-	if (isSignedIn) {
-		listLabels();
-	} else {
-		console.log("XD")
-	}
-}
 
 function checkForGmailLogin(target, element) {
 	console.log('onLoadCallbackFunction');
@@ -267,7 +243,7 @@ function checkForGmailLogin(target, element) {
 			if (authResult && !authResult.error) {
 				gapi.client.load('gmail', 'v1', () => this.sendEmail(target, element));
 			} else {
-				console.log('Error in Load gmail');
+				console.log('Error in Load gmail', authResult.error);
 			}
 		});
 }
@@ -286,7 +262,7 @@ function sendEmail(target, message) {
 		"Du har fått en ny melding",
 		"",
 		content].join("\n").trim();
-	//raw, data til latin-1/base64, slik at ingen tegn blir fjernet.
+	//raw, data to latin-1/base64, avoids any special chars being removed.
 	const raw = window.btoa(unescape(encodeURIComponent(mimeData))).replace(/\+/g, '-').replace(/\//g, '_');
 	gapi.client.gmail.users.messages.send({
 		'userId': 'me',
@@ -295,6 +271,6 @@ function sendEmail(target, message) {
 		}
 	}).execute(res => {
 		console.log('Email sent', res);
-		console.log('Email has send Successfully')
+		console.log('Success', res.result)
 	});
 }
