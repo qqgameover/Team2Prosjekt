@@ -46,13 +46,19 @@
 
 	<script>
 
-		//1. Fikse logoutknappen? 
+		//1. Fikse logoutknappen
 		//2. Rydde og sortere kode
-		//3. Refaktoring
-		//4. Snakke om Eval
-		//5. Dokumentere
+		//3. Refaktoring (Alle)
+		//4. Bytte om Eval funksjon til If (Jostein Fikse)
+		//5. Dokumentere (Alle)
 		//6. Lage funksjon som sletter google docs etter en viss tid
 		//7. Lage funksjon som sletter poeng (Etter dagsmål)
+		//8. Exel skjema skal bare telle poeng og ikke vise sendte meldinger
+		//9. Poengkontroll, mld til ny person = 3 Poeng, Ellers 1 Poeng. (Mailinn Fikse) 
+		//10. Fikse CSS på meldingssiden! (Mailinn Fikse)
+		//11. Legg til en gmail konto til som tar kopi av alle meldinger sendt. Slik unngår vi at data lekkes ut i det offentlige spreadsheetet. (Kawpwr fwkse)
+		//12. Finne en ny måte å regne opp poeng til leaderboardet.
+
 
 		pointsCounterMessages();
 		pointsCounterMental();
@@ -112,13 +118,12 @@
 			updateView();
 		}
 
-		//Ikke ferdig - Let it be
-		//Jostein bruker den store tenkemuskelen
-
 		function goBack() {
 			console.log(model.app.previousPage)
 			if (model.app.previousPage.length != 0) {
 				let destinationPage = model.app.previousPage.pop();
+				//model.app.currentPage = destinationPage;
+				//updateView()
 				eval(destinationPage);
 			}
 			else console.log("utafor if")
