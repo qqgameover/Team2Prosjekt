@@ -63,7 +63,7 @@ function updateViewMeldinger() {
 	<p id="valgtMelding">${leddValg[0]} ${leddValg[1]} ${leddValg[2]} ${leddValg[3]}</p>
 	<button class="sendButton" 
 		onclick="sendMessage(leddValg[0], leddValg[1], leddValg[2], leddValg[3], mottakerUserName, model.app.currentUser) ;
-		 mottaker = '' ; updateView()">
+		 mottaker = '' ; mottakerUserName = '' ; updateView()">
 		Send melding
 	</button>
 	</div>
