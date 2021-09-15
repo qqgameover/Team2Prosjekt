@@ -28,7 +28,7 @@ function updateViewMeldinger() {
 	<div id="top"></div> 
 	<div class="containerInput">
 		<label for="messageSearch">Send melding til:
-			<input id="focusInput" 
+			<input id="focusInput" autocomplete="off" 
 				onclick="suggestions = suggestionPrinter(null); updateView() ; focusMethod(this.id)" 
 				oninput="suggestions = suggestionPrinter(this.value) ; 
 				mottakerUserName = findUserName(this.value) ; 

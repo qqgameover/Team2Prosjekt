@@ -5,6 +5,9 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="google-signin-client_id"
+		content="733048315387-aed7a120ai0r35a4p50iakascntmd073.apps.googleusercontent.com">
+	<!--Authentication Token-->
 	<link rel="stylesheet"
 		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -24,10 +27,15 @@
 	<script src="VIEW/mainView.js"></script>
 	<script src="VIEW/leaderboardView.js"></script>
 	<script src="VIEW/kategorierViews.js"></script>
+	<script src="VIEW/googleView.js"></script>
 
 	<script src="CONTROLLER/videoController.js"></script>
 	<script src="CONTROLLER/meldingController.js"></script>
 	<script src="CONTROLLER/poengController.js"></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
+		onreadystatechange="if (this.readyState === 'complete') this.onload()">
+		</script>
 
 
 </head>
@@ -75,6 +83,9 @@
 			if (model.app.currentPage == 'leaderboard') {
 				html = updateViewLeaderboard();
 			}   //Mailinn
+			if (model.app.currentPage == 'google') {
+				html = googleView();
+			}
 			document.getElementById("app").innerHTML = html;
 
 		};

@@ -30,7 +30,7 @@ function suggestionPrinter(input) {
 function makeSuggestions(terms) {
 	let list = '';
 	for (i = 0; i < terms.length; i++) {
-		list += `<li onclick="mottaker = '${terms[i]}' ; mottakerUserName = findUserName('${terms[i]}') ; updateView()">` + terms[i] + '</li>';
+		list += `<li onclick="mottaker = '${terms[i]}' ; mottakerUserName = findUserName('${terms[i]}') ; suggestions = suggestionPrinter(this.value) ; updateView()">` + terms[i] + '</li>';
 	}
 	return '<div id="suggestionsList">' + list + '</div>';
 }
@@ -55,12 +55,13 @@ function sendMessage(_ledd0, _ledd1, _ledd2, _ledd3, _motakker, _avsender) {
 	&entry.1627599794=${_ledd3}
 	&submit=SUBMIT`;
 	model.data.statistikk.antallMeldinger++;
+	const innhold = `${_ledd0} ${_ledd1} ${_ledd2} ${_ledd3}`;
 	const melding =
 	{
 		meldingId: model.data.statistikk.antallMeldinger,
 		avsender: _avsender,
 		mottaker: _motakker,
-		melding: `${_ledd0} ${_ledd1} ${_ledd2} ${_ledd3}`
+		melding: innhold,
 	}
 	model.data.statistikk.meldinger.push(melding);
 	model.data.statistikk.achievements.push({
@@ -71,7 +72,8 @@ function sendMessage(_ledd0, _ledd1, _ledd2, _ledd3, _motakker, _avsender) {
 		points: 1,
 		pointsNotAdded: true,
 	})
-	console.log("ITS HAPPENING")
+	checkForGmailLogin(_motakker, innhold)
+	alert('Melding sendt!')
 	addPoints();
 	return fetch(url, opts);
 }

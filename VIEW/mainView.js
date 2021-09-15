@@ -6,6 +6,8 @@ function updateViewMain() {
 		<a href="#Lederbrett" onclick="gotoLederbrett()">Lederbrett</a>
 		<a href="#Hjem" onclick="gotoH()" class="fa fa-home"></a>
 		<a href="#" class="previous round" onclick="goBack()">&#8249;</a>
+		<a class="previous round" onclick="handleSignoutClick(event)">Logg ut
+		</a>
 	</div>
 
 	<h1 class="headerMain">Gjør hverdagen skjønn med mere grønn!</h1>
