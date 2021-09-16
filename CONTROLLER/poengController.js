@@ -143,7 +143,6 @@ function pointsCounterLag() {
 }
 
 
-//grusom funk..
 function addPoints() {
 	const achievementsMap = model.data.statistikk.achievements.map((achievements, index) => {
 		return { userName: achievements.userName, tid: achievements.tid, taskId: achievements.taskId, points: achievements.points, pointsNotAdded: achievements.pointsNotAdded, };
@@ -155,7 +154,6 @@ function addPoints() {
 	const foundUnAddedPoints = achievementsMap.forEach((achievements, index) => {
 		const instanserLoop = instanserMap.find((instanser, instIndex) => {
 			if (instanser.userName == achievements.userName && achievements.pointsNotAdded == true) {
-				console.log("lets gooooo")
 				model.data.statistikk.achievements[index] = { userName: achievements.userName, tid: achievements.tid, taskId: achievements.taskId, points: achievements.points, pointsNotAdded: false }
 				model.data.statistikk.instanser[instIndex] = { id: instanser.id, parent: instanser.parent, points: instanser.points + achievements.points, navn: instanser.navn, userName: instanser.userName }
 			};
