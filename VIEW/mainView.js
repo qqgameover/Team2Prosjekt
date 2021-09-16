@@ -10,7 +10,7 @@ function updateViewMain() {
 		</a>
 	</div>
 
-	<h1 class="headerMain">Gjør hverdagen skjønn med mere grønn!</h1>
+	<h1 class="headerMain">Gjør hverdagen skjønn med mer grønn!</h1>
 
 <div class="mainGrid">
 	

@@ -142,26 +142,29 @@ function pointsCounterLag() {
 	}
 }
 
+
+//grusom funk..
 function addPoints() {
-	const achievementsMap = model.data.statistikk.achievements.map((achievements) => {
-		return { user: achievements.user, date: achievements.date, time: achievements.time, taskId: achievements.taskId, points: achievements.points, pointsNotAdded: achievements.pointsNotAdded, };
+	const achievementsMap = model.data.statistikk.achievements.map((achievements, index) => {
+		return { userName: achievements.userName, tid: achievements.tid, taskId: achievements.taskId, points: achievements.points, pointsNotAdded: achievements.pointsNotAdded, };
 	});
+	console.log(achievementsMap)
 	const instanserMap = model.data.statistikk.instanser.map((element) => {
 		return element;
 	})
 	const foundUnAddedPoints = achievementsMap.forEach((achievements, index) => {
-		const maleGrindset = instanserMap.find((instanser, instIndex) => {
-			if (instanser.navn == achievements.user && achievements.pointsNotAdded == true) {
+		const instanserLoop = instanserMap.find((instanser, instIndex) => {
+			if (instanser.userName == achievements.userName && achievements.pointsNotAdded == true) {
 				console.log("lets gooooo")
+				model.data.statistikk.achievements[index] = { userName: achievements.userName, tid: achievements.tid, taskId: achievements.taskId, points: achievements.points, pointsNotAdded: false }
 				model.data.statistikk.instanser[instIndex] = { id: instanser.id, parent: instanser.parent, points: instanser.points + achievements.points, navn: instanser.navn, userName: instanser.userName }
-				model.data.statistikk.achievements[index] = { user: achievements.user, date: achievements.date, time: achievements.time, taskId: achievements.taskId, points: achievements.points, pointsNotAdded: false }
-			}
+			};
 		});
-		return maleGrindset;
 	});
 	pointsCounterMessages();
 	pointsCounterMental();
 	pointsCounterLag();
 	pointsCounterFysisk();
-	return foundUnAddedPoints;
+	updateView();
+	return;
 }

@@ -145,10 +145,9 @@ const model = {
 	}
 }
 
-getData();
 async function getData() {
 	try {
-		model.data.statistikk.meldinger = [];
+		model.data.statistikk.achievements = [];
 		const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQNw10gr74fMdO2wuZGzBYwBzuJsTcJZXmEP3daKXHJO1fEJy0Af-qlusaIn_kBrSrSk7BSWog-xcC7/pub?output=csv';
 		let response = await axios.get(url);
 		let responseToArray = await response.data.split(/(?:\\[rn]|[\r\n]+)+/g);
@@ -163,12 +162,14 @@ async function getData() {
 			const string = prettyfiedData[i].toString()
 			splitData.push(string.split(","));
 		}
-		const toObjects = splitData.map((data) => {
-			return { tid: data[0], avsender: data[1], mottaker: data[2], ledd0: data[3], ledd1: data[4], ledd2: data[5], ledd3: data[7] }
+		const toObjects = splitData.map((data, index) => {
+			if (index == 0) return;
+			return { tid: data[0], userName: data[1], mottaker: data[2], taskId: parseInt(data[3]), points: parseInt(data[4]), pointsNotAdded: true }
 		})
-		model.data.statistikk.meldinger.push(toObjects);
+		const toObjectsFiltered = toObjects.filter((p) => p)
+		model.data.statistikk.achievements = toObjectsFiltered;
+		addPoints();
 	} catch (e) {
-		console.log(e);
 	}
 }
 
@@ -182,6 +183,7 @@ function onSignIn(googleUser) {
 	model.app.currentName = profile.getName();
 	model.app.currentUser = profile.getEmail(); // This is null if the 'email' scope is not present.
 	model.app.currentPage = 'main'
+	getData();
 	updateView();
 }
 
@@ -222,9 +224,11 @@ function initClient() {
 	});
 }
 
-async function handleSignoutClick(event) {
+async function handleSignoutClick(event, googleUser) {
 	const signOut = await gapi.auth2.getAuthInstance().signOut();
 	await signOut, model.app.currentPage = 'google';
+	model.app.currentName = ""
+	model.app.currentUser = ""
 	updateView();
 }
 
@@ -272,5 +276,24 @@ function sendEmail(target, message) {
 	}).execute(res => {
 		console.log('Email sent', res);
 		console.log('Success', res.result)
+		getData();
 	});
+}
+
+function addAch(_user, _motakker = "", _kategori, _points) {
+	const opts = {
+		method: "POST",
+		mode: "no-cors",
+		redirect: "follow",
+		referrer: "no-referrer"
+	}
+
+	const url = `https://docs.google.com/forms/d/e/1FAIpQLSdEn9Gqb7Ie_ANQvMumGv1xidp1eqRO8PBl9y7PVeT5IKAflA/formResponse?usp=pp_url
+	&entry.2113492938=${_user}
+	&entry.940698215=${_motakker}
+	&entry.1627599794=${_kategori}
+	&entry.1541312260=${_points}
+	&submit=SUBMIT`;
+
+	return fetch(url, opts)
 }
