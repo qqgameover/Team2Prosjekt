@@ -35,7 +35,7 @@ function pointsCounterMessages() {
 	for (let i = 0; i < model.data.statistikk.achievements.length; i++) {
 		if (model.data.statistikk.achievements[i].taskId == 0) {
 			poengForMessages += model.data.statistikk.achievements[i].points
-			console.log(poengForMessages)
+			// console.log(poengForMessages)
 		}
 		if (poengForMessages === 0) {
 			gradientMessage = 'darkorange, yellow';
@@ -63,7 +63,7 @@ function pointsCounterMental() {
 	for (let i = 0; i < model.data.statistikk.achievements.length; i++) {
 		if (model.data.statistikk.achievements[i].taskId == 3) {
 			poengForMental += model.data.statistikk.achievements[i].points
-			console.log(poengForMental)
+			// console.log(poengForMental)
 		}
 		if (poengForMental === 0) {
 			gradientMental = 'darkorange, yellow';
@@ -90,8 +90,8 @@ function pointsCounterFysisk() {
 	let poengForFysisk = 0;
 	for (let i = 0; i < model.data.statistikk.achievements.length; i++) {
 		if (model.data.statistikk.achievements[i].taskId == 2) {
-			poengForMental += model.data.statistikk.achievements[i].points
-			console.log(poengForpfysisk)
+			poengForFysisk += model.data.statistikk.achievements[i].points
+			// console.log(poengForpfysisk)
 		}
 		if (poengForFysisk === 0) {
 			gradientFysisk = 'darkorange, yellow';
@@ -118,8 +118,8 @@ function pointsCounterLag() {
 	let poengForLag = 0;
 	for (let i = 0; i < model.data.statistikk.achievements.length; i++) {
 		if (model.data.statistikk.achievements[i].taskId == 4) {
-			poengForMental += model.data.statistikk.achievements[i].points
-			console.log(poenglag)
+			poengForLag += model.data.statistikk.achievements[i].points
+			// console.log(poenglag)
 		}
 		if (poengForLag === 0) {
 			gradientLag = 'darkorange, yellow';
@@ -147,7 +147,7 @@ function addPoints() {
 	const achievementsMap = model.data.statistikk.achievements.map((achievements, index) => {
 		return { userName: achievements.userName, tid: achievements.tid, taskId: achievements.taskId, points: achievements.points, pointsNotAdded: achievements.pointsNotAdded, };
 	});
-	console.log(achievementsMap)
+	// console.log(achievementsMap)
 	const instanserMap = model.data.statistikk.instanser.map((element) => {
 		return element;
 	})
@@ -159,10 +159,11 @@ function addPoints() {
 			};
 		});
 	});
+
 	pointsCounterMessages();
 	pointsCounterMental();
 	pointsCounterLag();
 	pointsCounterFysisk();
-	updateView();
-	return;
+	console.log("dataReady")
+	updateView()
 }

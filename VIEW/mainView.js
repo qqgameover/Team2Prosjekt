@@ -1,6 +1,5 @@
 
 function updateViewMain() {
-	eggPower();
 	let html = ""
 	html = `
 

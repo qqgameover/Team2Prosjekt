@@ -168,9 +168,9 @@ async function getData() {
 		})
 		const toObjectsFiltered = toObjects.filter((p) => p)
 		model.data.statistikk.achievements = toObjectsFiltered;
-		console.log("yydnarsioten")
 		addPoints();
 	} catch (e) {
+		console.error(e)
 	}
 }
 
@@ -184,8 +184,8 @@ function onSignIn(googleUser) {
 	model.app.currentName = profile.getName();
 	model.app.currentUser = profile.getEmail(); // This is null if the 'email' scope is not present.
 	model.app.currentPage = 'main'
-	getData().then(
-		updateView());
+
+	getData();
 }
 
 // Array of API discovery doc URLs for APIs used by the quickstart
@@ -198,21 +198,25 @@ const SCOPES = 'https://www.googleapis.com/auth/gmail.readonly https://mail.goog
 
 function handleClientLoad() {
 	console.log("handleCLientLoad")
-	gapi.load('client:auth2', initClient);
+	gapi.load('client:auth2', initClient)
 }
+
 
 function appendPre(message) {
 	var textContent = document.createTextNode(message + '\n');
 	console.log(textContent);
 }
 
-function initClient() {
-	gapi.client.init({
-		apiKey: API_KEY,
-		clientId: CLIENT_ID,
-		discoveryDocs: DISCOVERY_DOCS,
-		scope: SCOPES
-	}).then(function () {
+async function initClient() {
+	console.log("initclient")
+	try {
+		await gapi.client.init({
+			apiKey: API_KEY,
+			clientId: CLIENT_ID,
+			discoveryDocs: DISCOVERY_DOCS,
+			scope: SCOPES
+		});
+
 		// Listen for sign-in state changes.
 		gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
 
@@ -220,9 +224,22 @@ function initClient() {
 		updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
 		authorizeButton.onclick = handleAuthClick;
 		signoutButton.onclick = handleSignoutClick;
-	}, function (error) {
+		getData();
+	} catch (error) {
 		appendPre(JSON.stringify(error, null, 2));
-	});
+		console.error(error)
+	}
+}
+
+
+function updateSigninStatus(isSignedIn) {
+	console.log("isSignedIn")
+	// if (isSignedIn) {
+	// 	getData().then(() => {
+	// 		console.log("signInStatusDone");
+	// 		updateView();
+	// 	})
+	// }
 }
 
 async function handleSignoutClick(event, googleUser) {

@@ -29,6 +29,7 @@
 	<script src="VIEW/kategorierViews.js"></script>
 	<script src="VIEW/googleView.js"></script>
 
+
 	<script src="CONTROLLER/videoController.js"></script>
 	<script src="CONTROLLER/meldingController.js"></script>
 	<script src="CONTROLLER/poengController.js"></script>
@@ -36,6 +37,7 @@
 	<script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
 		onreadystatechange="if (this.readyState === 'complete') this.onload()">
 		</script>
+
 
 
 </head>
@@ -59,7 +61,6 @@
 		//11. Legg til en gmail konto til som tar kopi av alle meldinger sendt. Slik unngår vi at data lekkes ut i det offentlige spreadsheetet. (Kawpwr fwkse)
 		//12. Finne en ny måte å regne opp poeng til leaderboardet.
 
-		eggPower()
 		updateView();
 		function updateView(pageId) {
 			if (model.app.currentPage == 'meldinger') {
@@ -123,13 +124,13 @@
 			else console.log("utafor if")
 		}
 
-		function eggPower() {
-			getData().then(
-				pointsCounterFysisk()).then(
-					pointsCounterMental()).then(
-						pointsCounterMessages()).then(
-							pointsCounterLag());
+		function saviour() {
+			console.log("rsoieatoien")
+			setTimeout(updateView(), 3000);
 		}
+
+
+
 	</script>
 
 </body>
