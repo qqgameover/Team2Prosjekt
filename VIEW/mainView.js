@@ -1,6 +1,8 @@
 
 function updateViewMain() {
-	let html = `
+	eggPower();
+	let html = ""
+	html = `
 
 	<div class="navbar">
 		<a href="#Lederbrett" onclick="gotoLederbrett()">Lederbrett</a>
@@ -65,8 +67,7 @@ function updateViewMain() {
 </div>		
 	
 
-
 `
-	return html;
+	return html
 }
 

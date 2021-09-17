@@ -33,32 +33,32 @@ const model = {
 			// { id: 50, name: '3 sit-ups', parent: 5, videoUrl: '', points: 1 },
 			// { id: 51, name: '4 sit-ups', parent: 5, videoUrl: '', points: 1 },
 			// { id: 52, name: '7 sit-ups', parent: 5, videoUrl: '', points: 1 },
-			{ id: 15, name: '10 sit-ups', parent: 5, videoUrl: '', points: 2 },
-			{ id: 16, name: '20 sit-ups', parent: 5, videoUrl: '', points: 5 },
-			{ id: 17, name: '5 push-ups', parent: 6, videoUrl: '', points: 1 },
-			{ id: 18, name: '10 push-ups', parent: 6, videoUrl: '', points: 2 },
-			{ id: 19, name: '20 push-ups', parent: 6, videoUrl: '', points: 5 },
-			{ id: 20, name: '5 Burpees', parent: 7, videoUrl: '', points: 1 },
-			{ id: 21, name: '10 Burpees', parent: 7, videoUrl: '', points: 2 },
-			{ id: 22, name: '20 Burpees', parent: 7, videoUrl: '', points: 5 },
-			{ id: 23, name: 'Mental-Styrke1a', parent: 8, videoUrl: '', points: 1 },
-			{ id: 24, name: 'Mental-Styrke1b', parent: 8, videoUrl: '', points: 2 },
-			{ id: 25, name: 'Mental-Styrke1c', parent: 8, videoUrl: '', points: 5 },
-			{ id: 26, name: 'Mental-Styrke2a', parent: 9, videoUrl: '', points: 1 },
-			{ id: 27, name: 'Mental-Styrke2b', parent: 9, videoUrl: '', points: 2 },
-			{ id: 28, name: 'Mental-Styrke2c', parent: 9, videoUrl: '', points: 5 },
-			{ id: 29, name: 'Mental-Styrke3a', parent: 10, videoUrl: '', points: 1 },
-			{ id: 30, name: 'Mental-Styrke3b', parent: 10, videoUrl: '', points: 2 },
-			{ id: 31, name: 'Mental-Styrke3c', parent: 10, videoUrl: '', points: 5 },
-			{ id: 32, name: 'Lagaand1a', parent: 11, videoUrl: '', points: 1 },
-			{ id: 33, name: 'Lagaand1b', parent: 11, videoUrl: '', points: 2 },
-			{ id: 34, name: 'Lagaand1c', parent: 11, videoUrl: '', points: 5 },
-			{ id: 35, name: 'Lagaand2a', parent: 12, videoUrl: '', points: 1 },
-			{ id: 36, name: 'Lagaand2b', parent: 12, videoUrl: '', points: 2 },
-			{ id: 37, name: 'Lagaand2c', parent: 12, videoUrl: '', points: 5 },
-			{ id: 38, name: 'Lagaand3a', parent: 13, videoUrl: '', points: 1 },
-			{ id: 39, name: 'Lagaand3b', parent: 13, videoUrl: '', points: 2 },
-			{ id: 40, name: 'Lagaand3c', parent: 13, videoUrl: '', points: 5 },
+			{ id: 15, name: '10 sit-ups', parent: 5, grandparent: 2, videoUrl: '', points: 2 },
+			{ id: 16, name: '20 sit-ups', parent: 5, grandparent: 2, videoUrl: '', points: 5 },
+			{ id: 17, name: '5 push-ups', parent: 6, grandparent: 2, videoUrl: '', points: 1 },
+			{ id: 18, name: '10 push-ups', parent: 6, grandparent: 2, videoUrl: '', points: 2 },
+			{ id: 19, name: '20 push-ups', parent: 6, grandparent: 2, videoUrl: '', points: 5 },
+			{ id: 20, name: '5 Burpees', parent: 7, grandparent: 2, videoUrl: '', points: 1 },
+			{ id: 21, name: '10 Burpees', parent: 7, grandparent: 2, videoUrl: '', points: 2 },
+			{ id: 22, name: '20 Burpees', parent: 7, grandparent: 2, videoUrl: '', points: 5 },
+			{ id: 23, name: 'Mental-Styrke1a', parent: 8, grandparent: 3, videoUrl: '', points: 1 },
+			{ id: 24, name: 'Mental-Styrke1b', parent: 8, grandparent: 3, videoUrl: '', points: 2 },
+			{ id: 25, name: 'Mental-Styrke1c', parent: 8, grandparent: 3, videoUrl: '', points: 5 },
+			{ id: 26, name: 'Mental-Styrke2a', parent: 9, grandparent: 3, videoUrl: '', points: 1 },
+			{ id: 27, name: 'Mental-Styrke2b', parent: 9, grandparent: 3, videoUrl: '', points: 2 },
+			{ id: 28, name: 'Mental-Styrke2c', parent: 9, grandparent: 3, videoUrl: '', points: 5 },
+			{ id: 29, name: 'Mental-Styrke3a', parent: 10, grandparent: 3, videoUrl: '', points: 1 },
+			{ id: 30, name: 'Mental-Styrke3b', parent: 10, grandparent: 3, videoUrl: '', points: 2 },
+			{ id: 31, name: 'Mental-Styrke3c', parent: 10, grandparent: 3, videoUrl: '', points: 5 },
+			{ id: 32, name: 'Lagaand1a', parent: 11, grandparent: 4, videoUrl: '', points: 1 },
+			{ id: 33, name: 'Lagaand1b', parent: 11, grandparent: 4, videoUrl: '', points: 2 },
+			{ id: 34, name: 'Lagaand1c', parent: 11, grandparent: 4, videoUrl: '', points: 5 },
+			{ id: 35, name: 'Lagaand2a', parent: 12, grandparent: 4, videoUrl: '', points: 1 },
+			{ id: 36, name: 'Lagaand2b', parent: 12, grandparent: 4, videoUrl: '', points: 2 },
+			{ id: 37, name: 'Lagaand2c', parent: 12, grandparent: 4, videoUrl: '', points: 5 },
+			{ id: 38, name: 'Lagaand3a', parent: 13, grandparent: 4, videoUrl: '', points: 1 },
+			{ id: 39, name: 'Lagaand3b', parent: 13, grandparent: 4, videoUrl: '', points: 2 },
+			{ id: 40, name: 'Lagaand3c', parent: 13, grandparent: 4, videoUrl: '', points: 5 },
 		],
 		statistikk: {
 			antallMeldinger: 0,
@@ -168,6 +168,7 @@ async function getData() {
 		})
 		const toObjectsFiltered = toObjects.filter((p) => p)
 		model.data.statistikk.achievements = toObjectsFiltered;
+		console.log("yydnarsioten")
 		addPoints();
 	} catch (e) {
 	}
@@ -183,8 +184,8 @@ function onSignIn(googleUser) {
 	model.app.currentName = profile.getName();
 	model.app.currentUser = profile.getEmail(); // This is null if the 'email' scope is not present.
 	model.app.currentPage = 'main'
-	getData();
-	updateView();
+	getData().then(
+		updateView());
 }
 
 // Array of API discovery doc URLs for APIs used by the quickstart
@@ -280,7 +281,7 @@ function sendEmail(target, message) {
 	});
 }
 
-function addAch(_user, _motakker = "", _kategori, _points) {
+function addAch(_user, _kategori, _points, _motakker = "") {
 	const opts = {
 		method: "POST",
 		mode: "no-cors",

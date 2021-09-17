@@ -50,9 +50,9 @@ function sendMessage(_ledd0, _ledd1, _ledd2, _ledd3, _motakker, _avsender) {
 		melding: innhold,
 	}
 	model.data.statistikk.meldinger.push(melding);
-	checkForGmailLogin(_motakker, innhold)
-	addAch(_avsender, _motakker, 0, 1)
-	alert('Melding sendt!')
+	checkForGmailLogin(_motakker, innhold);
+	addAch(_avsender, 0, 1, _motakker);
+	alert('Melding sendt!');
 }
 
 function findUserName(searchVal) {

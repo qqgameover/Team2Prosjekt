@@ -59,13 +59,8 @@
 		//11. Legg til en gmail konto til som tar kopi av alle meldinger sendt. Slik unngår vi at data lekkes ut i det offentlige spreadsheetet. (Kawpwr fwkse)
 		//12. Finne en ny måte å regne opp poeng til leaderboardet.
 
-
-		pointsCounterMessages();
-		pointsCounterMental();
-		pointsCounterFysisk();
-		pointsCounterLag();
+		eggPower()
 		updateView();
-
 		function updateView(pageId) {
 			if (model.app.currentPage == 'meldinger') {
 				html = updateViewMeldinger();
@@ -119,7 +114,6 @@
 		}
 
 		function goBack() {
-			console.log(model.app.previousPage)
 			if (model.app.previousPage.length != 0) {
 				let destinationPage = model.app.previousPage.pop();
 				//model.app.currentPage = destinationPage;
@@ -127,6 +121,14 @@
 				eval(destinationPage);
 			}
 			else console.log("utafor if")
+		}
+
+		function eggPower() {
+			getData().then(
+				pointsCounterFysisk()).then(
+					pointsCounterMental()).then(
+						pointsCounterMessages()).then(
+							pointsCounterLag());
 		}
 	</script>
 

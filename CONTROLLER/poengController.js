@@ -142,7 +142,7 @@ function pointsCounterLag() {
 	}
 }
 
-
+//hjelp....
 function addPoints() {
 	const achievementsMap = model.data.statistikk.achievements.map((achievements, index) => {
 		return { userName: achievements.userName, tid: achievements.tid, taskId: achievements.taskId, points: achievements.points, pointsNotAdded: achievements.pointsNotAdded, };
