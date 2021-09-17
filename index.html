@@ -62,7 +62,7 @@
 		//12. Finne en ny måte å regne opp poeng til leaderboardet.
 
 		updateView();
-		function updateView(pageId) {
+		function updateView() {
 			if (model.app.currentPage == 'meldinger') {
 				html = updateViewMeldinger();
 			}   //Kasper   
@@ -84,11 +84,11 @@
 		//Globale controllere
 		//Controller for å komme til hjem siden
 
-		function lastPage(id) {
-			if (model.app.currentPage = "main") { model.app.previousPage.push("gotoH()"); }
-			else if (model.app.currentPage = "leaderboard") { model.app.previousPage.push("gotoLederbrett()"); }
-			else if (model.app.currentPage = "meldinger") { model.app.previousPage.push("gotoMeldinger()"); }
-			else if (model.app.currentPage = "kategorier") { pagemanager(id); }
+		function lastPage() {
+			if (model.app.currentPage == "main") { model.app.previousPage.push({name: "main"}); }
+			else if (model.app.currentPage == "leaderboard") { model.app.previousPage.push({name: "leaderboard"}); }
+			else if (model.app.currentPage == "meldinger") { model.app.previousPage.push({name: "meldinger"}); }
+
 		}
 
 		function gotoH() {
@@ -98,12 +98,13 @@
 		}
 
 		function gotoKategorier(id) {
+			lastPage();
 			model.app.currentPage = "kategorier";
 			pagemanager(id);
 		}
 
 		function gotoLederbrett() {
-			lastPage(567);
+			lastPage();
 			model.app.currentPage = "leaderboard";
 			updateView();
 		}
@@ -117,16 +118,17 @@
 		function goBack() {
 			if (model.app.previousPage.length != 0) {
 				let destinationPage = model.app.previousPage.pop();
-				//model.app.currentPage = destinationPage;
-				//updateView()
-				eval(destinationPage);
+				if (destinationPage.name == "main" || destinationPage.name == "leaderboard" || destinationPage.name == "meldinger" && destinationPage.name != "kategorier") {
+					model.app.currentPage = destinationPage.name;
+					getData();
+				}
+				else if (destinationPage.name == "kategorier") {
+					let pagelol = destinationPage.id;
+					model.app.currentPage = destinationPage.name;
+					pagemanager(pagelol);
+				}
 			}
 			else console.log("utafor if")
-		}
-
-		function saviour() {
-			console.log("rsoieatoien")
-			setTimeout(updateView(), 3000);
 		}
 
 
