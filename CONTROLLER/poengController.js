@@ -38,24 +38,24 @@ function pointsCounterMessages() {
 		if (model.data.statistikk.achievements[i].taskId == 0 && model.data.statistikk.achievements[i].userName == model.app.currentUser) {
 			poengForMessages += model.data.statistikk.achievements[i].points
 			//console.log(poengForMessages)
-			if (poengForMessages === 0) {
-				gradientMessage = 'darkorange, yellow';
-			}
-			if (poengForMessages >= 1) {
-				gradientMessage = 'lightgreen, yellow';
-				gradientM1 = 'green, green';
-			}
-			if (poengForMessages >= 2) {
-				gradientMessage = 'green, yellow';
-				gradientM1 = 'green, green';
-				gradientM2 = 'green, green';
-			}
-			if (poengForMessages >= 3) {
-				gradientMessage = 'darkgreen, yellow';
-				gradientM1 = 'green, green';
-				gradientM2 = 'green, green';
-				gradientM3 = 'green, green';
-			}
+		}
+		if (poengForMessages === 0) {
+			gradientMessage = 'darkorange, yellow';
+		}
+		if (poengForMessages >= 1) {
+			gradientMessage = 'lightgreen, yellow';
+			gradientM1 = 'green, green';
+		}
+		if (poengForMessages >= 2) {
+			gradientMessage = 'green, yellow';
+			gradientM1 = 'green, green';
+			gradientM2 = 'green, green';
+		}
+		if (poengForMessages >= 3) {
+			gradientMessage = 'darkgreen, yellow';
+			gradientM1 = 'green, green';
+			gradientM2 = 'green, green';
+			gradientM3 = 'green, green';
 		}
 	}
 }
@@ -66,24 +66,24 @@ function pointsCounterMental() {
 		if (model.data.statistikk.achievements[i].taskId == 3 && model.data.statistikk.achievements[i].userName == model.app.currentUser) {
 			poengForMental += model.data.statistikk.achievements[i].points
 			// console.log(poengForMental)
-			if (poengForMental === 0) {
-				gradientMental = 'darkorange, yellow';
-			}
-			if (poengForMental >= 1) {
-				gradientMental = 'lightgreen, yellow';
-				gradientMental1 = 'green, green';
-			}
-			if (poengForMental >= 2) {
-				gradientMental = 'green, yellow';
-				gradientMental1 = 'green, green';
-				gradientMental2 = 'green, green';
-			}
-			if (poengForMental >= 3) {
-				gradientMental = 'darkgreen, yellow';
-				gradientMental1 = 'green, green';
-				gradientMental2 = 'green, green';
-				gradientMental3 = 'green, green';
-			}
+		}
+		if (poengForMental === 0) {
+			gradientMental = 'darkorange, yellow';
+		}
+		if (poengForMental >= 1) {
+			gradientMental = 'lightgreen, yellow';
+			gradientMental1 = 'green, green';
+		}
+		if (poengForMental >= 2) {
+			gradientMental = 'green, yellow';
+			gradientMental1 = 'green, green';
+			gradientMental2 = 'green, green';
+		}
+		if (poengForMental >= 3) {
+			gradientMental = 'darkgreen, yellow';
+			gradientMental1 = 'green, green';
+			gradientMental2 = 'green, green';
+			gradientMental3 = 'green, green';
 		}
 	}
 }
@@ -93,26 +93,24 @@ function pointsCounterFysisk() {
 	for (let i = 0; i < model.data.statistikk.achievements.length; i++) {
 		if (model.data.statistikk.achievements[i].taskId == 2 && model.data.statistikk.achievements[i].userName == model.app.currentUser) {
 			poengForFysisk += model.data.statistikk.achievements[i].points
-			console.log(poengForFysisk, "hei")
-			if (poengForFysisk === 0) {
-				gradientFysisk = 'darkorange, yellow';
-			}
-			if (poengForFysisk >= 1) {
-				gradientFysisk = 'lightgreen, yellow';
-				gradientF1 = 'green, green';
-			}
-			if (poengForFysisk >= 2) {
-				gradientFysisk = 'green, yellow';
-				gradientF1 = 'green, green';
-				gradientF2 = 'green, green';
-			}
-			if (poengForFysisk >= 3) {
-				console.log("nanannana")
-				gradientFysisk = 'darkgreen, yellow';
-				gradientF1 = 'green, green';
-				gradientF2 = 'green, green';
-				gradientF3 = 'green, green';
-			}
+		}
+		if (poengForFysisk === 0) {
+			gradientFysisk = 'darkorange, yellow';
+		}
+		if (poengForFysisk >= 1) {
+			gradientFysisk = 'lightgreen, yellow';
+			gradientF1 = 'green, green';
+		}
+		if (poengForFysisk >= 2) {
+			gradientFysisk = 'green, yellow';
+			gradientF1 = 'green, green';
+			gradientF2 = 'green, green';
+		}
+		if (poengForFysisk >= 3) {
+			gradientFysisk = 'darkgreen, yellow';
+			gradientF1 = 'green, green';
+			gradientF2 = 'green, green';
+			gradientF3 = 'green, green';
 		}
 	}
 }
@@ -123,24 +121,24 @@ function pointsCounterLag() {
 		if (model.data.statistikk.achievements[i].taskId == 4 && model.data.statistikk.achievements[i].userName == model.app.currentUser) {
 			poengForLag += model.data.statistikk.achievements[i].points
 			console.log(poengForLag, "lag poeng")
-			if (poengForLag === 0) {
-				gradientLag = 'darkorange, yellow';
-			}
-			if (poengForLag >= 1) {
-				gradientLag = 'lightgreen, yellow';
-				gradientL1 = 'green, green';
-			}
-			if (poengForLag >= 2) {
-				gradientLag = 'green, yellow';
-				gradientL1 = 'green, green';
-				gradientL2 = 'green, green';
-			}
-			if (poengForLag >= 3) {
-				gradientLag = 'darkgreen, yellow';
-				gradientL1 = 'green, green';
-				gradientL2 = 'green, green';
-				gradientL3 = 'green, green';
-			}
+		}
+		if (poengForLag === 0) {
+			gradientLag = 'darkorange, yellow';
+		}
+		if (poengForLag >= 1) {
+			gradientLag = 'lightgreen, yellow';
+			gradientL1 = 'green, green';
+		}
+		if (poengForLag >= 2) {
+			gradientLag = 'green, yellow';
+			gradientL1 = 'green, green';
+			gradientL2 = 'green, green';
+		}
+		if (poengForLag >= 3) {
+			gradientLag = 'darkgreen, yellow';
+			gradientL1 = 'green, green';
+			gradientL2 = 'green, green';
+			gradientL3 = 'green, green';
 		}
 	}
 }
