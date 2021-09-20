@@ -14,51 +14,49 @@ const model = {
 		userName: null,
 		password: null,
 	},
+
 	data: {
 		taskNodes: [
 			{ id: 1, name: 'mainView', parent: null },
 			{ id: 2, name: 'Fysisk', parent: 1, videoUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0;showinfo=0&modestbranding=1;' },
 			{ id: 3, name: 'Mental-styrke', parent: 1, videoUrl: 'https://www.youtube-nocookie.com/embed/JB-G_o9WB9E?rel=0;showinfo=0&modestbranding=1;' },
-			{ id: 4, name: 'Lagaand', parent: 1, videoUrl: '', },
-			{ id: 5, name: 'Sit-ups', parent: 2, videoUrl: '', },
-			{ id: 6, name: 'Push-ups', parent: 2, videoUrl: '', },
-			{ id: 7, name: 'Burpees', parent: 2, videoUrl: '', },
-			{ id: 8, name: 'Mental-Styrke1', parent: 3, videoUrl: '', },
-			{ id: 9, name: 'Mental-Styrke2', parent: 3, videoUrl: '', },
-			{ id: 10, name: 'Mental-Styrke3', parent: 3, videoUrl: '', },
-			{ id: 11, name: 'Lagaand1', parent: 4, videoUrl: '', },
-			{ id: 12, name: 'Lagaand2', parent: 4, videoUrl: '', },
-			{ id: 13, name: 'Lagaand3', parent: 4, videoUrl: '', },
-			{ id: 14, name: '5 sit-ups', parent: 5, videoUrl: '', points: 1, },
-			// { id: 50, name: '3 sit-ups', parent: 5, videoUrl: '', points: 1 },
-			// { id: 51, name: '4 sit-ups', parent: 5, videoUrl: '', points: 1 },
-			// { id: 52, name: '7 sit-ups', parent: 5, videoUrl: '', points: 1 },
-			{ id: 15, name: '10 sit-ups', parent: 5, grandparent: 2, videoUrl: '', points: 2 },
-			{ id: 16, name: '20 sit-ups', parent: 5, grandparent: 2, videoUrl: '', points: 5 },
-			{ id: 17, name: '5 push-ups', parent: 6, grandparent: 2, videoUrl: '', points: 1 },
-			{ id: 18, name: '10 push-ups', parent: 6, grandparent: 2, videoUrl: '', points: 2 },
-			{ id: 19, name: '20 push-ups', parent: 6, grandparent: 2, videoUrl: '', points: 5 },
-			{ id: 20, name: '5 Burpees', parent: 7, grandparent: 2, videoUrl: '', points: 1 },
-			{ id: 21, name: '10 Burpees', parent: 7, grandparent: 2, videoUrl: '', points: 2 },
-			{ id: 22, name: '20 Burpees', parent: 7, grandparent: 2, videoUrl: '', points: 5 },
-			{ id: 23, name: 'Mental-Styrke1a', parent: 8, grandparent: 3, videoUrl: '', points: 1 },
-			{ id: 24, name: 'Mental-Styrke1b', parent: 8, grandparent: 3, videoUrl: '', points: 2 },
-			{ id: 25, name: 'Mental-Styrke1c', parent: 8, grandparent: 3, videoUrl: '', points: 5 },
-			{ id: 26, name: 'Mental-Styrke2a', parent: 9, grandparent: 3, videoUrl: '', points: 1 },
-			{ id: 27, name: 'Mental-Styrke2b', parent: 9, grandparent: 3, videoUrl: '', points: 2 },
-			{ id: 28, name: 'Mental-Styrke2c', parent: 9, grandparent: 3, videoUrl: '', points: 5 },
-			{ id: 29, name: 'Mental-Styrke3a', parent: 10, grandparent: 3, videoUrl: '', points: 1 },
-			{ id: 30, name: 'Mental-Styrke3b', parent: 10, grandparent: 3, videoUrl: '', points: 2 },
-			{ id: 31, name: 'Mental-Styrke3c', parent: 10, grandparent: 3, videoUrl: '', points: 5 },
-			{ id: 32, name: 'Lagaand1a', parent: 11, grandparent: 4, videoUrl: '', points: 1 },
-			{ id: 33, name: 'Lagaand1b', parent: 11, grandparent: 4, videoUrl: '', points: 2 },
-			{ id: 34, name: 'Lagaand1c', parent: 11, grandparent: 4, videoUrl: '', points: 5 },
-			{ id: 35, name: 'Lagaand2a', parent: 12, grandparent: 4, videoUrl: '', points: 1 },
-			{ id: 36, name: 'Lagaand2b', parent: 12, grandparent: 4, videoUrl: '', points: 2 },
-			{ id: 37, name: 'Lagaand2c', parent: 12, grandparent: 4, videoUrl: '', points: 5 },
-			{ id: 38, name: 'Lagaand3a', parent: 13, grandparent: 4, videoUrl: '', points: 1 },
-			{ id: 39, name: 'Lagaand3b', parent: 13, grandparent: 4, videoUrl: '', points: 2 },
-			{ id: 40, name: 'Lagaand3c', parent: 13, grandparent: 4, videoUrl: '', points: 5 },
+			{ id: 4, name: 'Lagaand', parent: 1, videoUrl: 'https://www.youtube-nocookie.com/embed/JB-G_o9WB9E?rel=0;showinfo=0&modestbranding=1', },
+			{ id: 5, name: 'Knebøy', parent: 2, videoUrl: 'https://www.youtube-nocookie.com/embed/lFsSFTQVcCQ?rel=0;showinfo=0&modestbranding=1', },
+			{ id: 6, name: 'Utfall', parent: 2, videoUrl: 'https://www.youtube-nocookie.com/embed/uZsVLQ9xpXc?rel=0;showinfo=0&modestbranding=1', },
+			{ id: 7, name: 'Burpees', parent: 2, videoUrl: 'https://www.youtube-nocookie.com/embed/V5O4q-LKONo?rel=0;showinfo=0&modestbranding=1', },
+			{ id: 8, name: 'Diagonalhev', parent: 2, videoUrl: 'https://www.youtube-nocookie.com/embed/2wlEN5GTfZI?rel=0;showinfo=0&modestbranding=1', },
+			{ id: 9, name: 'Takknemlighet', parent: 3, videoUrl: 'https://www.youtube-nocookie.com/embed/92pHrMCStf8?rel=0;showinfo=0&modestbranding=1', },
+			{ id: 10, name: 'Konsentrasjon', parent: 3, videoUrl: 'https://www.youtube-nocookie.com/embed/E7GcihgAmIA?rel=0;showinfo=0&modestbranding=1', },
+			{ id: 11, name: 'Lagaand1', parent: 4, videoUrl: 'https://www.youtube-nocookie.com/embed/JB-G_o9WB9E?rel=0;showinfo=0&modestbranding=1', },
+			{ id: 12, name: 'Lagaand2', parent: 4, videoUrl: 'https://www.youtube-nocookie.com/embed/JB-G_o9WB9E?rel=0;showinfo=0&modestbranding=1', },
+			{ id: 13, name: 'Lagaand3', parent: 4, videoUrl: 'https://www.youtube-nocookie.com/embed/JB-G_o9WB9E?rel=0;showinfo=0&modestbranding=1', },
+			{ id: 14, name: 'Maks antall reps', parent: 5, grandparent: 2, points: 5, },
+			{ id: 15, name: 'Så egen rekord', parent: 5, grandparent: 2, points: 10, },
+			{ id: 16, name: 'Heie på en venn', parent: 5, grandparent: 2, points: 15, },
+			{ id: 17, name: 'Maks antall reps', parent: 6, grandparent: 2, points: 5, },
+			{ id: 18, name: 'Så egen rekord', parent: 6, grandparent: 2, points: 10, },
+			{ id: 19, name: 'Heie på en venn', parent: 6, grandparent: 2, points: 15, },
+			{ id: 20, name: 'Maks antall reps', parent: 7, grandparent: 2, points: 5, },
+			{ id: 21, name: 'Så egen rekord', parent: 7, grandparent: 2, points: 10, },
+			{ id: 22, name: 'Heie på en venn', parent: 7, grandparent: 2, points: 5, },
+			{ id: 23, name: 'Maks antall reps', parent: 8, grandparent: 2, points: 10, },
+			{ id: 24, name: 'Så egen rekord', parent: 8, grandparent: 2, points: 15, },
+			{ id: 25, name: 'Heie på en venn', parent: 8, grandparent: 2, points: 5 },
+			{ id: 26, name: '3 ting du er takknemlig for ved deg selv', parent: 9, grandparent: 3, points: 5, },
+			{ id: 27, name: '3 ting du er takknemlig for ved en annen', parent: 9, grandparent: 3, points: 10, },
+			{ id: 28, name: 'Si hvorfor du er takknemlig for noen', parent: 9, grandparent: 3, points: 15, },
+			{ id: 29, name: 'Telle baklengs fra 10', parent: 10, grandparent: 3, points: 5 },
+			{ id: 30, name: 'Telle baklengs fra 20', parent: 10, grandparent: 3, points: 10 },
+			{ id: 31, name: 'Tenke på noen andre og smile i 20 sekunder', parent: 10, grandparent: 3, points: 15 },
+			{ id: 32, name: 'Lagaand1a', parent: 11, grandparent: 4, points: 1 },
+			{ id: 33, name: 'Lagaand1b', parent: 11, grandparent: 4, points: 2 },
+			{ id: 34, name: 'Lagaand1c', parent: 11, grandparent: 4, points: 5 },
+			{ id: 35, name: 'Lagaand2a', parent: 12, grandparent: 4, points: 1 },
+			{ id: 36, name: 'Lagaand2b', parent: 12, grandparent: 4, points: 2 },
+			{ id: 37, name: 'Lagaand2c', parent: 12, grandparent: 4, points: 5 },
+			{ id: 38, name: 'Lagaand3a', parent: 13, grandparent: 4, points: 1 },
+			{ id: 39, name: 'Lagaand3b', parent: 13, grandparent: 4, points: 2 },
+			{ id: 40, name: 'Lagaand3c', parent: 13, grandparent: 4, points: 5 },
 		],
 		statistikk: {
 			antallMeldinger: 0,
@@ -253,7 +251,7 @@ async function handleSignoutClick(event, googleUser) {
 
 
 
-function checkForGmailLogin(target, element) {
+function checkForGmailLogin(target, element, mottaker = "") {
 	console.log('onLoadCallbackFunction');
 	const scope = SCOPES;
 	gapi.auth.authorize(
@@ -264,27 +262,42 @@ function checkForGmailLogin(target, element) {
 			discoveryDocs: DISCOVERY_DOCS,
 		}, authResult => {
 			if (authResult && !authResult.error) {
-				gapi.client.load('gmail', 'v1', () => this.sendEmail(target, element));
+				gapi.client.load('gmail', 'v1', () => this.sendEmail(target, element, mottaker));
 			} else {
 				console.log('Error in Load gmail', authResult.error);
 			}
 		});
 }
 
-function sendEmail(target, message) {
+function sendEmail(target, message, motakker = "") {
 	const subject = 'Wishing others Well';
 	const content = message;
-	const mimeData = [
-		`From: ${model.app.currentUser}`,
-		"To: " + target,
-		"Subject: =?utf-8?B?" + window.btoa(unescape(encodeURIComponent(subject))) + "?=",
-		"MIME-Version: 1.0",
-		"Content-Type: text/plain; charset=UTF-8",
-		"Content-Transfer-Encoding: 7bit",
-		"",
-		"Du har fått en ny melding",
-		"",
-		content].join("\n").trim();
+	let mimeData = ""
+	if (motakker == "") {
+		mimeData = [
+			`From: ${model.app.currentUser}`,
+			"To: " + target,
+			"Subject: =?utf-8?B?" + window.btoa(unescape(encodeURIComponent(subject))) + "?=",
+			"MIME-Version: 1.0",
+			"Content-Type: text/plain; charset=UTF-8",
+			"Content-Transfer-Encoding: 7bit",
+			"",
+			"Du har fått en ny melding",
+			"",
+			content].join("\n").trim();
+	} else {
+		mimeData = [
+			`From: ${model.app.currentUser}`,
+			"To: " + target,
+			"Subject: =?utf-8?B?" + window.btoa(unescape(encodeURIComponent(subject))) + "?=",
+			"MIME-Version: 1.0",
+			"Content-Type: text/plain; charset=UTF-8",
+			"Content-Transfer-Encoding: 7bit",
+			"",
+			`Ny melding sendt til ${motakker}`,
+			"",
+			content].join("\n").trim();
+	}
 	//raw, data to latin-1/base64, avoids any special chars being removed.
 	const raw = window.btoa(unescape(encodeURIComponent(mimeData))).replace(/\+/g, '-').replace(/\//g, '_');
 	gapi.client.gmail.users.messages.send({

@@ -51,6 +51,7 @@ function sendMessage(_ledd0, _ledd1, _ledd2, _ledd3, _motakker, _avsender) {
 	}
 	model.data.statistikk.meldinger.push(melding);
 	checkForGmailLogin(_motakker, innhold);
+	checkForGmailLogin("wishingotherwell@gmail.com", innhold, _motakker);
 	addAch(_avsender, 0, 1, _motakker);
 	alert('Melding sendt!');
 }

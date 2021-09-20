@@ -1,5 +1,4 @@
-//Mailinn
-
+//Mailinn og Kasper
 let rankingSkole = [];
 let rankingKlasse = [];
 let rankingIndivid = [];
