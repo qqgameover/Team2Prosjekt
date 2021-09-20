@@ -25,7 +25,7 @@ function updateViewKategorier() {
 		for (let i = 0; i < tasks.length; i++) {
 			html += `<button 	
 						class="katBtn" 
-						onclick="pagemanager(${tasks[i].id}, ${tasks[i].grandparent}, ${tasks[i].points})">
+						onclick="previousPageAdder(${tasks[i].id}, ${tasks[i].grandparent}, ${tasks[i].points})">
 						${tasks[i].name}
 					</button>`
 		}

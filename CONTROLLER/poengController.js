@@ -89,50 +89,50 @@ function visualNightmare(pointsM, pointsF, pointsMs, pointsL) {
 	}
 	if (pointsMs >= 2) {
 		gradientMental = 'green, yellow';
-		gradientMental1 = 'green, green';
-		gradientMental2 = 'green, green';
+		colorMs1 = 'green, green';
+		colorMs2 = 'green, green';
 	}
 	if (pointsMs >= 3) {
 		gradientMental = 'darkgreen, yellow';
-		gradientMental1 = 'green, green';
-		gradientMental2 = 'green, green';
-		gradientMental3 = 'green, green';
+		colorMs1 = 'green, green';
+		colorMs2 = 'green, green';
+		colorMs3 = 'green, green';
 	}
 	if (pointsF === 0) {
 		gradientFysisk = 'darkorange, yellow';
 	}
 	if (pointsF >= 1) {
 		gradientFysisk = 'lightgreen, yellow';
-		gradientF1 = 'green, green';
+		colorF1 = 'green, green';
 	}
 	if (pointsF >= 2) {
 		gradientFysisk = 'green, yellow';
-		gradientF1 = 'green, green';
-		gradientF2 = 'green, green';
+		colorF1 = 'green, green';
+		colorF2 = 'green, green';
 	}
 	if (pointsF >= 3) {
 		gradientFysisk = 'darkgreen, yellow';
-		gradientF1 = 'green, green';
-		gradientF2 = 'green, green';
-		gradientF3 = 'green, green';
+		colorF1 = 'green, green';
+		colorF2 = 'green, green';
+		colorF3 = 'green, green';
 	}
 	if (pointsL === 0) {
 		gradientLag = 'darkorange, yellow';
 	}
 	if (pointsL >= 1) {
 		gradientLag = 'lightgreen, yellow';
-		gradientL1 = 'green, green';
+		colorL1 = 'green, green';
 	}
 	if (pointsL >= 2) {
 		gradientLag = 'green, yellow';
-		gradientL1 = 'green, green';
-		gradientL2 = 'green, green';
+		colorL1 = 'green, green';
+		colorL2 = 'green, green';
 	}
 	if (pointsL >= 3) {
 		gradientLag = 'darkgreen, yellow';
-		gradientL1 = 'green, green';
-		gradientL2 = 'green, green';
-		gradientL3 = 'green, green';
+		colorL1 = 'green, green';
+		colorL2 = 'green, green';
+		colorL3 = 'green, green';
 	}
 }
 
