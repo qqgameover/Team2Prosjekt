@@ -250,6 +250,7 @@ async function handleSignoutClick(event, googleUser) {
 	model.app.currentName = ""
 	model.app.currentUser = ""
 	updateView();
+	window.location.reload(true);
 }
 
 
