@@ -1,4 +1,3 @@
-
 function updateViewMain() {
 	let html = ""
 	html = `
@@ -19,12 +18,12 @@ function updateViewMain() {
 	<div style="background-image: linear-gradient(to bottom right,${gradientMessage});"
 		class="grid-item" onclick="gotoMeldinger()"> Meldinger
 		<div class="gridInsideAGrid">
-			<div id="pointsG" style="background-image:
+			<div id="pointsG" style="background-image: 
 			linear-gradient(to bottom right,${colorM1});"></div>
 			<div id="pointsG" style="background-image: 
-				linear-gradient(to bottom right,${colorM2});"></div>
+			linear-gradient(to bottom right,${colorM2});"></div>
 			<div id="pointsG" style="background-image: 
-				linear-gradient(to bottom right,${colorM3});"></div>
+			linear-gradient(to bottom right,${colorM3});"></div>
 		</div>		
 	</div>
 
@@ -69,4 +68,3 @@ function updateViewMain() {
 `
 	return html
 }
-

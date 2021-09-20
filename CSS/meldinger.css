@@ -23,13 +23,17 @@ font-size: 20px;
 }
 
 li{
-	color: blue;
+	color: black;
 	list-style-type: none;
-	text-decoration: underline;
+	padding: 5px;
 }
 
 li:visited{
-	color:black;
+	color: blue;
+}
+
+li:hover, li:active {
+	color: hotpink;
 }
 
 #focusInput {
@@ -40,7 +44,7 @@ li:visited{
 	background-color: white;
 	color: #300C09;
 	margin: 0px;
-	font-size: 16px;
+	font-size: 20px;
 }
 
 .containerMessages {
@@ -51,7 +55,11 @@ li:visited{
 	border: 2px black;
 	margin: 10px;
 	
-	
+}
+
+option {
+	font-size: 20px;
+	font-weight: bold;
 }
 
 .containerForFluff {
@@ -62,16 +70,17 @@ li:visited{
 	padding-top: 50px;
 	padding-right: 50px;
 	padding-left: 50px; 
+	background-color: white;
 }
 
 #valgtMelding{
 	float: left;
 	margin-left: 20px; 
 	width: 75%;
-	font-size: 17px;
+	font-size: 25px;
 	margin: 0px;
 	padding: 10px;
-	margin-right: 20px;
+	margin-right: 25px;
 	font-weight: bolder;
 	color: #300C09;
 }
@@ -84,7 +93,8 @@ li:visited{
 	/* color: white; */
 	float: right;
 	text-align: center;
-	font-size: 16px;
+	font-size: 20px;
+	font-weight: bolder;
 	cursor: pointer;
 	transition: 0.3s;
 	border-radius: 0;

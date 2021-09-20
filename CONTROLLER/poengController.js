@@ -8,6 +8,10 @@
 //			//
 //			//
 //__________//
+
+
+
+
 let gradientMessage = 'orange, yellow';
 
 let colorM1 = 'white, white';
@@ -33,28 +37,27 @@ let colorL2 = 'white, white';
 let colorL3 = 'white, white';
 
 //Eksorsisten har kommet
-
+let pointsM = 0;
+let pointsF = 0;
+let pointsMs = 0;
+let pointsL = 0;
 
 //Kasper fikser
 function countPoints() {
-	let pointsM = 0;
-	let pointsF = 0;
-	let pointsMs = 0;
-	let pointsL = 0;
+	pointsM = 0;
+	pointsF = 0;
+	pointsMs = 0;
+	pointsL = 0;
 	for (let i = 0; i < model.data.statistikk.achievements.length; i++) {
 		if (model.app.currentUser == model.data.statistikk.achievements[i].userName) {
 			if (model.data.statistikk.achievements[i].taskId == 0) {
 				pointsM += model.data.statistikk.achievements[i].points;
-				console.log(pointsM);
 			} if (model.data.statistikk.achievements[i].taskId == 2) {
 				pointsF += model.data.statistikk.achievements[i].points;
-				console.log(pointsF);
 			} if (model.data.statistikk.achievements[i].taskId == 3) {
 				pointsMs += model.data.statistikk.achievements[i].points;
-				console.log(pointsMs);
 			} if (model.data.statistikk.achievements[i].taskId == 4) {
 				pointsL += model.data.statistikk.achievements[i].points;
-				console.log(pointsL);
 			}
 		}
 	}
@@ -136,24 +139,31 @@ function visualNightmare(pointsM, pointsF, pointsMs, pointsL) {
 	}
 }
 
-
 //hjelp....
 function addPoints() {
-	const achievementsMap = model.data.statistikk.achievements.map((achievements) => {
-		return { userName: achievements.userName, tid: achievements.tid, taskId: achievements.taskId, points: achievements.points, pointsNotAdded: achievements.pointsNotAdded, };
-	});
-	// console.log(achievementsMap)
-	const instanserMap = model.data.statistikk.instanser.map((element) => {
-		return element;
-	})
-	achievementsMap.forEach((achievements, index) => {
-		instanserMap.find((instanser, instIndex) => {
-			if (instanser.userName == achievements.userName && achievements.pointsNotAdded == true) {
-				model.data.statistikk.achievements[index] = { userName: achievements.userName, tid: achievements.tid, taskId: achievements.taskId, points: achievements.points, pointsNotAdded: false }
-				model.data.statistikk.instanser[instIndex] = { id: instanser.id, parent: instanser.parent, points: instanser.points + achievements.points, navn: instanser.navn, userName: instanser.userName }
-			};
-		});
-	});
+	for (let i = 0; i < model.data.statistikk.instanser.length; i++) {
+		for (let j = 0; j < model.data.statistikk.achievements.length; j++) {
+			if (model.data.statistikk.instanser[i].userName == model.data.statistikk.achievements[j].userName &&
+				model.data.statistikk.achievements[j].pointsNotAdded == true) {
+				model.data.statistikk.instanser[i] =
+				{
+					id: model.data.statistikk.instanser[i].id,
+					parent: model.data.statistikk.instanser[i].parent,
+					points: model.data.statistikk.instanser[i].points + model.data.statistikk.achievements[j].points,
+					navn: model.data.statistikk.instanser[i].navn,
+					userName: model.data.statistikk.instanser[i].userName
+				}
+				model.data.statistikk.achievements[j] =
+				{
+					userName: model.data.statistikk.achievements[j].userName,
+					tid: model.data.statistikk.achievements[j].tid,
+					taskId: model.data.statistikk.achievements[j].taskId,
+					points: model.data.statistikk.achievements[j].points,
+					pointsNotAdded: false
+				}
+			}
+		}
+	}
 	countPoints();
 	console.log("dataReady");
 	updateView();

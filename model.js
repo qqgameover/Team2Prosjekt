@@ -62,13 +62,13 @@ const model = {
 			antallMeldinger: 0,
 			meldinger: [],
 			instanser: [
-				{ id: 1, skole: "UngdomsskoleA", parent: null, klasse: null, points: 3009, navn: null },
-				{ id: 2, skole: "UngdomsskoleB", parent: null, klasse: null, points: 2003, navn: null },
-				{ id: 3, skole: "UngdomsskoleC", parent: null, klasse: null, points: 3119, navn: null },
-				{ id: 18, klasse: "8A", parent: 1, points: 301, besteElev: "Tobias", navn: null },
-				{ id: 4, klasse: "8B", parent: 1, points: 320, besteElev: "Jeanette", navn: null },
-				{ id: 5, klasse: "5A", parent: 1, points: 299, besteElev: "Sharlotte", navn: null },
-				{ id: 19, klasse: "5B", parent: 1, points: 285, besteElev: "Kaja", navn: null },
+				{ id: 1, skole: "UngdomsskoleA", parent: null, klasse: null, points: 0, navn: null },
+				{ id: 2, skole: "UngdomsskoleB", parent: null, klasse: null, points: 0, navn: null },
+				{ id: 3, skole: "UngdomsskoleC", parent: null, klasse: null, points: 0, navn: null },
+				{ id: 18, klasse: "8A", parent: 1, points: 0, besteElev: "Tobias", navn: null },
+				{ id: 4, klasse: "8B", parent: 1, points: 0, besteElev: "Jeanette", navn: null },
+				{ id: 5, klasse: "5A", parent: 1, points: 0, besteElev: "Sharlotte", navn: null },
+				{ id: 19, klasse: "5B", parent: 1, points: 0, besteElev: "Kaja", navn: null },
 				{ id: 20, parent: 4, points: 0, navn: "Terje", userName: 'terje@kolderup.net' },
 				{ id: 21, parent: 4, points: 0, navn: "Jostein", userName: 'jostein@getacademy.no' },
 				{ id: 22, parent: 4, points: 0, navn: "Mailinn", userName: 'mailinn@getacademy.no' },
@@ -146,6 +146,9 @@ const model = {
 
 async function getData() {
 	try {
+		for (let i = 0; i < model.data.statistikk.instanser.length; i++) {
+			model.data.statistikk.instanser[i].points = 0;
+		}
 		model.data.statistikk.achievements = [];
 		const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQNw10gr74fMdO2wuZGzBYwBzuJsTcJZXmEP3daKXHJO1fEJy0Af-qlusaIn_kBrSrSk7BSWog-xcC7/pub?output=csv';
 		let response = await axios.get(url);
