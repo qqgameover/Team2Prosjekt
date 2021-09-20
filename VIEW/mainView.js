@@ -19,12 +19,12 @@ function updateViewMain() {
 	<div style="background-image: linear-gradient(to bottom right,${gradientMessage});"
 		class="grid-item" onclick="gotoMeldinger()"> Meldinger
 		<div class="gridInsideAGrid">
+			<div id="pointsG" style="background-image:
+			linear-gradient(to bottom right,${colorM1});"></div>
 			<div id="pointsG" style="background-image: 
-				linear-gradient(to bottom right,${gradientM1});"></div>
+				linear-gradient(to bottom right,${colorM2});"></div>
 			<div id="pointsG" style="background-image: 
-				linear-gradient(to bottom right,${gradientM2});"></div>
-			<div id="pointsG" style="background-image: 
-				linear-gradient(to bottom right,${gradientM3});"></div>
+				linear-gradient(to bottom right,${colorM3});"></div>
 		</div>		
 	</div>
 
@@ -32,11 +32,11 @@ function updateViewMain() {
 		class="grid-item" onclick="gotoKategorier(3)">Mental Styrke
 		<div class="gridInsideAGrid">
 			<div id="pointsG" style="background-image: 
-				linear-gradient(to bottom right,${gradientMental1});"></div>
+				linear-gradient(to bottom right,${colorMs1});"></div>
 			<div id="pointsG" style="background-image: 
-				linear-gradient(to bottom right,${gradientMental2});"></div>
+				linear-gradient(to bottom right,${colorMs2});"></div>
 			<div id="pointsG" style="background-image: 
-				linear-gradient(to bottom right,${gradientMental3});"></div>
+				linear-gradient(to bottom right,${colorMs3});"></div>
 		</div>
 	</div>
 
@@ -44,11 +44,11 @@ function updateViewMain() {
 		class="grid-item" onclick="gotoKategorier(2)">Fysisk Aktivitet
 		<div class="gridInsideAGrid">
 			<div id="pointsG" style="background-image: 
-				linear-gradient(to bottom right,${gradientF1});"></div>
+				linear-gradient(to bottom right,${colorF1});"></div>
 			<div id="pointsG" style="background-image: 
-				linear-gradient(to bottom right,${gradientF2});"></div>
+				linear-gradient(to bottom right,${colorF2});"></div>
 			<div id="pointsG" style="background-image: 
-				linear-gradient(to bottom right,${gradientF3});"></div>
+				linear-gradient(to bottom right,${colorF3});"></div>
 		</div>
 	</div>
 
@@ -56,11 +56,11 @@ function updateViewMain() {
 		class="grid-item" onclick="gotoKategorier(4)">Lagånd
 		<div class="gridInsideAGrid">
 			<div id="pointsG" style="background-image: 
-				linear-gradient(to bottom right,${gradientL1});"></div>
+				linear-gradient(to bottom right,${colorL1});"></div>
 			<div id="pointsG" style="background-image: 
-				linear-gradient(to bottom right,${gradientL2});"></div>
+				linear-gradient(to bottom right,${colorL2});"></div>
 			<div id="pointsG" style="background-image: 
-				linear-gradient(to bottom right,${gradientL3});"></div>
+				linear-gradient(to bottom right,${colorL3});"></div>
 		</div>
 	</div>	
 </div>		

@@ -78,6 +78,7 @@ const model = {
 				{ id: 25, parent: 4, points: 490, navn: "Joakim", userName: "joakim@getacademy.no" },
 				{ id: 26, parent: 4, points: 20, navn: "Merete Berdal", userName: "merete.berdal@jotron.com" },
 				{ id: 27, parent: 4, points: 200, navn: "Geir", userName: "geir@getacademy.no" },
+				{ id: 28, parent: 4, points: 100, navn: "Kenneth", userName: "kenneth@getacademy.no" },
 			],
 			achievements: [],
 		},
