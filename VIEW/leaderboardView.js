@@ -11,7 +11,12 @@ function updateViewLeaderboard() {
 	rankingIndivid = [];
 	let html = "";
 	html = `
-	<div class="tableParent">
+	<div class="navbar navbar-expand-lg">
+	<a class="nav-item" href="#Lederbrett" onclick="gotoLederbrett()">Lederbrett</a>
+	<a class="nav-item" href="#Hjem" onclick="gotoH()">Hjem</a>
+	<a class="nav-item" href="#" class="previous round" onclick="goBack()">&#8249;</a>
+</div>
+	<div class="tableParent ">
 		<div class="leaderboard-grid">        
 			<table class="leaderboardTable">
 				<tr>
@@ -35,12 +40,6 @@ function updateViewLeaderboard() {
 			</table>
 		</div>
 	</div>	
-
-	<div class="navbar">
-		<a href="#Lederbrett" onclick="gotoLederbrett()">Lederbrett</a>
-		<a href="#Hjem" onclick="gotoH()" class="fa fa-home"></a>
-		<a href="#" class="previous round" onclick="goBack()">&#8249;</a>
-	</div>
     
 		`;
 

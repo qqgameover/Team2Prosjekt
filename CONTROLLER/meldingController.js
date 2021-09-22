@@ -30,7 +30,9 @@ function suggestionPrinter(input) {
 function makeSuggestions(terms) {
 	let list = '';
 	for (i = 0; i < terms.length; i++) {
-		list += `<li onclick="mottaker = '${terms[i]}' ; mottakerUserName = findUserName('${terms[i]}') ; suggestions = suggestionPrinter(this.value) ; updateView()">` + terms[i] + '</li>';
+		list += `<li onclick="mottaker = '${terms[i]}' ; mottakerUserName = findUserName('${terms[i]}') ; 
+		suggestions = suggestionPrinter(this.value) ; styled = 'display: hidden' ; updateView()"
+		>` + terms[i] + '</li>';
 	}
 	return '<div id="suggestionsList">' + list + '</div>';
 }

@@ -4,6 +4,7 @@ let leddValg = [[], [], [], []];
 let mottaker = "";
 let mottakerUserName = "";
 let suggestions = "";
+let styled = "display: hidden;"
 function updateViewMeldinger() {
 	let html = "";
 	let leddArray = [[], [], [], []];
@@ -25,18 +26,25 @@ function updateViewMeldinger() {
 	}
 	ledd();
 	html = `
+	<div class="navbar navbar-expand-lg">
+	<a class="nav-item" href="#Lederbrett" onclick="gotoLederbrett()">Lederbrett</a>
+	<a class="nav-item" href="#Hjem" onclick="gotoH()">Hjem</a>
+	<a class="nav-item" href="#" class="previous round" onclick="goBack()">&#8249;</a>
+</div>
 	<div id="top"></div> 
 	<div class="containerInput">
 		<label for="messageSearch">Send melding til:
-			<input id="focusInput" autocomplete="off" 
-				onclick="suggestions = suggestionPrinter(null); updateView() ; focusMethod(this.id)" 
-				oninput="suggestions = suggestionPrinter(this.value) ; 
+			<input id="focusInput" autocomplete="off" class="form-text"
+				onclick="suggestions = suggestionPrinter(null) ; styled = 'border: black solid 1px' ; updateView() ; 
+				focusMethod(this.id)"  
+				oninput="suggestions = suggestionPrinter(this.value) ;
+				styled = 'border: black solid 1px' ; 
 				mottakerUserName = findUserName(this.value) ; 
 				mottaker = this.value ; updateView() ; 
 				focusMethod(this.id)" ; value = "${mottaker}"
 			/>
-		</label>
-		<div id="suggestions">${suggestions}</div>
+		</label> 
+		<div style="${styled}" id="suggestions">${suggestions}</div>
 	</div>
 	<div class="containerMessages"> `
 
@@ -61,18 +69,12 @@ function updateViewMeldinger() {
 	</div>
 	<div class="containerForFluff">
 	<p id="valgtMelding">${leddValg[0]} ${leddValg[1]} ${leddValg[2]} ${leddValg[3]}</p>
-	<button class="sendButton" 
+	<button class="btn btn-danger btn-lg" 
 		onclick="sendMessage(leddValg[0], leddValg[1], leddValg[2], leddValg[3], mottakerUserName, model.app.currentUser) ;
 		 mottaker = '' ; mottakerUserName = '' ; updateView()">
 		Send melding
 	</button>
 	</div>
-
-	<div class="navbar">
-		<a href="#Lederbrett" onclick="gotoLederbrett()">Lederbrett</a>
-		<a href="#Hjem" onclick="gotoH()" class="fa fa-home"></a>
-		<a href="#" class="previous round" onclick="goBack()">&#8249;</a>
-
-	</div>`
+	`
 	return html;
 }

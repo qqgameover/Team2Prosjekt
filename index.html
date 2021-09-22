@@ -16,6 +16,9 @@
 	<link rel="stylesheet" href="CSS/kategorier.css">
 	<link rel="stylesheet" href="CSS/mainstyle.css">
 	<link rel="stylesheet" href="CSS/leaderboard.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+		crossorigin="anonymous">
 
 	<title>Wishing Others Well</title>
 
@@ -33,13 +36,13 @@
 	<script src="CONTROLLER/videoController.js"></script>
 	<script src="CONTROLLER/meldingController.js"></script>
 	<script src="CONTROLLER/poengController.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 	<script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
 		onreadystatechange="if (this.readyState === 'complete') this.onload()">
 		</script>
-
-
-
 </head>
 
 <body>
@@ -48,7 +51,6 @@
 
 	<script>
 
-		//1. Fikse logoutknappen(tja.)
 		//3. Refaktoring (Alle)
 		//6. Lage funksjon som sletter google docs etter en viss tid(kasper fikse)
 		//7. Lage funksjon som sletter poeng (Etter dagsmål)
@@ -87,7 +89,7 @@
 		function gotoH() {
 			model.app.previousPage = [];
 			model.app.currentPage = 'main';
-			updateView();
+			getData();
 		}
 
 		function gotoKategorier(id) {
@@ -99,13 +101,13 @@
 		function gotoLederbrett() {
 			lastPage();
 			model.app.currentPage = "leaderboard";
-			updateView();
+			getData();
 		}
 
 		function gotoMeldinger() {
 			lastPage();
 			model.app.currentPage = "meldinger";
-			updateView();
+			getData();
 		}
 
 		function goBack() {
