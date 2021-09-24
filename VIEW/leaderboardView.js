@@ -1,4 +1,4 @@
-//Mailinn og Kasper
+//Mailinn og Kasper men Kasper tar mest av æren 8)
 let rankingSkole = [];
 let rankingKlasse = [];
 let rankingIndivid = [];
