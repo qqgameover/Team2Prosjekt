@@ -1,5 +1,3 @@
-const { text } = require("stream/consumers");
-
 function previousPageAdder(id, kategori, point) {
 	if (id < 14) {
 		let pageToAdd = model.data.taskNodes[id - 1].parent;
