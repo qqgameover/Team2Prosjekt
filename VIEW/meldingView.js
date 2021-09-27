@@ -69,7 +69,7 @@ function updateViewMeldinger() {
 	</div>
 	<div class="containerForFluff">
 	<p id="valgtMelding">${leddValg[0]} ${leddValg[1]} ${leddValg[2]} ${leddValg[3]}</p>
-	<button class="btn btn-danger btn-lg" 
+	<button class="btn btn-danger btn-lg sendButton" 
 		onclick="sendMessage(leddValg[0], leddValg[1], leddValg[2], leddValg[3], mottakerUserName, model.app.currentUser) ;
 		 mottaker = '' ; mottakerUserName = '' ; updateView()">
 		Send melding

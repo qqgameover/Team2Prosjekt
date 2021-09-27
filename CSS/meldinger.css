@@ -107,8 +107,9 @@ option {
 	border-radius: 0;
 }
 
-.sendButton:hover {
-	background-color: #bbb;
+.sendButton:active {
+	background-color: green;
+	transform: scale(1.1);
 }
 
 #select0, #select1, #select2, #select3{
