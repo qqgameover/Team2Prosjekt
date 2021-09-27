@@ -69,7 +69,7 @@ const model = {
 				{ id: 4, klasse: "8B", parent: 1, points: 0, besteElev: "Jeanette", navn: null },
 				{ id: 5, klasse: "5A", parent: 1, points: 0, besteElev: "Sharlotte", navn: null },
 				{ id: 19, klasse: "5B", parent: 1, points: 0, besteElev: "Kaja", navn: null },
-				{ id: 20, parent: 4, points: 0, navn: "Terje", userName: 'terje@kolderup.net' },
+				{ id: 20, parent: 4, points: 0, navn: "Terje", userName: 'terje@getacademy.no' },
 				{ id: 21, parent: 4, points: 0, navn: "Jostein", userName: 'jostein@getacademy.no' },
 				{ id: 22, parent: 4, points: 0, navn: "Mailinn", userName: 'mailinn@getacademy.no' },
 				{ id: 24, parent: 4, points: 0, navn: "Kasper", userName: 'kasper@getacademy.no' },
