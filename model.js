@@ -148,36 +148,24 @@ const model = {
 
 async function getData() {
 	try {
-		for (let i = 0; i < model.data.statistikk.instanser.length; i++) {
-			model.data.statistikk.instanser[i].points = 0;
-		}
 		model.data.statistikk.achievements = [];
-		const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQNw10gr74fMdO2wuZGzBYwBzuJsTcJZXmEP3daKXHJO1fEJy0Af-qlusaIn_kBrSrSk7BSWog-xcC7/pub?output=csv';
-		let response = await axios.get(url);
-		let responseToArray = await response.data.split(/(?:\\[rn]|[\r\n]+)+/g);
-		const prettyfiedData = [];
-		const splitData = [];
-		let i, j, temporary, chunk = 1;
-		for (i = 0, j = await responseToArray.length; i < j; i += chunk) {
-			temporary = await responseToArray.slice(i, i + chunk);
-			prettyfiedData.push(temporary);
-		}
-		for (i = 0; i < prettyfiedData.length; i++) {
-			const string = prettyfiedData[i].toString()
-			splitData.push(string.split(","));
-		}
-		const toObjects = splitData.map((data, index) => {
-			if (index == 0) return;
-			return { tid: data[0], userName: data[1], mottaker: data[2], taskId: parseInt(data[3]), points: parseInt(data[4]), pointsNotAdded: true }
+		Papa.parse('https://docs.google.com/spreadsheets/d/e/2PACX-1vQNw10gr74fMdO2wuZGzBYwBzuJsTcJZXmEP3daKXHJO1fEJy0Af-qlusaIn_kBrSrSk7BSWog-xcC7/pub?output=csv', {
+			download: true,
+			worker: true,
+			complete: function (results) {
+				const mappedData = results.data.map((e, index) => {
+					if (index == 0) return;
+					return { tid: e[0], userName: e[1], mottaker: e[2], taskId: parseInt(e[3]), points: parseInt(e[4]), pointsNotAdded: true }
+				})
+				const filterdData = mappedData.filter((e) => e)
+				model.data.statistikk.achievements = filterdData;
+				addPoints();
+			}
 		})
-		const toObjectsFiltered = toObjects.filter((p) => p)
-		model.data.statistikk.achievements = toObjectsFiltered;
-		addPoints();
 	} catch (e) {
 		console.error(e)
 	}
 }
-
 var CLIENT_ID = '<YOUR_CLIENT_ID>';
 let API_KEY = 'AIzaSyDObDZWxzHqPFghxyANvxwMbwmFFGumpTM';
 //{input/googleuser} => 
