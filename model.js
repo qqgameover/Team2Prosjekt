@@ -158,7 +158,7 @@ async function getData() {
 		const prettyfiedData = [];
 		const splitData = [];
 		let i, j, temporary, chunk = 1;
-		for (i = 0, j = responseToArray.length; i < j; i += chunk) {
+		for (i = 0, j = await responseToArray.length; i < j; i += chunk) {
 			temporary = responseToArray.slice(i, i + chunk);
 			prettyfiedData.push(temporary);
 		}
