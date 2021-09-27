@@ -148,6 +148,9 @@ const model = {
 
 async function getData() {
 	try {
+		for (let i = 0; i < model.data.statistikk.instanser.length; i++) {
+			model.data.statistikk.instanser[i].points = 0;
+		}
 		model.data.statistikk.achievements = [];
 		let response = await Papa.parse('https://docs.google.com/spreadsheets/d/e/2PACX-1vQNw10gr74fMdO2wuZGzBYwBzuJsTcJZXmEP3daKXHJO1fEJy0Af-qlusaIn_kBrSrSk7BSWog-xcC7/pub?output=csv', {
 			download: true,
