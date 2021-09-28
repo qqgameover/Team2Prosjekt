@@ -11,7 +11,7 @@ function updateViewMain() {
 	</div>
 
 	<h1 class="headerMain">Gjør hverdagen skjønn med mer grønn!</h1>
-
+<div class="container">
 <div class="mainGrid">
 	
 
@@ -63,7 +63,7 @@ function updateViewMain() {
 		</div>
 	</div>	
 </div>		
-	
+</div>	
 
 `
 	return html
