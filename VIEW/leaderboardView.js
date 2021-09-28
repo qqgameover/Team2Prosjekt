@@ -84,11 +84,6 @@ function updateViewLeaderboard() {
 }
 
 function createTableRow(rankingParam, klasseRankingParam, elevRankingParam) {
-	// const topgroup = model.data.statistikk.instanser[i]; //Beste skole
-	//Beste klasse i din skole	
-	// const subgroup = model.data.statistikk.instanser[i]; //Beste elev i din klasse
-	// const points = model.data.statistikk.instanser[i]; //Poeng
-
 	return `
 	<div class="leaderboard-grid">
 		<table class="leaderboardTable">
