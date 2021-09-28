@@ -44,9 +44,7 @@ function updateViewLeaderboard() {
 		`;
 
 	// brukes til å sortere de leaderboardsa. Kan systemet burde være robust nok til å fungere for x antall
-	// klasse, skoler og elever, men vi tar ikke hennsyn til antall elever per klasse. Dette kan legges til
-
-
+	// klasse, skoler og elever, men vi tar ikke hennsyn til antall elever per klasse. Dette kan legges til.
 	for (let i = 0; i < model.data.statistikk.instanser.length; i++) {
 		if (!model.data.statistikk.instanser[i].parent) {
 			rankingSkole.push(model.data.statistikk.instanser[i])
