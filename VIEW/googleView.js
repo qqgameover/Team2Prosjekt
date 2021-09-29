@@ -1,5 +1,4 @@
 //Weeeeeeee Gapi Test 
-
 function googleView() {
 	let html = ""
 	html = `
