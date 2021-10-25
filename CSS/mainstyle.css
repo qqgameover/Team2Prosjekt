@@ -11,14 +11,23 @@
   display: grid;
   grid-template-columns: 50% 50%;
   place-content: center;
-  padding: 40px;
-  margin: auto;
+  padding: 10px;
+  margin: 0px;
   height: 80vh;
 }
 
 .headerMain{
   position: relative;
-  margin-top: 100px;
+  margin-top: 80px;
+  font-size: 80px;
+  font-weight: 800;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+}
+.subHeader {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,7 +36,7 @@
 #pointsG {
   border: 2px black;
   padding: 20px;
-  margin-top: 30px;
+  margin-top: 10px;
   margin-bottom: 0px;
   max-height: 10px;
 }
@@ -35,12 +44,26 @@
 .grid-item {
 border: 2px solid  black;
 border-radius: 10px;
-padding: 60px;
+padding: 40px;
 margin: 5px; 
 max-width: 860px;
 font-size: 40px;
 text-align: center;
 /* background-color: white; */
+}
+
+.imgLeft {
+  position: absolute;
+	top: 120px;
+	left: 30px;
+}
+.imgRight {
+  position: absolute;
+	top: 120px;
+	right: 30px;
+}
+#lhkBilde {
+  height: 200px;
 }
 
 .gridInsideAGrid{

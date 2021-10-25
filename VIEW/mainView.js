@@ -9,12 +9,15 @@ function updateViewMain() {
 		<a class="nav-item" onclick="handleSignoutClick(event)">Logg ut
 		</a>
 	</div>
-
-	<h1 class="headerMain">Gjør hverdagen skjønn med mer grønn!</h1>
+	<div class="container">
+	<h1 class="headerMain">WOW</h1>
+	<h1 class="subHeader">I LARVIKSKOLEN</h1></div>
+<div class="imgLeft">
+	<a href="https://imgbb.com/"><img id="larvikBilde" src="https://i.ibb.co/rwn3rbj/larvik-Kom.png" alt="larvik-Kom" border="0"></a></div>
+<div class="imgRight">
+	<a href="https://imgbb.com/"><img id="lhkBilde" src="https://i.ibb.co/Sf5F7MD/lhk.png" alt="lhk" border="0"></a></div>
 <div class="container">
 <div class="mainGrid">
-	
-
 	<div style="background-image: linear-gradient(to bottom right,${gradientMessage});"
 		class="grid-item" onclick="gotoMeldinger()"> Meldinger
 		<div class="gridInsideAGrid">
