@@ -9,6 +9,8 @@ body {
   background-color: white;
 }
 
+html, body {margin: 0; height: 100%; overflow: hidden}
+
 /* Place the navbar at the bottom of the page, and make it stick */
 .navbar {
   background-color: rgb(220, 20, 60);

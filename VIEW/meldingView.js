@@ -29,8 +29,12 @@ function updateViewMeldinger() {
 	<div class="navbar navbar-expand-lg">
 	<a class="nav-item" href="#Lederbrett" onclick="gotoLederbrett()">Lederbrett</a>
 	<a class="nav-item" href="#Hjem" onclick="gotoH()">Hjem</a>
-	<a class="nav-item" href="#" class="previous round" onclick="goBack()">&#8249;</a>
+	<a class="nav-item" href="#" class="previous round" onclick="goBack()">Tilbake</a>
 </div>
+<div class="imgLeftm">
+	<a href="https://imgbb.com/"><img id="LBildem" src="https://i.ibb.co/rwn3rbj/larvik-Kom.png" alt="larvik-Kom" border="0"></a></div>
+<div class="imgRightm">
+	<a href="https://imgbb.com/"><img id="lhkBildem" src="https://i.ibb.co/Sf5F7MD/lhk.png" alt="lhk" border="0"></a></div>
 	<div id="top"></div> 
 	<div class="containerInput">
 		<label for="messageSearch">Send melding til:

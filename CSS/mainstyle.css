@@ -13,7 +13,7 @@
   place-content: center;
   padding: 10px;
   margin: 0px;
-  height: 80vh;
+  height: 50vh;
 }
 
 .headerMain{
@@ -84,6 +84,12 @@ text-align: center;
   }
 }
 
+.totd {
+	text-align: center;
+	margin: 0;
+	padding-top: 70px;
+  padding-bottom: 0px;
+}
 
 * {
   box-sizing: border-box;

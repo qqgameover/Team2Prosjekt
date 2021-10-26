@@ -135,8 +135,26 @@ font-size: 15px;
 #select0::-webkit-scrollbar, #select1::-webkit-scrollbar, #select2::-webkit-scrollbar, #select3::-webkit-scrollbar {
 	display: none;
 }
-#larvikBilde {
-	padding: 0;
+
+.imgLeftm {
+	position: absolute;
+	      top: 120px;
+	      left: 30px;
+      }
+.imgRightm {
+	position: absolute;
+	      top: 120px;
+	      right: 30px;
+}
+#lhkBildem, #LBildem {
+	height: 100px;
+}
+.bold {
+	font-weight: 700;
+	font-size: 30;
+}
+.totd {
+	text-align: center;
 	margin: 0;
-	image-resolution: 100px 100px;
+	padding: 0;
 }

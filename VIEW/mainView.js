@@ -17,6 +17,7 @@ function updateViewMain() {
 <div class="imgRight">
 	<a href="https://imgbb.com/"><img id="lhkBilde" src="https://i.ibb.co/Sf5F7MD/lhk.png" alt="lhk" border="0"></a></div>
 <div class="container">
+<h3 class="totd">HVA VIL DU ØVE PÅ I DAG?</h3>
 <div class="mainGrid">
 	<div style="background-image: linear-gradient(to bottom right,${gradientMessage});"
 		class="grid-item" onclick="gotoMeldinger()"> Meldinger
