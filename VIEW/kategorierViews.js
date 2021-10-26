@@ -24,25 +24,24 @@ function updateViewKategorier() {
 	`;
 	}
 	let tasks = [];
-	const taskManager = () => {
+	taskManager();
+	buttonCreator();
+	function taskManager() {
 		for (let i = 0; i < model.data.taskNodes.length; i++) {
 			if (model.data.taskNodes[i].parent == model.app.pageId) {
 				tasks.push(model.data.taskNodes[i]);
 			}
 		}
 	}
-	const buttonCreator = () => {
+	function buttonCreator() {
 		for (let i = 0; i < tasks.length; i++) {
 			html += `<button 	
 						class="btn btn-danger btn-lg katBtn" 
 						onclick="previousPageAdder(${tasks[i].id}, ${tasks[i].grandparent}, ${tasks[i].points})">
 						${tasks[i].name}
-					</button>`
+					</button>`;
 		}
 	}
-
-	taskManager();
-	buttonCreator();
 	html +=
 		`</div>
 		 </div>
