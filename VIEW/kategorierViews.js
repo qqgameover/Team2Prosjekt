@@ -4,7 +4,7 @@
 
 function updateViewKategorier() {
 	let html = "";
-	if (model.app.currentVideo == "https://i.ibb.co/26HtgMf/fixed-Fordel.jpg" || model.app.currentVideo == "https://i.ibb.co/VSvrB3j/gratitude.jpg") {
+	if (model.app.currentVideo == "https://i.ibb.co/KLgPwPJ/fysisk.png" || model.app.currentVideo == "https://i.ibb.co/H27YZxv/mental-styrke.png") {
 		html = `<div class="parent">
 	<div class="visual">
 		<img width="800" height="500" src="${model.app.currentVideo}"></img>

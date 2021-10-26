@@ -18,8 +18,8 @@ const model = {
 	data: {
 		taskNodes: [
 			{ id: 1, name: 'mainView', parent: null },
-			{ id: 2, name: 'Fysisk', parent: 1, videoUrl: "https://i.ibb.co/26HtgMf/fixed-Fordel.jpg" },
-			{ id: 3, name: 'Mental-styrke', parent: 1, videoUrl: "https://i.ibb.co/VSvrB3j/gratitude.jpg" },
+			{ id: 2, name: 'Fysisk', parent: 1, videoUrl: "https://i.ibb.co/KLgPwPJ/fysisk.png" },
+			{ id: 3, name: 'Mental-styrke', parent: 1, videoUrl: "https://i.ibb.co/H27YZxv/mental-styrke.png" },
 			{ id: 4, name: 'Lagaand', parent: 1, videoUrl: 'https://www.youtube-nocookie.com/embed/JB-G_o9WB9E?rel=0;showinfo=0&modestbranding=1', },
 			{ id: 5, name: 'KNEBØY', parent: 2, videoUrl: 'https://www.youtube-nocookie.com/embed/lFsSFTQVcCQ?rel=0;showinfo=0&modestbranding=1', },
 			{ id: 6, name: 'UTFALL', parent: 2, videoUrl: 'https://www.youtube-nocookie.com/embed/uZsVLQ9xpXc?rel=0;showinfo=0&modestbranding=1', },
