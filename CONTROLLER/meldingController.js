@@ -1,10 +1,10 @@
 //Kasper B)
 
 function searchName(input) {
-	const searchUnfilted = model.data.statistikk.instanser.map(function (α) {
-		return α.navn;
+	const searchUnfilted = model.data.statistikk.instanser.map((a) => {
+		return a;
 	});
-	const searchFiltered = searchUnfilted.filter((p) => p)
+	const searchFiltered = searchUnfilted.filter((p) => p.navn)
 	const reg = new RegExp(input, "i")
 	if (input == null) {
 		{
@@ -12,8 +12,8 @@ function searchName(input) {
 		}
 	} else {
 		return searchFiltered.filter((term) => {
-			if (term.match(reg)) {
-				return term;
+			if (term.navn.match(reg) && term.parent == model.app.currentUserKlasse) {
+				return term.navn;
 			} else {
 				return;
 			}
@@ -30,9 +30,11 @@ function suggestionPrinter(input) {
 function makeSuggestions(terms) {
 	let list = '';
 	for (i = 0; i < terms.length; i++) {
-		list += `<li onclick="mottaker = '${terms[i]}' ; mottakerUserName = findUserName('${terms[i]}') ; 
+		if (terms[i].parent == model.app.currentUserKlasse && terms[i].userName != model.app.currentUser) {
+			list += `<li onclick="mottaker = '${terms[i].navn}' ; mottakerUserName = findUserName('${terms[i].navn}') ; 
 		suggestions = suggestionPrinter(this.value) ; styled = 'display: hidden' ; updateView()"
-		>` + terms[i] + '</li>';
+		>` + terms[i].navn + '</li>';
+		}
 	}
 	return '<div id="suggestionsList">' + list + '</div>';
 }

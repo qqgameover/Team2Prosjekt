@@ -3,7 +3,7 @@ const model = {
 		currentPage: 'google',
 		currentUser: "",
 		currentName: "",
-		currentUserKlasse: 4,
+		currentUserKlasse: "",
 		currentTaskId: 2,
 		currentVideo: '',
 		pageId: 1,
@@ -66,13 +66,13 @@ const model = {
 				{ id: 20, parent: 4, points: 0, navn: "Terje", userName: 'terje@getacademy.no' },
 				{ id: 21, parent: 4, points: 0, navn: "Jostein", userName: 'jostein@getacademy.no' },
 				{ id: 22, parent: 4, points: 0, navn: "Mailinn", userName: 'mailinn@getacademy.no' },
-				{ id: 24, parent: 4, points: 0, navn: "Kasper", userName: 'kasper@getacademy.no' },
+				{ id: 24, parent: 18, points: 0, navn: "Kasper", userName: 'kasper@getacademy.no' },
 				{ id: 25, parent: 4, points: 0, navn: "Joakim", userName: "joakim@getacademy.no" },
-				{ id: 26, parent: 4, points: 0, navn: "Merete Berdal", userName: "merete.berdal@gmail.com" },
+				{ id: 26, parent: 18, points: 0, navn: "Merete Berdal", userName: "merete.berdal@gmail.com" },
 				{ id: 27, parent: 4, points: 0, navn: "Geir", userName: "geir@getacademy.no" },
 				{ id: 28, parent: 4, points: 0, navn: "Kenneth", userName: "kenneth@getacademy.no" },
 				{ id: 29, parent: 4, points: 0, navn: "Ivar", userName: "ivarhau@gmail.com" },
-				{ id: 30, parent: 4, points: 0, navn: "Marius", userName: "mariussoerlie@gmail.com" },
+				{ id: 30, parent: 18, points: 0, navn: "Marius", userName: "mariussoerlie@gmail.com" },
 			],
 			achievements: [],
 		},
@@ -173,8 +173,15 @@ function onSignIn(googleUser) {
 	model.app.currentName = profile.getName();
 	model.app.currentUser = profile.getEmail(); // This is null if the 'email' scope is not present.
 	model.app.currentPage = 'main'
-
+	model.app.currentUserKlasse = findP();
 	getData();
+}
+function findP() {
+	var x = model.data.statistikk.instanser.find((p) => {
+		if (p.userName == model.app.currentUser)
+			return p.parent;
+	})
+	return x.parent;
 }
 
 // Array of API discovery doc URLs for APIs used by the quickstart
