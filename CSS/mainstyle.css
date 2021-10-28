@@ -69,6 +69,7 @@ text-align: center;
 .gridInsideAGrid{
   display: grid;
   grid-template-columns: 100px 100px 100px;
+  border-radius: 10% !important;
   /* grid-column-gap: 30px; */
   grid-template-areas: "gradientM1" "gradientM2" "gradientM3";
   justify-content: center;
@@ -93,5 +94,8 @@ text-align: center;
 
 * {
   box-sizing: border-box;
+}
+.battery {
+   border: 2px solid black !important;
 }
 
