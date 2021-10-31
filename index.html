@@ -60,19 +60,19 @@
 		function updateView() {
 			if (model.app.currentPage == 'meldinger') {
 				html = updateViewMeldinger();
-			}   //Kasper   
+			}   	//Kasper   
 			if (model.app.currentPage == 'kategorier') {
 				html = updateViewKategorier();
 			} 	//Jostein
 			if (model.app.currentPage == 'main') {
 				html = updateViewMain();
-			}	//Kenneth
+			}	//Mailinn
 			if (model.app.currentPage == 'leaderboard') {
 				html = updateViewLeaderboard();
-			}   //Mailinn
+			}   //Mailinn og Kasper
 			if (model.app.currentPage == 'google') {
 				html = googleView();
-			}
+			} //Kasper
 			document.getElementById("app").innerHTML = html;
 
 		};
@@ -122,7 +122,6 @@
 					pagemanager(destinationPage.id);
 				}
 			}
-			else console.log("utafor if")
 		}
 
 	</script>

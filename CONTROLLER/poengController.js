@@ -171,7 +171,54 @@ function addPoints() {
 			}
 		}
 	}
+	addClassPoints();
+	addSchoolPoints();
 	countPoints();
 	console.log("dataReady");
 	updateView();
 }
+
+function findPerson(person) {
+	var thePerson = null;
+	for (let i = 0; i < model.data.statistikk.instanser.length; i++) {
+		if (person.userName == model.data.statistikk.instanser[i].userName) {
+			thePerson = model.data.statistikk.instanser[i];
+		}
+	}
+	return thePerson;
+}
+
+function addClassPoints() {
+	for (let i = 0; i < model.data.statistikk.achievements.length; i++) {
+		var current = findPerson(model.data.statistikk.achievements[i]);
+		if (current == null) continue;
+		var currentParent = current.parent;
+		for (let index = 0; index < model.data.statistikk.instanser.length; index++) {
+			const instanse = model.data.statistikk.instanser[index];
+			if (currentParent == instanse.id) {
+				instanse.points += model.data.statistikk.achievements[i].points;
+			}
+		}
+	}
+}
+
+function addSchoolPoints() {
+	for (let i = 0; i < model.data.statistikk.instanser.length; i++) {
+		var current = model.data.statistikk.instanser[i];
+		if (current.parent != null) continue;
+		for (let j = 0; j < model.data.statistikk.instanser.length; j++) {
+			var currentJ = model.data.statistikk.instanser[j];
+			if (currentJ.parent == current.id) {
+				current.points += currentJ.points;
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+

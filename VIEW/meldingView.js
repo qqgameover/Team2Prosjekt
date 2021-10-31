@@ -8,7 +8,7 @@ let styled = "display: hidden;"
 function updateViewMeldinger() {
 	let html = "";
 	let leddArray = [[], [], [], []];
-	const ledd = () => {
+	function ledd() {
 		for (let i = 0; i < model.data.muligeMeldinger.length; i++) {
 			if (model.data.muligeMeldinger[i].ledd == 0) {
 				leddArray[0].push(model.data.muligeMeldinger[i]);
@@ -20,7 +20,7 @@ function updateViewMeldinger() {
 				leddArray[2].push(model.data.muligeMeldinger[i]);
 			}
 			if (model.data.muligeMeldinger[i].ledd == 3) {
-				leddArray[3].push(model.data.muligeMeldinger[i])
+				leddArray[3].push(model.data.muligeMeldinger[i]);
 			}
 		}
 	}

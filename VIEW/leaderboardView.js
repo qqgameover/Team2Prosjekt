@@ -34,7 +34,7 @@ function updateViewLeaderboard() {
 
 			<table class="leaderboardTable">
 				<tr>
-					<th class="thTableA">Elev i din klasse</th>
+					<th class="thTableA">Elever i din klasse</th>
 					<th class="thTableB">Poeng</th>
 				</tr>
 			</table>
