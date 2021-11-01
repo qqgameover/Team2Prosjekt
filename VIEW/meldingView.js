@@ -4,7 +4,7 @@ let leddValg = [[], [], [], []];
 let mottaker = "";
 let mottakerUserName = "";
 let suggestions = "";
-let styled = "display: hidden;"
+var nightmarebadbadbadd = "";
 function updateViewMeldinger() {
 	let html = "";
 	let leddArray = [[], [], [], []];
@@ -40,16 +40,15 @@ function updateViewMeldinger() {
 	<div class="containerInput">
 		<label for="messageSearch">Send melding til:
 			<input id="focusInput" autocomplete="off" class="form-text"
-				onclick="suggestions = suggestionPrinter(null) ; styled = 'border: black solid 1px' ; updateView() ; 
+				onclick="suggestions = suggestionPrinter(null) ; updateView() ;
 				focusMethod(this.id)"  
-				oninput="suggestions = suggestionPrinter(this.value) ;
-				styled = 'border: black solid 1px' ; 
-				mottakerUserName = findUserName(this.value) ; 
-				mottaker = this.value ; updateView() ; 
+				oninput="suggestions = suggestionPrinter(this.value) ; 
+				mottakerUserName = findUserName(this.value) ;
+				mottaker = this.value ; updateView() ;
 				focusMethod(this.id)" ; value = "${mottaker}"
 			/>
-		</label> 
-		<div style="${styled}" id="suggestions">${suggestions}</div>
+		</label>
+		<div id="suggestions">${suggestions}</div>
 	</div>
 	<div class="containerMessages"> `
 

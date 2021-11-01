@@ -6,19 +6,13 @@ function searchName(input) {
 	});
 	const searchFiltered = searchUnfilted.filter((p) => p.navn)
 	const reg = new RegExp(input, "i")
-	if (input == null) {
-		{
-			return searchFiltered;
+	return searchFiltered.filter((term) => {
+		if (term.navn.match(reg) && term.parent == model.app.currentUserKlasse) {
+			return term.navn;
+		} else {
+			return;
 		}
-	} else {
-		return searchFiltered.filter((term) => {
-			if (term.navn.match(reg) && term.parent == model.app.currentUserKlasse) {
-				return term.navn;
-			} else {
-				return;
-			}
-		});
-	}
+	});
 }
 
 function suggestionPrinter(input) {
@@ -30,12 +24,14 @@ function suggestionPrinter(input) {
 function makeSuggestions(terms) {
 	let list = '';
 	for (i = 0; i < terms.length; i++) {
+		if (i > 10) continue;
 		if (terms[i].parent == model.app.currentUserKlasse && terms[i].userName != model.app.currentUser) {
-			list += `<li onclick="mottaker = '${terms[i].navn}' ; mottakerUserName = findUserName('${terms[i].navn}') ; 
+			list += `<li style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 15ch; border: black solid 1px;" onclick="mottaker = '${terms[i].navn}' ; mottakerUserName = findUserName('${terms[i].navn}') ; 
 		suggestions = suggestionPrinter(this.value) ; styled = 'display: hidden' ; updateView()"
 		>` + terms[i].navn + '</li>';
 		}
 	}
+	if (list == '') return "";
 	return '<div id="suggestionsList">' + list + '</div>';
 }
 

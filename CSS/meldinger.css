@@ -11,17 +11,18 @@
 	padding-top: 10px;
 	font-weight: bolder;
 	color: #300C09;
-	font-size: 20px;
+	font-size: 18px;
 }
 
 #suggestions {
 padding: 10px;
-margin-left: 500px;
+margin-left: 510px;
 position: absolute;
 background-color: white;
 font-size: 20px;
-min-width: 100px;
-/* border: black solid 1px;  */
+width: 15vw;
+max-width: 20ch;
+text-align: center;
 }
 
 #suggestionsList {

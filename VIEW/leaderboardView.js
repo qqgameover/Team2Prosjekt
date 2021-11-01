@@ -116,7 +116,7 @@ function skoleRanking() {
 				<td class="klassepoeng">${rankingKlasse[i].points}</td>
 			</tr>`;
 	}
-	for (let i = 0; i < rankingIndivid.length; i++) {
+	for (let i = 0; i < 5; i++) {
 		elevRankingRows +=
 			`<tr>
 				<td class="elev">${rankingIndivid[i].navn}</td>
