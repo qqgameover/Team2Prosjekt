@@ -58,7 +58,7 @@ const model = {
 			instanser: [
 				{ id: 1, skole: "Hedrum Ungdomsskole", parent: null, klasse: null, points: 0, navn: null },
 				{ id: 2, klasse: "8B", parent: 1, points: 0, besteElev: "Tobias", navn: null },
-				{ id: 3, parent: 2, points: 0, navn: "Gard Seim Amundrød", userName: "24amuga1305@larvikskolen.no" },
+				{ id: 3, parent: 2, navn: "", userName: "kasper@getacademy.no" },
 				{ id: 4, parent: 2, points: 0, navn: "Elias Bredesen", userName: "24breel2404@larvikskolen.no" },
 				{ id: 5, parent: 2, points: 0, navn: "Anna Isabell Issa Chey", userName: "24chean0509@larvikskolen.no" },
 				{ id: 6, parent: 2, points: 0, navn: "Åsmund Christensen", userName: "24chras1508@larvikskolen.no" },
@@ -84,7 +84,7 @@ const model = {
 				{ id: 26, parent: 2, points: 0, navn: "Kenny Tieu", userName: "24tieke0108@larvikskolen.no" },
 				{ id: 27, parent: 2, points: 0, navn: "Lidya Mehari Uqbe", userName: "26uqbli0812@larvikskolen.no" },
 				{ id: 28, parent: 2, points: 0, navn: "William Aarsum", userName: "24aaswi0909@larvikskolen" },
-				{ id: 29, parent: 2, navn: "", userName: "kasper@getacademy.no" },
+				{ id: 29, parent: 2, points: 0, navn: "Gard Seim Amundrød", userName: "24amuga1305@larvikskolen.no" },
 				{ id: 31, parent: 2, navn: "Ine Wiik", userName: "ine.bjornstad@larvik.kommune.no" },
 				{ id: 30, parent: 2, navn: "Marius", userName: "mariussoerlie@gmail.com" },
 				{ id: 31, parent: 2, navn: "Merete", userName: "merete.berdal@gmail.com" },
