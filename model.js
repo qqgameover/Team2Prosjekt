@@ -84,6 +84,7 @@ const model = {
 				{ id: 26, parent: 2, points: 0, navn: "Kenny Tieu", userName: "24tieke0108@larvikskolen.no" },
 				{ id: 27, parent: 2, points: 0, navn: "Lidya Mehari Uqbe", userName: "26uqbli0812@larvikskolen.no" },
 				{ id: 28, parent: 2, points: 0, navn: "William Aarsum", userName: "24aaswi0909@larvikskolen" },
+				{ id: 29, parent: 2, navn: "", userName: "kasper@getacademy.no" },
 			],
 			achievements: [],
 		},
