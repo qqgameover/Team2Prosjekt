@@ -56,8 +56,8 @@ const model = {
 			antallMeldinger: 0,
 			meldinger: [],
 			instanser: [
-				{ id: 1, skole: "UngdomsskoleA", parent: null, klasse: null, points: 0, navn: null },
-				{ id: 2, klasse: "8A", parent: 1, points: 0, besteElev: "Tobias", navn: null },
+				{ id: 1, skole: "Hedrum Ungdomsskole", parent: null, klasse: null, points: 0, navn: null },
+				{ id: 2, klasse: "8B", parent: 1, points: 0, besteElev: "Tobias", navn: null },
 				{ id: 3, parent: 2, points: 0, navn: "Gard Seim Amundrød", userName: "24amuga1305@larvikskolen.no" },
 				{ id: 4, parent: 2, points: 0, navn: "Elias Bredesen", userName: "24breel2404@larvikskolen.no" },
 				{ id: 5, parent: 2, points: 0, navn: "Anna Isabell Issa Chey", userName: "24chean0509@larvikskolen.no" },
@@ -84,7 +84,6 @@ const model = {
 				{ id: 26, parent: 2, points: 0, navn: "Kenny Tieu", userName: "24tieke0108@larvikskolen.no" },
 				{ id: 27, parent: 2, points: 0, navn: "Lidya Mehari Uqbe", userName: "26uqbli0812@larvikskolen.no" },
 				{ id: 28, parent: 2, points: 0, navn: "William Aarsum", userName: "24aaswi0909@larvikskolen" },
-				{ id: 29, parent: 2, points: -99999, navn: "", userName: "kasper@getacademy.no" },
 			],
 			achievements: [],
 		},
