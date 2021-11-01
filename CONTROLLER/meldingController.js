@@ -10,12 +10,13 @@ function searchName(input) {
 		if (term.navn.match(reg) && term.parent == model.app.currentUserKlasse) {
 			return term.navn;
 		} else {
-			return;
+			return null;
 		}
 	});
 }
 
 function suggestionPrinter(input) {
+	if (input == "") return "";
 	let terms = searchName(input);
 	suggestions = "";
 	return makeSuggestions(terms);
@@ -31,6 +32,7 @@ function makeSuggestions(terms) {
 		>` + terms[i].navn + '</li>';
 		}
 	}
+	if (terms == null) return "";
 	if (list == '') return "";
 	return '<div id="suggestionsList">' + list + '</div>';
 }
