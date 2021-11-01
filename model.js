@@ -87,7 +87,7 @@ const model = {
 				{ id: 29, parent: 2, navn: "", userName: "kasper@getacademy.no" },
 				{ id: 31, parent: 2, navn: "Ine Wiik", userName: "ine.bjornstad@larvik.kommune.no" },
 				{ id: 30, parent: 2, navn: "Marius", userName: "mariussoerlie@gmail.com" },
-				{ id: 30, parent: 2, navn: "Merete", userName: "merete.berdal@gmail.com" },
+				{ id: 31, parent: 2, navn: "Merete", userName: "merete.berdal@gmail.com" },
 
 			],
 			achievements: [],
