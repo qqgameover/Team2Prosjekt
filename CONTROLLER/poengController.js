@@ -58,13 +58,13 @@ function countPoints() {
 		if (splitTime[0].trim() != newDateString.trim()) continue;
 		if (model.app.currentUser == model.data.statistikk.achievements[i].userName) {
 			if (model.data.statistikk.achievements[i].taskId == 0) {
-				pointsM += model.data.statistikk.achievements[i].points;
+				pointsM++;
 			} if (model.data.statistikk.achievements[i].taskId == 2) {
-				pointsF += model.data.statistikk.achievements[i].points;
+				pointsF++;
 			} if (model.data.statistikk.achievements[i].taskId == 3) {
-				pointsMs += model.data.statistikk.achievements[i].points;
+				pointsMs++;
 			} if (model.data.statistikk.achievements[i].taskId == 4) {
-				pointsL += model.data.statistikk.achievements[i].points;
+				pointsL++;
 			}
 		}
 	}
