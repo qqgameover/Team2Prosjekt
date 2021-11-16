@@ -117,6 +117,7 @@ function skoleRanking() {
 			</tr>`;
 	}
 	for (let i = 0; i < 5; i++) {
+		if (!rankingIndivid[i]) continue;
 		elevRankingRows +=
 			`<tr>
 				<td class="elev">${rankingIndivid[i].navn}</td>
