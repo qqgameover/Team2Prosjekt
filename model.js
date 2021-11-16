@@ -58,7 +58,7 @@ const model = {
 			instanser: [
 				{ id: 1, skole: "Hedrum Ungdomsskole", parent: null, klasse: null, points: 0, navn: null },
 				{ id: 2, klasse: "8B", parent: 1, points: 0, besteElev: "Tobias", navn: null },
-				{ id: 3, klasse: "5A", parent: 1, points: 0, besteElev: "Tobias", navn: null },
+				{ id: 3, klasse: "5A(TestKlasse)", parent: 1, points: 0, besteElev: "Tobias", navn: null },
 				{ id: 4, parent: 3, navn: "Kasper", userName: "kasper@getacademy.no" },
 				{ id: 5, parent: 2, points: 0, navn: "Elias Bredesen", userName: "24breel2404@larvikskolen.no" },
 				{ id: 6, parent: 2, points: 0, navn: "Anna Isabell Issa Chey", userName: "24chean0509@larvikskolen.no" },
