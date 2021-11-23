@@ -10,8 +10,6 @@
 //__________//
 
 
-
-
 let gradientMessage = 'orange, yellow';
 
 let colorM1 = 'white, white';
