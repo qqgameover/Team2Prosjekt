@@ -174,7 +174,7 @@ function addPoints() {
 	addClassPoints();
 	getClassAvg();
 	addSchoolPoints();
-	getSchoolAvg();
+	getSchoolsAvg();
 	countPoints();
 	console.log("dataReady");
 	updateView();
@@ -204,17 +204,18 @@ function addClassPoints() {
 	}
 }
 
-function getSchoolAvg() {
+function getSchoolsAvg() {
 	for (let i = 0; i < model.data.statistikk.instanser.length; i++) {
-		if (!model.data.statistikk.instanser[i].totalClasses) continue;
-		model.data.statistikk.instanser[i].points = Math.floor(model.data.statistikk.instanser[i].points / model.data.statistikk.instanser[i].totalClasses);
+		if (model.data.statistikk.instanser[i].totalClasses) {
+			model.data.statistikk.instanser[i].points = Number((model.data.statistikk.instanser[i].points / model.data.statistikk.instanser[i].totalClasses).toFixed(1));
+		}
 	}
 }
 
 function getClassAvg() {
 	for (let i = 0; i < model.data.statistikk.instanser.length; i++) {
 		if (model.data.statistikk.instanser[i].totalStudents) {
-			model.data.statistikk.instanser[i].points = Math.floor(model.data.statistikk.instanser[i].points / model.data.statistikk.instanser[i].totalStudents);
+			model.data.statistikk.instanser[i].points = Number((model.data.statistikk.instanser[i].points / model.data.statistikk.instanser[i].totalStudents).toFixed(1));
 		}
 	}
 }

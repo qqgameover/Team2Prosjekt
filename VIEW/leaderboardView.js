@@ -53,6 +53,7 @@ function updateViewLeaderboard() {
 				return -1;
 			});
 			rankingSkole = sortedArray;
+
 		} if (model.data.statistikk.instanser[i].id
 			== model.app.currentUserKlasse) {
 			const parent = model.data.statistikk.instanser[i].parent;
