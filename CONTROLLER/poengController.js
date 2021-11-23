@@ -4,11 +4,10 @@
 
 //3 poeng pr kategori på en dag. 3 Tomme slots fra start.
 //cursor parking lot
-//-----------//
-//			//
-//			//
+//----------//
+//          //
+//	    //
 //__________//
-
 
 let gradientMessage = 'orange, yellow';
 
