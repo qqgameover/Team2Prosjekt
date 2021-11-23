@@ -230,11 +230,3 @@ function addSchoolPoints() {
 		}
 	}
 }
-
-
-
-
-
-
-
-
