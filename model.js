@@ -56,7 +56,7 @@ const model = {
 			antallMeldinger: 0,
 			meldinger: [],
 			instanser: [
-				{ id: 1, skole: "Hedrum Ungdomsskole", parent: null, klasse: null, points: 0, navn: null },
+				{ id: 1, skole: "Hedrum Ungdomsskole", totalClasses: 2, parent: null, klasse: null, points: 0, navn: null },
 				{ id: 2, klasse: "8B", parent: 1, points: 0, totalStudents: 25, navn: null },
 				{ id: 3, klasse: "5A(TestKlasse)", parent: 1, totalStudents: 3, points: 0, navn: null },
 				{ id: 4, parent: 3, navn: "Kasper", userName: "kasper@getacademy.no" },

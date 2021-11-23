@@ -20,7 +20,7 @@ function updateViewLeaderboard() {
 		<div class="leaderboard-grid">        
 			<table class="leaderboardTable">
 				<tr>
-					<th class="thTableA">Skole</th>
+					<th class="thTableA">Skolens gjennomsnitt</th>
 					<th class="thTableB">Poeng</th>
 				</tr>
 			</table>

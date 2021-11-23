@@ -174,6 +174,7 @@ function addPoints() {
 	addClassPoints();
 	getClassAvg();
 	addSchoolPoints();
+	getSchoolAvg();
 	countPoints();
 	console.log("dataReady");
 	updateView();
@@ -200,6 +201,13 @@ function addClassPoints() {
 				instanse.points += model.data.statistikk.achievements[i].points;
 			}
 		}
+	}
+}
+
+function getSchoolAvg() {
+	for (let i = 0; i < model.data.statistikk.instanser.length; i++) {
+		if (!model.data.statistikk.instanser[i].totalClasses) continue;
+		model.data.statistikk.instanser[i].points = Math.floor(model.data.statistikk.instanser[i].points / model.data.statistikk.instanser[i].totalClasses);
 	}
 }
 
