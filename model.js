@@ -8,11 +8,10 @@ const model = {
 		currentVideo: '',
 		pageId: 1,
 		previousPage: [],
-
+        inbox:[]
 	},
 	inputFields: {
 		userName: null,
-		password: null,
 	},
 
 	data: {
