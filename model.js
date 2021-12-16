@@ -283,6 +283,7 @@ const model = {
 }
 
 async function getData() {
+	if (!gapi.auth2.getAuthInstance().isSignedIn.get()) return;
 	try {
 		for (let i = 0; i < model.data.statistikk.instanser.length; i++) {
 			model.data.statistikk.instanser[i].points = 0;
@@ -480,12 +481,15 @@ firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 var meldingerCollection = db.collection("meldinger")
 async function getMsgs() {
+	if (!gapi.auth2.getAuthInstance().isSignedIn.get()) return;
+	var auth2 = gapi.auth2.getAuthInstance();
+	var profile = auth2.currentUser.get().getBasicProfile();
 	model.app.inbox = [];
 	await meldingerCollection.onSnapshot(
 		function (meldingerCollection) {
 			meldingerCollection.forEach(function (meldingCollectionSS) {
 				let melding = meldingCollectionSS.data();
-				if (model.app.currentUser == melding.reciver) {
+				if (profile.getEmail() == melding.reciver) {
 					model.app.inbox.push({ sender: melding.sender, data: melding.data, date: melding.date, reciver: melding.reciver, id: meldingCollectionSS.id.toString() });
 				}
 			});
