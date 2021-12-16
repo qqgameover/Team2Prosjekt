@@ -8,7 +8,7 @@ const model = {
 		currentVideo: '',
 		pageId: 1,
 		previousPage: [],
-        inbox:[]
+		inbox: [],
 	},
 	inputFields: {
 		userName: null,
@@ -301,6 +301,7 @@ async function getData() {
 				addPoints();
 			}
 		})
+		await getMsgs();
 	} catch (e) {
 		console.error(e)
 	}
@@ -401,11 +402,7 @@ function checkForGmailLogin(target, element, mottaker = "") {
 			'immediate': true,
 			discoveryDocs: DISCOVERY_DOCS,
 		}, authResult => {
-			if (authResult && !authResult.error) {
-				gapi.client.load('gmail', 'v1', () => this.sendEmail(target, element, mottaker));
-			} else {
-				console.log('Error in Load gmail', authResult.error);
-			}
+			authResult && !authResult.error ? gapi.client.load('gmail', 'v1', () => this.sendEmail(target, element, mottaker)) : console.log('Error in Load gmail', authResult.error);
 		});
 }
 
@@ -468,4 +465,52 @@ function addAch(_user, _kategori, _points, _motakker = "") {
 	&submit=SUBMIT`;
 
 	return fetch(url, opts)
+}
+const firebaseConfig = {
+	apiKey: "AIzaSyAdzRGnYxFXls-LxG8pBmgTN0aTDbfTJPw",
+	authDomain: "wishotherswell-82682.firebaseapp.com",
+	databaseURL: "https://wishotherswell-82682-default-rtdb.europe-west1.firebasedatabase.app",
+	projectId: "wishotherswell-82682",
+	storageBucket: "wishotherswell-82682.appspot.com",
+	messagingSenderId: "416443676626",
+	appId: "1:416443676626:web:7e24c3d0ad353b17693a0b",
+	measurementId: "G-ZM70JWY8JE"
+};
+firebase.initializeApp(firebaseConfig);
+var db = firebase.firestore();
+var meldingerCollection = db.collection("meldinger")
+async function getMsgs() {
+	model.app.inbox = [];
+	await meldingerCollection.onSnapshot(
+		function (meldingerCollection) {
+			meldingerCollection.forEach(function (meldingCollectionSS) {
+				let melding = meldingCollectionSS.data();
+				if (model.app.currentUser == melding.reciver) {
+					model.app.inbox.push({ sender: melding.sender, data: melding.data, date: melding.date, reciver: melding.reciver, id: meldingCollectionSS.id.toString() });
+				}
+			});
+		});
+}
+
+function sendMsg(_sender, _reciver, _data) {
+	var d = new Date().toLocaleDateString("en-UK").replace(/\//g, '-');
+	var melding = {
+		sender: _sender,
+		reciver: _reciver,
+		data: _data,
+		date: d
+	}
+	meldingerCollection.add(melding);
+}
+
+async function _delete(id) {
+	await db.collection("meldinger").doc(id).delete();
+	getMsgs();
+	updateView();
+}
+
+function deleteAll() {
+	model.app.inbox.forEach((m) => {
+		_delete(m.id);
+	})
 }

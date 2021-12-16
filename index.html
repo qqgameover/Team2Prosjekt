@@ -10,12 +10,15 @@
 	<!--Authentication Token-->
 	<link rel="stylesheet"
 		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+	</script>
+	<script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
 	<link rel="stylesheet" href="CSS/global.css">
 	<link rel="stylesheet" href="CSS/meldinger.css">
 	<link rel="stylesheet" href="CSS/kategorier.css">
 	<link rel="stylesheet" href="CSS/mainstyle.css">
 	<link rel="stylesheet" href="CSS/leaderboard.css">
+	<link rel="stylesheet" href="CSS/inbox.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 		crossorigin="anonymous">
@@ -30,6 +33,7 @@
 	<script src="VIEW/leaderboardView.js"></script>
 	<script src="VIEW/kategorierViews.js"></script>
 	<script src="VIEW/googleView.js"></script>
+	<script src="VIEW/inboxView.js"></script>
 
 
 	<script src="CONTROLLER/videoController.js"></script>
@@ -73,6 +77,9 @@
 			if (model.app.currentPage == 'google') {
 				html = googleView();
 			} //Kasper
+			if (model.app.currentPage == "inbox") {
+				html = updateViewInbox();
+			}
 			document.getElementById("app").innerHTML = html;
 
 		};
@@ -109,6 +116,11 @@
 			model.app.currentPage = "meldinger";
 			getData();
 		}
+		function gotoInbox() {
+			lastPage();
+			model.app.currentPage = "inbox";
+			getData();
+		}
 
 		function goBack() {
 			if (model.app.previousPage.length != 0) {
@@ -123,7 +135,6 @@
 				}
 			}
 		}
-
 	</script>
 
 </body>

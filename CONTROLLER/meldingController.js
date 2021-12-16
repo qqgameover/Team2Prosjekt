@@ -52,6 +52,7 @@ function sendMessage(_ledd0, _ledd1, _ledd2, _ledd3, _motakker, _avsender) {
 		melding: innhold,
 	}
 	model.data.statistikk.meldinger.push(melding);
+	sendMsg(_avsender, _motakker, melding.melding);
 	checkForGmailLogin(_motakker, innhold);
 	addAch(_avsender, 0, 5, _motakker);
 	alert('Melding sendt!');

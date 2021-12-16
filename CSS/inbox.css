@@ -1,0 +1,13 @@
+.mainDiv {
+    margin-top: 10%;
+}
+.melding-container {
+    border: 1px solid black !important;
+    padding: 1vh!important;
+    width: 40vw;
+    margin: 1vh;
+    max-height: 5vh
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
