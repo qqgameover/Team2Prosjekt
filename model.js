@@ -513,6 +513,12 @@ async function _delete(id) {
 	updateView();
 }
 
+async function findStudent(email) {
+	for (let i = 0; i < classLists.length; i++) {
+		return 0;
+	}
+}
+
 function deleteAll() {
 	model.app.inbox.forEach((m) => {
 		_delete(m.id);
