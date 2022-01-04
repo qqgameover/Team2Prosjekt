@@ -24,7 +24,7 @@ function suggestionPrinter(input) {
 
 function makeSuggestions(terms) {
 	let list = '';
-	for (i = 0; i < terms.length; i++) {
+	for (let i = 0; i < terms.length; i++) {
 		if (i > 10) continue;
 		if (terms[i].parent == model.app.currentUserKlasse && terms[i].userName != model.app.currentUser) {
 			list += `<li style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 15ch; border: black solid 1px;" onclick="mottaker = '${terms[i].navn}' ; mottakerUserName = findUserName('${terms[i].navn}') ; 
