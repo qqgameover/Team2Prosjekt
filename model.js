@@ -490,7 +490,12 @@ async function getMsgs() {
 			meldingerCollection.forEach(function (meldingCollectionSS) {
 				let melding = meldingCollectionSS.data();
 				if (profile.getEmail() == melding.reciver) {
-					model.app.inbox.push({ sender: melding.sender, data: melding.data, date: melding.date, reciver: melding.reciver, id: meldingCollectionSS.id.toString() });
+					model.app.inbox.push({ 
+                        sender: melding.sender, 
+                        data: melding.data, 
+                        date: melding.date, 
+                        reciver: melding.reciver, 
+                        id: meldingCollectionSS.id.toString() });
 				}
 			});
 		});
