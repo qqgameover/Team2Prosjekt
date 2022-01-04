@@ -513,9 +513,12 @@ async function _delete(id) {
 	updateView();
 }
 
-async function findStudent(email) {
+async function searchClassListsForStudent(email) {
 	for (let i = 0; i < classLists.length; i++) {
-		return 0;
+        if(searchClasslist(classList[i], email)) {
+            return true;
+        }
+        return false;
 	}
 }
 
