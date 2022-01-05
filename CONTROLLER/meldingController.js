@@ -61,8 +61,8 @@ function sendMessage(_ledd0, _ledd1, _ledd2, _ledd3, _motakker, _avsender) {
 }
 
 function findUserName(searchVal) {
-	const search = model.data.statistikk.instanser.map((α) => {
-		return { navn: α.navn, userName: α.userName };
+	const search = model.data.statistikk.instanser.map((a) => {
+		return { navn: a.navn, userName: a.userName };
 	});
 	const searchValUppercased = searchVal.toUpperCase()
 	const personNameUppercased = search.map((p) => {
