@@ -370,7 +370,7 @@ const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/gmail/v1/r
 // Authorization scopes required by the API; multiple scopes can be
 // included, separated by spaces.
 // Modify mail, readonly, compose and send => user must accept in order for us to access mail and send. 
-const SCOPES = 'https://www.googleapis.com/auth/gmail.readonly https://mail.google.com/ https://www.googleapis.com/auth/gmail.modify https://www.googleapis.com/auth/gmail.compose https://www.googleapis.com/auth/gmail.send';
+const SCOPES = 'https://www.googleapis.com/auth/userinfo.profile';
 
 function handleClientLoad() {
     console.log("handleCLientLoad")
@@ -427,21 +427,6 @@ async function handleSignoutClick(event, googleUser) {
     window.location.reload(true);
 }
 
-
-
-function checkForGmailLogin(target, element, mottaker = "") {
-    console.log('onLoadCallbackFunction');
-    const scope = SCOPES;
-    gapi.auth.authorize(
-        {
-            'client_id': this.clientId,
-            'scope': scope,
-            'immediate': true,
-            discoveryDocs: DISCOVERY_DOCS,
-        }, authResult => {
-            authResult && !authResult.error ? gapi.client.load('gmail', 'v1', () => this.sendEmail(target, element, mottaker)) : console.log('Error in Load gmail', authResult.error);
-        });
-}
 
 function sendEmail(target, message, motakker = "") {
     const subject = 'Wishing others Well';
