@@ -323,7 +323,7 @@ async function getData() {
         await fetchClassData(25, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/%C2%A5stre%20Halsen%20skole%20-%205trinn%20-%205A.csv')
         await fetchClassData(26, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/%C2%A5stre%20Halsen%20skole%20-%205trinn%20-%205B.csv')
         await fetchClassData(27, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/%C2%A5stre%20Halsen%20skole%20-%205trinn%20-%205C.csv')
-        await fetchClassData(29, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/%C2%A5stre%20Halsen%20skole%20-%205trinn%20-%205C.csv')
+        await fetchClassData(29, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/Valby%20skole%20-%205trinn%20-%205.%20klasse%20Venus.csv')
         model.data.statistikk.achievements = [];
         let response = await Papa.parse('https://docs.google.com/spreadsheets/d/e/2PACX-1vQNw10gr74fMdO2wuZGzBYwBzuJsTcJZXmEP3daKXHJO1fEJy0Af-qlusaIn_kBrSrSk7BSWog-xcC7/pub?output=csv', {
             download: true,
