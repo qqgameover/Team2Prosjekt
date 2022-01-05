@@ -573,7 +573,6 @@ async function fetchClassData(parentId, url) {
     let response = await fetch(url);
     let data = await response.text();
     let parsed = Papa.parse(data);
-    console.log(parsed.data)
     parsed.data.map((elev, index) => {
         if(index != 0 && index != parsed.data.length - 1) model.data.statistikk.instanser.push({id: prevLen + index, 
             parent: parentId, points: 0, navn: parsed.data[index][1], userName: parsed.data[index][0]}) 
