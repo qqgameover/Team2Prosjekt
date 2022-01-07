@@ -350,7 +350,7 @@ async function loadClassList() {
     await fetchClassData(22, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/Jordet%20skole%20-%205trinn%20-%205A.csv')
     addTeacherToClass(22, "Line Solid", "line.sollid@larvik.kommune.no");
     await fetchClassData(23, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/Jordet%20skole%20-%205trinn%20-%205B.csv')
-    addTeacherToClass(23, "Birte Stovland Riksfjord", 'birte.stovland.riksfjord@larvik.kommune.no');
+    addTeacherToClass(23, "Birte Stovland Riksfjord", 'birte.stovland@larvik.kommune.no');
     await fetchClassData(25, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/%C2%A5stre%20Halsen%20skole%20-%205trinn%20-%205A.csv')
     await fetchClassData(26, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/%C2%A5stre%20Halsen%20skole%20-%205trinn%20-%205B.csv')
     await fetchClassData(27, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/%C2%A5stre%20Halsen%20skole%20-%205trinn%20-%205C.csv')
