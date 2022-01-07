@@ -320,7 +320,7 @@ async function getData() {
             complete: function (results) {
                 const mappedData = results.data.map((e, index) => {
                     if (index == 0) return;
-                    return { tid: e[0], userName: e[1], mottaker: e[2], taskId: parseInt(e[3]), points: parseInt(e[4]), pointsNotAdded: true }
+                    return { tid: e[0], userName: e[1].trim(), mottaker: e[2].trim(), taskId: parseInt(e[3]), points: parseInt(e[4]), pointsNotAdded: true }
                 })
                 const filterdData = mappedData.filter((e) => e)
                 model.data.statistikk.achievements = filterdData;
