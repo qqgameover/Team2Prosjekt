@@ -334,6 +334,7 @@ async function getData() {
 }
 async function loadClassList() {
     await fetchClassData(8, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/Hedrum%20barneskole%20-%205trinn%20-%205.csv')
+    addTeacherToClass(8, "Ole Lunde", 'ola.lunde@larvik.kommune.no');
     await fetchClassData(11, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-8/Brunla%20ungdomsskole%20-%208trinn%20-%208A.csv')
     await fetchClassData(12, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-8/Brunla%20ungdomsskole%20-%208trinn%20-%208B.csv')
     await fetchClassData(13, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-8/Brunla%20ungdomsskole%20-%208trinn%20-%208C.csv')
@@ -355,6 +356,7 @@ async function loadClassList() {
     await fetchClassData(26, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/%C2%A5stre%20Halsen%20skole%20-%205trinn%20-%205B.csv')
     await fetchClassData(27, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/%C2%A5stre%20Halsen%20skole%20-%205trinn%20-%205C.csv')
     await fetchClassData(29, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/Valby%20skole%20-%205trinn%20-%205.%20klasse%20Venus.csv')
+    addTeacherToClass(29, "Conny Vege", 'Conny.vege@larvik.kommune.no');
 }
 function addTeacherToClass(_parent, name, email) {
     let newId = model.data.statistikk.instanser.length + 15;
