@@ -4,7 +4,7 @@ function updateViewInbox() {
     <a class="nav-item" href="#Hjem" onclick="gotoH()">Hjem</a>
     <a class="nav-item" onclick="handleSignoutClick(event)">Logg ut</a>
     </div>
-    <h1 class="display-2 d-flex justify-content-center" style="padding-top:5%;">Inbox</h1>
+    <h1 class="display-2 d-flex justify-content-center" style="padding-top:5%; text-decoration: underline;">Inbox</h1>
     <div class="container h-100 d-flex justify-content-center mainDiv">
                 <div class="jumbotron my-auto">`;
     if (model.app.inbox.length > 0) {
