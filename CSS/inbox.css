@@ -6,7 +6,9 @@
     padding: 1vh!important;
     width: 40vw;
     margin: 1vh;
-    max-height: 5vh
+    max-height: 5vh;
+    overflow-x: hidden;
+    overflow-y: auto;
     justify-content: center;
     align-items: center;
     text-align: center;
