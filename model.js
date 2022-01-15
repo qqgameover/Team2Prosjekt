@@ -332,7 +332,6 @@ async function getData() {
         console.error(e)
     }
 }
-
 async function loadClassList() {
     await fetchClassData(8, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/Hedrum%20barneskole%20-%205trinn%20-%205.csv')
     addTeacherToClass(8, "Ole Lunde", 'ola.lunde@larvik.kommune.no');
