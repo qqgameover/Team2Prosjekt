@@ -353,8 +353,11 @@ async function loadClassList() {
     await fetchClassData(23, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/Jordet%20skole%20-%205trinn%20-%205B.csv')
     addTeacherToClass(23, "Birte Stovland Riksfjord", 'birte.stovland@larvik.kommune.no');
     await fetchClassData(25, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/%C2%A5stre%20Halsen%20skole%20-%205trinn%20-%205A.csv')
+    addTeacherToClass(25,"Lill Desiree Nilsen" ,"lill.desiree.nilsen@larvik.kommune.no") 
     await fetchClassData(26, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/%C2%A5stre%20Halsen%20skole%20-%205trinn%20-%205B.csv')
+    addTeacherToClass(26, 'Ole Kristian Rambo', "ole.kristian.rambo@larvik.kommune.no")
     await fetchClassData(27, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/%C2%A5stre%20Halsen%20skole%20-%205trinn%20-%205C.csv')
+    addTeacherToClass(27, 'Marianne Ekenes Adamson', "marianne.ekenes.adamson@larvik.kommune.no")
     await fetchClassData(29, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/Valby%20skole%20-%205trinn%20-%205.%20klasse%20Venus.csv')
     addTeacherToClass(29, "Conny Vege", 'Conny.vege@larvik.kommune.no');
 }
