@@ -225,7 +225,7 @@ function addSchoolPoints() {
 	for (let i = 0; i < model.data.statistikk.instanser.length; i++) {
 		var current = model.data.statistikk.instanser[i];
 		if (current.parent != null) continue;
-		for (let j = 0; j < model.data.statistikk.instanser.length; j++) {
+      for (let j = 0; j < model.data.statistikk.instanser.length; j++) {
       var currentJ = model.data.statistikk.instanser[j];
 			if (currentJ.parent == current.id) {
 				current.points += currentJ.points;
