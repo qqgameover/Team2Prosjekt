@@ -1,5 +1,5 @@
 const model = {
-    app: {
+  app: {
         currentPage: 'google',
         currentUser: "",
         currentName: "",
