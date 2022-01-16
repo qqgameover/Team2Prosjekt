@@ -339,11 +339,11 @@ async function loadClassList() {
     await fetchClassData(12, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-8/Brunla%20ungdomsskole%20-%208trinn%20-%208B.csv')
     await fetchClassData(13, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-8/Brunla%20ungdomsskole%20-%208trinn%20-%208C.csv')
     await fetchClassData(15, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-8/Mellomhagen%20ungdomsskole%20-%208trinn%20-%208A.csv')
-    addTeacherToClass(15, "Gro Bjørnødegård", 'Gro.Bjornodegard@larvikskolen.no');
+    addTeacherToClass(15, "Gro Bjørnødegård", 'gro.bjornodegard@larvikskolen.no');
     await fetchClassData(16, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-8/Mellomhagen%20ungdomsskole%20-%208trinn%20-%208B.csv')
-    addTeacherToClass(16, "Eileen Langerud", 'Eileen.Langerud@larvikskolen.no');
+    addTeacherToClass(16, "Eileen Langerud", 'eileen.langerud@larvikskolen.no');
     await fetchClassData(17, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-8/Mellomhagen%20ungdomsskole%20-%208trinn%20-%208C.csv')
-    addTeacherToClass(17, "Therese Nørberg", 'Therese.Norberg@larvikskolen.no');
+    addTeacherToClass(17, "Therese Nørberg", 'therese.norberg@larvikskolen.no');
     await fetchClassData(19, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-8/Tjodalyng%20skole%20-%208trinn%20-%208A.csv')
     addTeacherToClass(19, "Kjetil Hobber", 'kjetil.hobber@larvik.kommune.no');
     await fetchClassData(20, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-8/Tjodalyng%20skole%20-%208trinn%20-%208B.csv')
