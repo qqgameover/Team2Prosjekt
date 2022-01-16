@@ -335,28 +335,34 @@ async function getData() {
 async function loadClassList() {
     await fetchClassData(8, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/Hedrum%20barneskole%20-%205trinn%20-%205.csv')
     addTeacherToClass(8, "Ole Lunde", 'ola.lunde@larvik.kommune.no');
+
     await fetchClassData(11, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-8/Brunla%20ungdomsskole%20-%208trinn%20-%208A.csv')
     await fetchClassData(12, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-8/Brunla%20ungdomsskole%20-%208trinn%20-%208B.csv')
     await fetchClassData(13, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-8/Brunla%20ungdomsskole%20-%208trinn%20-%208C.csv')
+
     await fetchClassData(15, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-8/Mellomhagen%20ungdomsskole%20-%208trinn%20-%208A.csv')
     addTeacherToClass(15, "Gro Bjørnødegård", 'gro.bjornodegard@larvik.kommune.no');
     await fetchClassData(16, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-8/Mellomhagen%20ungdomsskole%20-%208trinn%20-%208B.csv')
     addTeacherToClass(16, "Eileen Langerud", 'eileen.langerud@larvik.kommune.no');
     await fetchClassData(17, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-8/Mellomhagen%20ungdomsskole%20-%208trinn%20-%208C.csv')
     addTeacherToClass(17, "Therese Nørberg", 'therese.norberg@larvik.kommune.no');
+
     await fetchClassData(19, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-8/Tjodalyng%20skole%20-%208trinn%20-%208A.csv')
     addTeacherToClass(19, "Kjetil Hobber", 'kjetil.hobber@larvik.kommune.no');
     await fetchClassData(20, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-8/Tjodalyng%20skole%20-%208trinn%20-%208B.csv')
     addTeacherToClass(20, "Regitze Ravnsborg", 'regitze.ravnsborg@larvik.kommune.no');
+
     await fetchClassData(22, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/Jordet%20skole%20-%205trinn%20-%205A.csv')
     addTeacherToClass(22, "Line Solid", "line.sollid@larvik.kommune.no");
     await fetchClassData(23, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/Jordet%20skole%20-%205trinn%20-%205B.csv')
     addTeacherToClass(23, "Birte Stovland Riksfjord", 'birte.stovland@larvik.kommune.no');
+
     await fetchClassData(25, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/%C2%A5stre%20Halsen%20skole%20-%205trinn%20-%205A.csv')
     addTeacherToClass(25,"Lill Desiree Nilsen" ,"lill.desiree.nilsen@larvik.kommune.no") 
     await fetchClassData(26, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/%C2%A5stre%20Halsen%20skole%20-%205trinn%20-%205B.csv')
     addTeacherToClass(26, 'Ole Kristian Rambo', "ole.kristian.rambo@larvik.kommune.no")
     await fetchClassData(27, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/%C2%A5stre%20Halsen%20skole%20-%205trinn%20-%205C.csv')
+
     addTeacherToClass(27, 'Marianne Ekenes Adamson', "marianne.ekenes.adamson@larvik.kommune.no")
     await fetchClassData(29, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/Valby%20skole%20-%205trinn%20-%205.%20klasse%20Venus.csv')
     addTeacherToClass(29, "Conny Vege", 'Conny.vege@larvik.kommune.no');
