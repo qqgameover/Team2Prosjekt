@@ -46,8 +46,7 @@ console.log(newDateString);
 
 //Kasper fikser
 function countPoints() {
-	var auth2 = gapi.auth2.getAuthInstance();
-	var profile = auth2.currentUser.get().getBasicProfile();
+    var userEmail = firebase.auth().currentUser.email;
 	pointsM = 0;
 	pointsF = 0;
 	pointsMs = 0;
@@ -55,7 +54,7 @@ function countPoints() {
 	for (let i = 0; i < model.data.statistikk.achievements.length; i++) {
 		var splitTime = model.data.statistikk.achievements[i].tid.split(" ");
 		if (splitTime[0].trim() != newDateString.trim()) continue;
-		if (profile.getEmail() == model.data.statistikk.achievements[i].userName) {
+		if (userEmail == model.data.statistikk.achievements[i].userName) {
 			if (model.data.statistikk.achievements[i].taskId == 0) {
 				pointsM++;
 			} if (model.data.statistikk.achievements[i].taskId == 2) {

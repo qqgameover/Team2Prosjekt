@@ -38,9 +38,8 @@ function makeSuggestions(terms) {
 }
 
 function sendMessage(_ledd0, _ledd1, _ledd2, _ledd3, _motakker, _avsender) {
-	var auth2 = gapi.auth2.getAuthInstance();
-	var profile = auth2.currentUser.get().getBasicProfile();
-	if (!auth2.isSignedIn.get()) return;
+    var userEmail = firebase.auth().currentUser.email;
+	if (!firebase.auth().currentUser) return;
 	if (!_motakker) {
 		alert("Ingen mottaker funnet");
 		return;
@@ -55,7 +54,7 @@ function sendMessage(_ledd0, _ledd1, _ledd2, _ledd3, _motakker, _avsender) {
 		melding: innhold,
 	}
 	model.data.statistikk.meldinger.push(melding);
-	sendMsg(profile.getName(), _motakker, melding.melding);
+	sendMsg(firebase.auth().currentUser.displayName, _motakker, melding.melding);
 	addAch(_avsender, 0, 5, _motakker);
 	alert('Melding sendt!');
 }

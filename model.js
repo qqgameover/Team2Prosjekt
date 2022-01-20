@@ -117,6 +117,7 @@ const model = {
                 { id: 58, parent: 7, navn: "Kasper", userName: "kasper@getacademy.no" },
                 { id: 59, parent: 7, navn: "Marius", userName: "mariussoerlie@gmail.com" },
                 { id: 60, parent: 7, navn: "Merete", userName: "merete.berdal@gmail.com" },
+                { id: 3000, parent: 7, navn: "Jostein", userName: "jostein@getacademy.no" },
 
                 //8A
                 { id: 60, parent: 3, points: 0, navn: "Omar Alali", userName: "24alaom1811@larvikskolen.no" },
@@ -308,7 +309,7 @@ const model = {
 }
 
 async function getData() {
-    if (!gapi.auth2.getAuthInstance().isSignedIn.get()) return;
+    if (!firebase.auth().currentUser) return;
     try {
         for (let i = 0; i < model.data.statistikk.instanser.length; i++) {
             model.data.statistikk.instanser[i].points = 0;
@@ -371,19 +372,9 @@ function addTeacherToClass(_parent, name, email) {
     let newId = model.data.statistikk.instanser.length + 15;
     model.data.statistikk.instanser.push({id: newId, parent: _parent, points: 0, navn: name, userName: email});
 }
-var CLIENT_ID = '<YOUR_CLIENT_ID>';
-let API_KEY = 'AIzaSyDObDZWxzHqPFghxyANvxwMbwmFFGumpTM';
 //{input/googleuser} => 
 //brukernavn, epost, 
 //setter side til main og updater viewet
-function onSignIn(googleUser) {
-    const profile = googleUser.getBasicProfile();
-    model.app.currentName = profile.getName();
-    model.app.currentUser = profile.getEmail(); // This is null if the 'email' scope is not present.
-    model.app.currentPage = 'main'
-    model.app.currentUserKlasse = findP();
-    getData();
-}
 function findP() {
     var x = model.data.statistikk.instanser.find((p) => {
         if (p.userName == model.app.currentUser)
@@ -392,47 +383,9 @@ function findP() {
     return x.parent;
 }
 
-// Array of API discovery doc URLs for APIs used by the quickstart
-const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest"];
-
-// Authorization scopes required by the API; multiple scopes can be
-// included, separated by spaces.
-// Modify mail, readonly, compose and send => user must accept in order for us to access mail and send. 
-const SCOPES = 'https://www.googleapis.com/auth/userinfo.profile';
-
-function handleClientLoad() {
-    console.log("handleCLientLoad")
-    gapi.load('client:auth2', initClient)
-}
-
-
 function appendPre(message) {
     var textContent = document.createTextNode(message + '\n');
     console.log(textContent);
-}
-
-async function initClient() {
-    console.log("initclient")
-    try {
-        await gapi.client.init({
-            apiKey: API_KEY,
-            clientId: CLIENT_ID,
-            discoveryDocs: DISCOVERY_DOCS,
-            scope: SCOPES
-        });
-
-        // Listen for sign-in state changes.
-        gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
-
-        // Handle the initial sign-in state.
-        updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-        authorizeButton.onclick = handleAuthClick;
-        signoutButton.onclick = handleSignoutClick;
-        getData();
-    } catch (error) {
-        appendPre(JSON.stringify(error, null, 2));
-        console.error(error)
-    }
 }
 
 
@@ -446,58 +399,38 @@ function updateSigninStatus(isSignedIn) {
     // }
 }
 
-async function handleSignoutClick(event, googleUser) {
-    const signOut = await gapi.auth2.getAuthInstance().signOut();
-    await signOut, model.app.currentPage = 'google';
-    model.app.currentName = ""
-    model.app.currentUser = ""
-    updateView();
-    window.location.reload(true);
+function handleSignoutClick(event, googleUser) {
+	firebase.auth().signOut().then(function() {
+    model.app.currentPage = 'google';
+    model.app.currentName = "";
+    model.app.currentUser = "";
+    updateView()});
 }
 
-
-function sendEmail(target, message, motakker = "") {
-    const subject = 'Wishing others Well';
-    const content = message;
-    let mimeData = ""
-    if (motakker == "") {
-        mimeData = [
-            `From: ${model.app.currentUser}`,
-            "To: " + target,
-            "Subject: =?utf-8?B?" + window.btoa(unescape(encodeURIComponent(subject))) + "?=",
-            "MIME-Version: 1.0",
-            "Content-Type: text/plain; charset=UTF-8",
-            "Content-Transfer-Encoding: 7bit",
-            "",
-            "Du har fått en ny melding",
-            "",
-            content].join("\n").trim();
-    } else {
-        mimeData = [
-            `From: ${model.app.currentUser}`,
-            "To: " + target,
-            "Subject: =?utf-8?B?" + window.btoa(unescape(encodeURIComponent(subject))) + "?=",
-            "MIME-Version: 1.0",
-            "Content-Type: text/plain; charset=UTF-8",
-            "Content-Transfer-Encoding: 7bit",
-            "",
-            `Ny melding sendt til ${motakker}`,
-            "",
-            content].join("\n").trim();
-    }
-    //raw, data to latin-1/base64, avoids any special chars being removed.
-    const raw = window.btoa(unescape(encodeURIComponent(mimeData))).replace(/\+/g, '-').replace(/\//g, '_');
-    gapi.client.gmail.users.messages.send({
-        'userId': 'me',
-        'resource': {
-            'raw': raw
-        }
-    }).execute(res => {
-        console.log('Email sent', res);
-        console.log('Success', res.result)
-        getData();
-    });
+function googSignIn() {
+    var provider = new firebase.auth.GoogleAuthProvider();
+	  firebase
+	  .auth()
+	  .signInWithPopup(provider)
+	  .then(function (result) {
+		var token = result.credential.accessToken;
+		var user = result.user;
+		model.app.currentName = user.displayName;
+		model.app.currentUser = user.email;
+		model.app.currentUserKlasse = findP();
+		model.app.currentPage = 'main'
+		getData();
+		updateView();
+	  })
+	  .catch(function (error) {
+		var errorCode = error.code;
+		var errorMessage = error.message;
+		var email = error.email;
+		var credential = error.credential;
+		console.log(error);
+	  });
 }
+
 
 function addAch(_user, _kategori, _points, _motakker = "") {
     const opts = {
@@ -530,15 +463,14 @@ firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 var meldingerCollection = db.collection("meldinger")
 async function getMsgs() {
-    if (!gapi.auth2.getAuthInstance().isSignedIn.get()) return;
-    var auth2 = gapi.auth2.getAuthInstance();
-    var profile = auth2.currentUser.get().getBasicProfile();
+    if (!firebase.auth().currentUser) return;
+    var userEmail = firebase.auth().currentUser.email;
     model.app.inbox = [];
     await meldingerCollection.onSnapshot(
         function (meldingerCollection) {
             meldingerCollection.forEach(function (meldingCollectionSS) {
                 let melding = meldingCollectionSS.data();
-                if (profile.getEmail() == melding.reciver) {
+                if (userEmail == melding.reciver) {
                     model.app.inbox.push({ 
                         sender: melding.sender, 
                         data: melding.data, 
