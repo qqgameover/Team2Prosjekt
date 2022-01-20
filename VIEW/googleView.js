@@ -3,7 +3,7 @@ function googleView() {
 	let html = ""
 	html = `
 	<div class="googleStuff">
-	    <button onclick="googSignIn()">Logg på</button>
+	    <button class="btn btn-success" onclick="googSignIn()">Logg på</button>
     	</div>    
 	`
 	return html;
