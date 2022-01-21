@@ -409,9 +409,7 @@ function handleSignoutClick(event, googleUser) {
 
 function googSignIn() {
     var provider = new firebase.auth.GoogleAuthProvider();
-	  firebase
-	  .auth()
-	  .signInWithPopup(provider)
+	  firebase.auth().signInWithPopup(provider)
 	  .then(function (result) {
 		var token = result.credential.accessToken;
 		var user = result.user;
@@ -459,9 +457,11 @@ const firebaseConfig = {
     appId: "1:416443676626:web:7e24c3d0ad353b17693a0b",
     measurementId: "G-ZM70JWY8JE"
 };
+
 firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 var meldingerCollection = db.collection("meldinger")
+
 async function getMsgs() {
     if (!firebase.auth().currentUser) return;
     var userEmail = firebase.auth().currentUser.email;
@@ -494,6 +494,7 @@ function sendMsg(_sender, _reciver, _data) {
 }
 
 async function _delete(id) {
+    if (!firebase.auth().currentUser) return;
     await db.collection("meldinger").doc(id).delete();
     getMsgs();
     updateView();

@@ -14,7 +14,7 @@ function updateViewInbox() {
                         <p>${message.data}</p>
                     </div>`
         })
-        html += `<button onclick="deleteAll()">Merk alt som lest</div>`
+        html += `<button class="btn btn-danger" onclick="deleteAll()">Merk alt som lest</div>`
         return html;
     }
     html += `<h1 class="display-3">Du har ingen nye meldinger!</h1>
