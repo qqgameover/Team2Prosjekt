@@ -1,5 +1,5 @@
 const model = {
-  app: {
+    app: {
         currentPage: 'google',
         currentUser: "",
         currentName: "",
@@ -65,26 +65,26 @@ const model = {
                 { id: 8, skole: "Hedrum Barneskole", totalClasses: 1, parent: null, klasse: null, points: 0, navn: null },
                 { id: 9, klasse: "5", parent: 8, points: 0, totalStudents: 17, navn: null },
                 { id: 10, skole: "Brunla Ungdomsskole", totalClasses: 3, parent: null, klasse: null, points: 0, navn: null },
-                { id: 11, klasse: "8A", parent: 10, points: 0, totalStudents: 26, navn: null},
-                { id: 12, klasse: "8B", parent: 10, points: 0, totalStudents: 27, navn: null},
-                { id: 13, klasse: "8C", parent: 10, points: 0, totalStudents: 25, navn: null},
+                { id: 11, klasse: "8A", parent: 10, points: 0, totalStudents: 26, navn: null },
+                { id: 12, klasse: "8B", parent: 10, points: 0, totalStudents: 27, navn: null },
+                { id: 13, klasse: "8C", parent: 10, points: 0, totalStudents: 25, navn: null },
                 { id: 14, skole: "Mellomhagen Ungdomsskole", totalClasses: 3, parent: null, klasse: null, points: 0, navn: null },
-                { id: 15, klasse: "8A", parent: 14, points: 0, totalStudents: 27, navn: null},
-                { id: 16, klasse: "8B", parent: 14, points: 0, totalStudents: 24, navn: null},
-                { id: 17, klasse: "8C", parent: 14, points: 0, totalStudents: 26, navn: null},
+                { id: 15, klasse: "8A", parent: 14, points: 0, totalStudents: 27, navn: null },
+                { id: 16, klasse: "8B", parent: 14, points: 0, totalStudents: 24, navn: null },
+                { id: 17, klasse: "8C", parent: 14, points: 0, totalStudents: 26, navn: null },
                 { id: 18, skole: "Tjodalyng skole", totalClasses: 3, parent: null, klasse: null, points: 0, navn: null },
-                { id: 19, klasse: "8A", parent: 18, points: 0, totalStudents: 27, navn: null},
-                { id: 20, klasse: "8B", parent: 18, points: 0, totalStudents: 27, navn: null},
+                { id: 19, klasse: "8A", parent: 18, points: 0, totalStudents: 27, navn: null },
+                { id: 20, klasse: "8B", parent: 18, points: 0, totalStudents: 27, navn: null },
                 { id: 21, skole: "Jordet skole", totalClasses: 2, parent: null, klasse: null, points: 0, navn: null },
-                { id: 22, klasse: "5A", parent: 21, points: 0, totalStudents: 17, navn: null},
-                { id: 23, klasse: "5B", parent: 21, points: 0, totalStudents: 16, navn: null},
+                { id: 22, klasse: "5A", parent: 21, points: 0, totalStudents: 17, navn: null },
+                { id: 23, klasse: "5B", parent: 21, points: 0, totalStudents: 16, navn: null },
                 { id: 24, skole: "Østre Halsen skole", totalClasses: 2, parent: null, klasse: null, points: 0, navn: null },
-                { id: 25, klasse: "5A", parent: 24, points: 0, totalStudents: 17, navn: null},
-                { id: 26, klasse: "5B", parent: 24, points: 0, totalStudents: 18, navn: null},
-                { id: 27, klasse: "5C", parent: 24, points: 0, totalStudents: 19, navn: null},
+                { id: 25, klasse: "5A", parent: 24, points: 0, totalStudents: 17, navn: null },
+                { id: 26, klasse: "5B", parent: 24, points: 0, totalStudents: 18, navn: null },
+                { id: 27, klasse: "5C", parent: 24, points: 0, totalStudents: 19, navn: null },
                 { id: 28, skole: "Valby skole", totalClasses: 2, parent: null, klasse: null, points: 0, navn: null },
-                { id: 29, klasse: "5 Venus", parent: 28, points: 0, totalStudents: 23, navn: null},
-                
+                { id: 29, klasse: "5 Venus", parent: 28, points: 0, totalStudents: 23, navn: null },
+
                 { id: 31, parent: 2, points: 0, navn: "Elias Bredesen", userName: "24breel2404@larvikskolen.no" },
                 { id: 32, parent: 2, points: 0, navn: "Anna Isabell Issa Chey", userName: "24chean0509@larvikskolen.no" },
                 { id: 33, parent: 2, points: 0, navn: "Åsmund Christensen", userName: "24chras1508@larvikskolen.no" },
@@ -239,7 +239,7 @@ const model = {
                 { id: 169, parent: 4, points: 0, navn: "Rita Haglund", userName: "rita.haglund@larvik.kommune.no" },
                 { id: 170, parent: 5, points: 0, navn: "Petter Duvholt Larsen", userName: "Petter.Duvholt.Larsen@larvik.kommune.no" },
                 { id: 171, parent: 6, points: 0, navn: "Snorre Sageng Hoivik-carlin", userName: "snorre.sageng.hoivik-carlin@larvik.kommune.no" },
-                
+
             ],
             achievements: [],
         },
@@ -358,7 +358,7 @@ async function loadClassList() {
     addTeacherToClass(23, "Birte Stovland Riksfjord", 'birte.stovland@larvik.kommune.no');
 
     await fetchClassData(25, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/%C2%A5stre%20Halsen%20skole%20-%205trinn%20-%205A.csv')
-    addTeacherToClass(25,"Lill Desiree Nilsen" ,"lill.desiree.nilsen@larvik.kommune.no") 
+    addTeacherToClass(25, "Lill Desiree Nilsen", "lill.desiree.nilsen@larvik.kommune.no")
     await fetchClassData(26, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/%C2%A5stre%20Halsen%20skole%20-%205trinn%20-%205B.csv')
     addTeacherToClass(26, 'Ole Kristian Rambo', "ole.kristian.rambo@larvik.kommune.no")
     await fetchClassData(27, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/%C2%A5stre%20Halsen%20skole%20-%205trinn%20-%205C.csv')
@@ -369,7 +369,7 @@ async function loadClassList() {
 }
 function addTeacherToClass(_parent, name, email) {
     let newId = model.data.statistikk.instanser.length + 15;
-    model.data.statistikk.instanser.push({id: newId, parent: _parent, points: 0, navn: name, userName: email});
+    model.data.statistikk.instanser.push({ id: newId, parent: _parent, points: 0, navn: name, userName: email });
 }
 var CLIENT_ID = '<YOUR_CLIENT_ID>';
 let API_KEY = 'AIzaSyDObDZWxzHqPFghxyANvxwMbwmFFGumpTM';
@@ -455,30 +455,6 @@ async function handleSignoutClick(event, googleUser) {
     window.location.reload(true);
 }
 
-<<<<<<< HEAD
-function googSignIn() {
-    var provider = new firebase.auth.GoogleAuthProvider();
-	  firebase.auth().signInWithPopup(provider)
-	  .then(function (result) {
-		var token = result.credential.accessToken;
-		var user = result.user;
-		model.app.currentName = user.displayName;
-		model.app.currentUser = user.email;
-		model.app.currentUserKlasse = findP();
-		model.app.currentPage = 'main'
-		getData();
-		updateView();
-	  })
-	  .catch(function (error) {
-		var errorCode = error.code;
-		var errorMessage = error.message;
-		var email = error.email;
-		var credential = error.credential;
-		console.log(error);
-	  });
-}
-=======
->>>>>>> parent of f92f13d (x)
 
 function sendEmail(target, message, motakker = "") {
     const subject = 'Wishing others Well';
@@ -565,12 +541,13 @@ async function getMsgs() {
             meldingerCollection.forEach(function (meldingCollectionSS) {
                 let melding = meldingCollectionSS.data();
                 if (profile.getEmail() == melding.reciver) {
-                    model.app.inbox.push({ 
-                        sender: melding.sender, 
-                        data: melding.data, 
-                        date: melding.date, 
-                        reciver: melding.reciver, 
-                        id: meldingCollectionSS.id.toString() });
+                    model.app.inbox.push({
+                        sender: melding.sender,
+                        data: melding.data,
+                        date: melding.date,
+                        reciver: melding.reciver,
+                        id: meldingCollectionSS.id.toString()
+                    });
                 }
             });
         });
@@ -596,7 +573,7 @@ async function _delete(id) {
 
 async function searchClassListsForStudent(email) {
     for (let i = 0; i < classLists.length; i++) {
-        if(searchClasslist(classList[i], email)) {
+        if (searchClasslist(classList[i], email)) {
             return true;
         }
         return false;
@@ -614,7 +591,9 @@ async function fetchClassData(parentId, url) {
     let data = await response.text();
     let parsed = Papa.parse(data);
     parsed.data.map((elev, index) => {
-        if(index != 0 && index != parsed.data.length - 1) model.data.statistikk.instanser.push({id: prevLen + index, 
-            parent: parentId, points: 0, navn: parsed.data[index][1], userName: parsed.data[index][0]}) 
+        if (index != 0 && index != parsed.data.length - 1) model.data.statistikk.instanser.push({
+            id: prevLen + index,
+            parent: parentId, points: 0, navn: parsed.data[index][1], userName: parsed.data[index][0]
+        })
     })
 }
