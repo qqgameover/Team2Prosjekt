@@ -377,6 +377,7 @@ let API_KEY = 'AIzaSyDObDZWxzHqPFghxyANvxwMbwmFFGumpTM';
 //brukernavn, epost, 
 //setter side til main og updater viewet
 function onSignIn(googleUser) {
+    console.log("help")
     const profile = googleUser.getBasicProfile();
     model.app.currentName = profile.getName();
     model.app.currentUser = profile.getEmail(); // This is null if the 'email' scope is not present.
@@ -426,6 +427,7 @@ async function initClient() {
 
         // Handle the initial sign-in state.
         updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+        authorizeButton = document.getElementById("signInButton");
         authorizeButton.onclick = handleAuthClick;
         signoutButton.onclick = handleSignoutClick;
         getData();
@@ -435,6 +437,9 @@ async function initClient() {
     }
 }
 
+function handleAuthClick(event) {
+    gapi.auth2.getAuthInstance().signIn();
+}
 
 function updateSigninStatus(isSignedIn) {
     console.log("isSignedIn")
