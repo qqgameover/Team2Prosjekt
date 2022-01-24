@@ -399,7 +399,7 @@ const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/gmail/v1/r
 // Authorization scopes required by the API; multiple scopes can be
 // included, separated by spaces.
 // Modify mail, readonly, compose and send => user must accept in order for us to access mail and send. 
-const SCOPES = 'https://www.googleapis.com/auth/userinfo.profile';
+const SCOPES = '';
 
 function handleClientLoad() {
     console.log("handleCLientLoad")
