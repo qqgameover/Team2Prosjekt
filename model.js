@@ -117,6 +117,7 @@ const model = {
                 { id: 58, parent: 7, navn: "Kasper", userName: "kasper@getacademy.no" },
                 { id: 59, parent: 7, navn: "Marius", userName: "mariussoerlie@gmail.com" },
                 { id: 60, parent: 7, navn: "Merete", userName: "merete.berdal@gmail.com" },
+                { id: 9009, parent: 7, navn: "Jostein", userName: "jostein@getacademy.no" },
 
                 //8A
                 { id: 60, parent: 3, points: 0, navn: "Omar Alali", userName: "24alaom1811@larvikskolen.no" },
@@ -435,9 +436,6 @@ async function initClient() {
     }
 }
 
-function handleAuthClick(event) {
-    gapi.auth2.getAuthInstance().signIn();
-}
 
 function updateSigninStatus(isSignedIn) {
     console.log("isSignedIn")
@@ -457,8 +455,6 @@ async function handleSignoutClick(event, googleUser) {
     updateView();
     window.location.reload(true);
 }
-
-
 function sendEmail(target, message, motakker = "") {
     const subject = 'Wishing others Well';
     const content = message;
