@@ -18,7 +18,7 @@
 
 .headerMain{
   position: relative;
-  font-size: 80px;
+  font-size: 6vh;
   font-weight: 800;
   display: flex;
   justify-content: center;
