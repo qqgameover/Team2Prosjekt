@@ -10,14 +10,14 @@ function updateViewMain() {
 		</a>
 	</div>
 	<div class="container">
-	<h1 class="headerMain">WOW</h1>
+	<h1 class="headerMain mt-sm-4">WOW</h1>
 	<h1 class="subHeader">I LARVIKSKOLEN</h1></div>
 <div class="imgLeft">
 	<a href="https://imgbb.com/"><img id="larvikBilde" src="https://i.ibb.co/rwn3rbj/larvik-Kom.png" alt="larvik-Kom" border="0"></a></div>
 <div class="imgRight">
 	<a href="https://imgbb.com/"><img id="lhkBilde" src="https://i.ibb.co/Sf5F7MD/lhk.png" alt="lhk" border="0"></a></div>
 <div class="container">
-<h3 class="totd">HVA VIL DU ØVE PÅ I DAG?</h3>
+<h3 class="totd my-sm-5">HVA VIL DU ØVE PÅ I DAG?</h3>
 <div class="mainGrid">
 	<div style="background-image: linear-gradient(to bottom right,${gradientMessage});"
 		class="grid-item" onclick="gotoMeldinger()"> Meldinger
