@@ -114,7 +114,7 @@ const model = {
                 { id: 57, parent: 2, navn: "Ine Wiik", userName: "ine.bjornstad@larvik.kommune.no" },
 
                 //test klasse
-                { id: 58, parent: 7, navn: "Kasper", userName: "kasper@getacademy.no" },
+
                 { id: 59, parent: 7, navn: "Marius", userName: "mariussoerlie@gmail.com" },
                 { id: 60, parent: 7, navn: "Merete", userName: "merete.berdal@gmail.com" },
                 { id: 9009, parent: 7, navn: "Jostein", userName: "jostein@getacademy.no" },
@@ -355,6 +355,7 @@ async function loadClassList() {
 
     await fetchClassData(22, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/Jordet%20skole%20-%205trinn%20-%205A.csv')
     addTeacherToClass(22, "Line Solid", "line.sollid@larvik.kommune.no");
+    addTeacherToClass(22, "Kasper Lovold", "kasper@getacademy.no");
     await fetchClassData(23, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/Jordet%20skole%20-%205trinn%20-%205B.csv')
     addTeacherToClass(23, "Birte Stovland Riksfjord", 'birte.stovland@larvik.kommune.no');
 
