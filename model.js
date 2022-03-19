@@ -118,7 +118,7 @@ const model = {
                 { id: 59, parent: 7, navn: "Marius", userName: "mariussoerlie@gmail.com" },
                 { id: 60, parent: 7, navn: "Merete", userName: "merete.berdal@gmail.com" },
                 { id: 9009, parent: 7, navn: "Jostein", userName: "jostein@getacademy.no" },
-                { id: 9010, parent: 7, navn: "Kasper", userName: "kasper@getacademy.no" },
+                //{ id: 9010, parent: 7, navn: "Kasper", userName: "kasper@getacademy.no" },
 
                 //8A
                 { id: 60, parent: 3, points: 0, navn: "Omar Alali", userName: "24alaom1811@larvikskolen.no" },
@@ -177,6 +177,7 @@ const model = {
                 { id: 110, parent: 4, points: 0, navn: "Selin Hansen Yeser", userName: "24yesse1410@larvikskolen.no" },
 
                 //8D
+
                 { id: 111, parent: 5, points: 0, navn: "Saifullah Abubakarov", userName: "24abusa2502@larvikskolen.no" },
                 { id: 112, parent: 5, points: 0, navn: "Thea Amundsen", userName: "24amuth2012@larvikskolen.no" },
                 { id: 113, parent: 5, points: 0, navn: "Dieu-Donne Tshimpo Badibanga", userName: "24baddi2011@larvikskolen.no" },
@@ -204,6 +205,7 @@ const model = {
                 { id: 135, parent: 5, points: 0, navn: "Sofie Brudal Uglum", userName: "24uglso1606@larvikskolen.no" },
                 { id: 136, parent: 5, points: 0, navn: "Satti Valaskeviciute", userName: "24valsa0502@larvikskolen.no" },
                 { id: 137, parent: 5, points: 0, navn: "Ewelina Kamila Wiatr-Nowak", userName: "24wiaew1212@larvikskolen.no" },
+                { id: 9999, parent: 5, points: 0, navn: "Kasper", userName: "kasper@getacademy.no" },
 
                 //8E
                 { id: 138, parent: 6, points: 0, navn: "Leila Abdullah", userName: "24abdle1311@larvikskolen.no" },
