@@ -43,9 +43,9 @@
 .grid-item {
 border: 2px solid  black;
 border-radius: 10px;
-padding: 40px;
+padding: 2vh;
 margin: 5px; 
-max-width: 860px;
+max-width: 50vw;
 font-size: 40px;
 text-align: center;
 /* background-color: white; */
@@ -53,16 +53,21 @@ text-align: center;
 
 .imgLeft {
   position: absolute;
-	top: 120px;
-	left: 30px;
+  max-width: 10vw;
+  max-height: 10vh;
+	top: 15vh;
+	left: 2vw;
 }
 .imgRight {
   position: absolute;
-	top: 120px;
-	right: 30px;
+	top: 15vh;
+	right: 2vw;
 }
 #lhkBilde {
-  height: 200px;
+  height: 10vh;
+}
+#larvikBilde {
+  height: 10vh;
 }
 
 .gridInsideAGrid{

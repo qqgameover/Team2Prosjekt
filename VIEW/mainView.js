@@ -10,14 +10,15 @@ function updateViewMain() {
 		</a>
 	</div>
 	<div class="container">
-	<h1 class="headerMain mt-sm-4">WOW</h1>
-	<h1 class="subHeader">I LARVIKSKOLEN</h1></div>
-<div class="imgLeft">
-	<a href="https://imgbb.com/"><img id="larvikBilde" src="https://i.ibb.co/rwn3rbj/larvik-Kom.png" alt="larvik-Kom" border="0"></a></div>
-<div class="imgRight">
-	<a href="https://imgbb.com/"><img id="lhkBilde" src="https://i.ibb.co/Sf5F7MD/lhk.png" alt="lhk" border="0"></a></div>
+	<img src="https://i.ibb.co/0nL3TqP/Banner-Wo-W.png" alt="Banner" 
+		style="width: 75%; display: block; margin-left: auto; margin-right: auto; max-height: 25vh;">
+	<div class="imgLeft">
+		<img id="larvikBilde" src="https://i.ibb.co/rwn3rbj/larvik-Kom.png" alt="larvik-Kom" border="0"></div>
+	<div class="imgRight">
+		<img id="lhkBilde" src="https://i.ibb.co/Sf5F7MD/lhk.png" alt="lhk" border="0"></div>
+	<h1 class="headerMain mt-2">WOW</h1>
+	<h1 class="subHeader mb-2">I LARVIKSKOLEN</h1></div>
 <div class="container">
-<h3 class="totd my-sm-5 text-decoration-underline">HVA VIL DU ØVE PÅ I DAG?</h3>
 <div class="mainGrid">
 	<div style="background-image: linear-gradient(to bottom right,${gradientMessage});"
 		class="grid-item" onclick="gotoMeldinger()"> Meldinger
@@ -40,7 +41,7 @@ function updateViewMain() {
 				linear-gradient(to bottom right,${colorMs2});"></div>
 			<div class="battery" id="pointsG" style="background-image: 
 				linear-gradient(to bottom right,${colorMs3});"></div>
-		</div>
+	</div>
 	</div>
 
 	<div style="background-image: linear-gradient(to bottom right,${gradientFysisk});" 
