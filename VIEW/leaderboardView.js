@@ -54,21 +54,7 @@ function updateViewLeaderboard() {
 			});
 			rankingSkole = sortedArray;
 
-		} if (model.data.statistikk.instanser[i].id == model.app.currentUserKlasse) {
-			const parent = model.data.statistikk.instanser[i].parent;
-			for (let i = 0; i < model.data.statistikk.instanser.length; i++) {
-				if (parent == model.data.statistikk.instanser[i].parent) {
-					rankingKlasse.push(model.data.statistikk.instanser[i]);
-				}
-				const sortedArray = rankingKlasse.sort((a, b) => {
-					if (a.points < b.points) return 1;
-					return -1;
-				});
-				rankingKlasse = sortedArray;
-			}
-
-
-		} if (model.app.currentUserKlasse == model.data.statistikk.instanser[i].parent) {
+		}  if (model.app.currentUserKlasse == model.data.statistikk.instanser[i].parent) {
 			rankingIndivid.push(model.data.statistikk.instanser[i]);
 			const sortedArray = rankingIndivid.sort((a, b) => {
 				if (a.points < b.points) return 1;
@@ -77,6 +63,7 @@ function updateViewLeaderboard() {
 			rankingIndivid = sortedArray;
 		}
 	}
+	bruh();
 	html += skoleRanking();
 	return html;
 }
@@ -127,6 +114,17 @@ function skoleRanking() {
 	return createTableRow(skoleRankingRows, klasseRankingRows, elevRankingRows);
 }
 
-
-
+function bruh() {
+	let arr = []
+	for(let index = 0; index < model.data.statistikk.instanser.length; i++) {
+		if(model.data.statistikk.instanser[i].parent != null && model.data.statistikk.instanser[i].parent != null) {
+			arr.push(model.data.statistikk.instanser[i]);
+		}
+	}
+	const sortedArr = arr.sort((a, b) => {
+		if (a.points < b.points) return 1;
+		return -1;
+	})
+	rankingKlasse = sortedArr;
+}
 
