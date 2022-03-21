@@ -128,7 +128,7 @@ function skoleRanking() {
 }
 
 function getSchoolFromClass(c) {
-	return model.data.instanser.find((i) => {
+	return model.data.statistikk.instanser.find((i) => {
 		if(i.parent == c) {
 			return i;
 		}
