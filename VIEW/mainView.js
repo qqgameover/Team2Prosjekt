@@ -10,7 +10,7 @@ function updateViewMain() {
 		</a>
 	</div>
 	<div class="container">
-	<img src="https://i.ibb.co/0nL3TqP/Banner-Wo-W.png" alt="Banner" 
+	<img src="https://i.ibb.co/xfYPjh4/thebanner.png" alt="Banner" 
 		style="width: 75%; display: block; margin-left: auto; margin-right: auto; max-height: 25vh;">
 	<div class="imgLeft">
 		<img id="larvikBilde" src="https://i.ibb.co/rwn3rbj/larvik-Kom.png" alt="larvik-Kom" border="0"></div>
