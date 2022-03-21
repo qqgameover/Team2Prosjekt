@@ -538,7 +538,7 @@ async function getMsgs() {
     var auth2 = gapi.auth2.getAuthInstance();
     var profile = auth2.currentUser.get().getBasicProfile();
     model.app.inbox = [];
-    await meldingerCollection.where("reciver" == profile.getEmail()).onSnapshot(
+    await meldingerCollection.where("reciver", "==", profile.getEmail()).onSnapshot(
         function (meldingerCollection) {
             meldingerCollection.forEach(function (meldingCollectionSS) {
                 let melding = meldingCollectionSS.data();
