@@ -118,7 +118,7 @@ const model = {
                 { id: 59, parent: 7, navn: "Marius", userName: "mariussoerlie@gmail.com" },
                 { id: 60, parent: 7, navn: "Merete", userName: "merete.berdal@gmail.com" },
                 { id: 9009, parent: 7, navn: "Jostein", userName: "jostein@getacademy.no" },
-                //{ id: 9010, parent: 7, navn: "Kasper", userName: "kasper@getacademy.no" },
+                { id: 9010, parent: 7, navn: "Kasper", userName: "kasper@getacademy.no" },
 
                 //8A
                 { id: 60, parent: 3, points: 0, navn: "Omar Alali", userName: "24alaom1811@larvikskolen.no" },
@@ -205,7 +205,6 @@ const model = {
                 { id: 135, parent: 5, points: 0, navn: "Sofie Brudal Uglum", userName: "24uglso1606@larvikskolen.no" },
                 { id: 136, parent: 5, points: 0, navn: "Satti Valaskeviciute", userName: "24valsa0502@larvikskolen.no" },
                 { id: 137, parent: 5, points: 0, navn: "Ewelina Kamila Wiatr-Nowak", userName: "24wiaew1212@larvikskolen.no" },
-                { id: 9999, parent: 5, points: 0, navn: "Kasper", userName: "kasper@getacademy.no" },
 
                 //8E
                 { id: 138, parent: 6, points: 0, navn: "Leila Abdullah", userName: "24abdle1311@larvikskolen.no" },
@@ -596,4 +595,8 @@ async function fetchClassData(parentId, url) {
             parent: parentId, points: 0, navn: parsed.data[index][1], userName: parsed.data[index][0]
         })
     })
+}
+
+function patchWork() {
+
 }
