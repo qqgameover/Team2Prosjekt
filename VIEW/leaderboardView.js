@@ -99,7 +99,7 @@ function skoleRanking() {
 	for (let i = 0; i < 9; i++) {
 		klasseRankingRows +=
 			`<tr>
-				<td class="klasse">${rankingKlasse[i].klasse}</td>
+				<td class="klasse">${rankingKlasse[i].klasse} - ${findClassParent(rankingKlasse[i]).skole}</td>
 				<td class="klassepoeng">${rankingKlasse[i].points}</td>
 			</tr>`;
 	}
@@ -126,5 +126,16 @@ function bruh() {
 		return -1;
 	})
 	rankingKlasse = sortedArr;
+}
+
+function findClassParent(c) {
+	let p;
+	for(let i = 0; i < model.data.statistikk.instanser.length; i++) {
+		if(model.data.statistikk.instanser[i].id == c.parent) {
+			p = model.data.statistikk.instanser[i];
+			break;
+		}
+	}
+	return p;
 }
 
