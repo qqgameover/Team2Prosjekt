@@ -27,7 +27,7 @@ function updateViewLeaderboard() {
 
 			<table class="leaderboardTable">
 				<tr>
-					<th class="thTableA">Klassens gjennomsnitt</th>
+					<th class="thTableA">Topp 10 Klasser</th>
 					<th class="thTableB">Poeng</th>
 				</tr>	
 			</table>
@@ -96,7 +96,7 @@ function skoleRanking() {
 				<td class="skolepoeng">${rankingSkole[i].points}</td>
 			</tr>`;
 	}
-	for (let i = 0; i < 9; i++) {
+	for (let i = 0; i < 10; i++) {
 		klasseRankingRows +=
 			`<tr>
 				<td class="klasse">${rankingKlasse[i].klasse} - ${findClassParent(rankingKlasse[i]).skole}</td>
