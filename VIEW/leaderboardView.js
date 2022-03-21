@@ -116,7 +116,7 @@ function skoleRanking() {
 
 function bruh() {
 	let arr = []
-	for(let i = 0; index < model.data.statistikk.instanser.length; i++) {
+	for(let i = 0; i < model.data.statistikk.instanser.length; i++) {
 		if(model.data.statistikk.instanser[i].parent != null && model.data.statistikk.instanser[i].parent != null) {
 			arr.push(model.data.statistikk.instanser[i]);
 		}
