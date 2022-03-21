@@ -538,18 +538,11 @@ async function getMsgs() {
     var auth2 = gapi.auth2.getAuthInstance();
     var profile = auth2.currentUser.get().getBasicProfile();
     model.app.inbox = [];
-    await meldingerCollection.onSnapshot(
+    await meldingerCollection.get(
         function (meldingerCollection) {
             meldingerCollection.forEach(function (meldingCollectionSS) {
                 let melding = meldingCollectionSS.data();
                 if (profile.getEmail() == melding.reciver) {
-                    model.app.inbox.push({
-                        sender: melding.sender,
-                        data: melding.data,
-                        date: melding.date,
-                        reciver: melding.reciver,
-                        id: meldingCollectionSS.id.toString()
-                    });
                     model.app.inbox.push({
                         sender: melding.sender,
                         data: melding.data,
