@@ -54,8 +54,7 @@ function updateViewLeaderboard() {
 			});
 			rankingSkole = sortedArray;
 
-		} if (model.data.statistikk.instanser[i].id
-			== model.app.currentUserKlasse) {
+		} if (model.data.statistikk.instanser[i].id == model.app.currentUserKlasse) {
 			const parent = model.data.statistikk.instanser[i].parent;
 			for (let i = 0; i < model.data.statistikk.instanser.length; i++) {
 				if (parent == model.data.statistikk.instanser[i].parent) {
@@ -113,7 +112,7 @@ function skoleRanking() {
 	for (let i = 0; i < rankingKlasse.length; i++) {
 		klasseRankingRows +=
 			`<tr>
-				<td class="klasse">${rankingKlasse[i].klasse}</td>
+				<td class="klasse">${rankingKlasse[i].klasse} - ${getSchoolFromClass(rankingKlasse[i]).navn}</td>
 				<td class="klassepoeng">${rankingKlasse[i].points}</td>
 			</tr>`;
 	}
@@ -126,6 +125,14 @@ function skoleRanking() {
 			</tr>`;
 	}
 	return createTableRow(skoleRankingRows, klasseRankingRows, elevRankingRows);
+}
+
+function getSchoolFromClass(c) {
+	return model.data.instanser.find((i) => {
+		if(i.parent == c) {
+			return i;
+		}
+	})
 }
 
 
