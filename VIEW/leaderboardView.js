@@ -128,11 +128,14 @@ function skoleRanking() {
 }
 
 function getSchoolFromClass(c) {
-	return model.data.statistikk.instanser.find((i) => {
-		if(i.parent == c) {
-			return i;
+	let school;
+	for(let index = 0; index < model.data.statistikk.instanser.length; i++) {
+		if(model.data.statistikk.instanser[i].id == c.parent) {
+			school = model.data.statistikk.instanser[i];
+			break;
 		}
-	})
+	}
+	return school;
 }
 
 
