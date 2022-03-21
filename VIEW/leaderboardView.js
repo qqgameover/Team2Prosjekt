@@ -112,7 +112,7 @@ function skoleRanking() {
 	for (let i = 0; i < rankingKlasse.length; i++) {
 		klasseRankingRows +=
 			`<tr>
-				<td class="klasse">${rankingKlasse[i].klasse} - ${getSchoolFromClass(rankingKlasse[i]).navn}</td>
+				<td class="klasse">${rankingKlasse[i].klasse} - ${AAgetSchoolFromClass(rankingKlasse[i]).navn}</td>
 				<td class="klassepoeng">${rankingKlasse[i].points}</td>
 			</tr>`;
 	}
@@ -127,7 +127,7 @@ function skoleRanking() {
 	return createTableRow(skoleRankingRows, klasseRankingRows, elevRankingRows);
 }
 
-function getSchoolFromClass(c) {
+function AAgetSchoolFromClass(c) {
 	let school;
 	for(let index = 0; index < model.data.statistikk.instanser.length; i++) {
 		if(model.data.statistikk.instanser[i].id == c.parent) {
