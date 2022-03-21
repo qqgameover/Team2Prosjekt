@@ -113,7 +113,7 @@ function skoleRanking() {
 	for (let i = 0; i < rankingKlasse.length; i++) {
 		klasseRankingRows +=
 			`<tr>
-				<td class="klasse">${rankingKlasse[i].klasse}</td>
+				<td class="klasse">${rankingKlasse[i].klasse} - ${rankingKlasse[i].skole}</td>
 				<td class="klassepoeng">${rankingKlasse[i].points}</td>
 			</tr>`;
 	}
