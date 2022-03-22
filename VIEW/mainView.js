@@ -5,7 +5,7 @@ function updateViewMain() {
 	<div class="navbar navbar-expand-lg">
 		<a class="nav-item" href="#Lederbrett" onclick="gotoLederbrett()">Lederbrett</a>
 		<a class="nav-item" href="#Hjem" onclick="gotoH()">Hjem</a>
-        <a class="nav-item" onclick="gotoInbox()">Inbox</a> 
+        <a class="nav-item" onclick="getMsgs() ; gotoInbox()">Inbox</a> 
 		<a class="nav-item" onclick="handleSignoutClick(event)">Logg ut
 		</a>
 	</div>

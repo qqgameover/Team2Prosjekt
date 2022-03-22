@@ -330,7 +330,6 @@ async function getData() {
                 addPoints();
             }
         })
-        await getMsgs();
     } catch (e) {
         console.error(e)
     }
