@@ -352,6 +352,7 @@ async function loadClassList() {
     await fetchClassData(19, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-8/Tjodalyng%20skole%20-%208trinn%20-%208A.csv')
     addTeacherToClass(19, "Kjetil Hobber", 'kjetil.hobber@larvik.kommune.no');
     await fetchClassData(20, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-8/Tjodalyng%20skole%20-%208trinn%20-%208B.csv')
+    addTeacherToClass(20, "Nadya Acar", '24acana0602@larvikskolen.no');
     addTeacherToClass(20, "Regitze Ravnsborg", 'regitze.ravnsborg@larvik.kommune.no');
 
     await fetchClassData(22, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/Jordet%20skole%20-%205trinn%20-%205A.csv')
