@@ -410,11 +410,6 @@ function handleClientLoad() {
 }
 
 
-function appendPre(message) {
-    var textContent = document.createTextNode(message + '\n');
-    console.log(textContent);
-}
-
 async function initClient() {
     console.log("initclient")
     try {
@@ -434,7 +429,6 @@ async function initClient() {
         signoutButton.onclick = handleSignoutClick;
         getData();
     } catch (error) {
-        appendPre(JSON.stringify(error, null, 2));
         console.error(error)
     }
 }
