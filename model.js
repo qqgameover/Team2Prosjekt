@@ -595,4 +595,6 @@ async function fetchClassData(parentId, url) {
 function patchWork() {
     var fix = model.data.statistikk.instanser.filter((x) => {return x.navn == "Amanda Celina Sydow Sæterdal"})
     fix[0].parent = 23;
+    var losFixos = model.data.statistikk.instanser.filter((x) => {return x.userName != "24zahma1503@larvikskolen.no"});
+    model.data.statistikk.instanser = losFixos;
 }
