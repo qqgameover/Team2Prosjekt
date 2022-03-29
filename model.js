@@ -547,7 +547,6 @@ async function getPointsPerson() {
     if (!gapi.auth2.getAuthInstance().isSignedIn.get()) return;
     var auth2 = gapi.auth2.getAuthInstance();
     var profile = auth2.currentUser.get().getBasicProfile();
-    model.data.statistikk.achievements = [];
     await pointsCollection.where("userName", "==", profile.getEmail()).get(
         function (meldingerCollection) {
             meldingerCollection.forEach(function (pointsColl) {
@@ -566,8 +565,6 @@ async function getPointsPerson() {
 async function getPointsAll() {
     if (!gapi.auth2.getAuthInstance().isSignedIn.get()) return;
     var auth2 = gapi.auth2.getAuthInstance();
-    var profile = auth2.currentUser.get().getBasicProfile();
-    model.data.statistikk.achievements = [];
     await pointsCollection.get(
         function (meldingerCollection) {
             meldingerCollection.forEach(function (pointsColl) {
