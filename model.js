@@ -333,8 +333,7 @@ async function getData() {
             model.data.statistikk.instanser[i].points = 0;
         }
         model.data.statistikk.achievements = [];
-        await getPointsPerson();
-        addPoints();
+        await getPointsPerson().then(() => { addPoints() });
     } catch (e) {
         console.error(e)
     }
