@@ -323,7 +323,10 @@ async function getData() {
             complete: function (results) {
                 const mappedData = results.data.map((e, index) => {
                     if (index == 0) return;
-                    return { tid: e[0], userName: e[1].trim(), mottaker: e[2].trim(), taskId: parseInt(e[3]), points: parseInt(e[4]), pointsNotAdded: true }
+                    return {
+                        tid: e[0], userName: e[1].trim(), mottaker: e[2].trim(), taskId: parseInt(e[3]),
+                        points: parseInt(e[4]), pointsNotAdded: true
+                    }
                 })
                 const filterdData = mappedData.filter((e) => e)
                 model.data.statistikk.achievements = filterdData;
@@ -495,7 +498,8 @@ function sendEmail(target, message, motakker = "") {
     });
 }
 
-function addAch(_user, _kategori, _points, _motakker = "") {
+
+function aaaaaaaaaaddAch(_user, _kategori, _points, _motakker = "") {
     const opts = {
         method: "POST",
         mode: "no-cors",
@@ -526,6 +530,12 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 var meldingerCollection = db.collection("meldinger")
+var pointsCollection = db.collection("points")
+
+function addAch(_user, _kategori, _points, _motakker = "") {
+    var point = { userName: _user, mottaker: _motakker, points: _points, kategori: _kategori };
+    pointsCollection.add(point)
+}
 
 async function getMsgs() {
     if (!gapi.auth2.getAuthInstance().isSignedIn.get()) return;
@@ -536,12 +546,32 @@ async function getMsgs() {
         function (meldingerCollection) {
             meldingerCollection.forEach(function (meldingCollectionSS) {
                 let melding = meldingCollectionSS.data();
-                    model.app.inbox.push({
-                        sender: melding.sender,
-                        data: melding.data,
-                        date: melding.date,
-                        reciver: melding.reciver,
-                        id: meldingCollectionSS.id.toString()
+                model.app.inbox.push({
+                    sender: melding.sender,
+                    data: melding.data,
+                    date: melding.date,
+                    reciver: melding.reciver,
+                    id: meldingCollectionSS.id.toString()
+                });
+            });
+        });
+}
+
+async function getPointsPerson() {
+    if (!gapi.auth2.getAuthInstance().isSignedIn.get()) return;
+    var auth2 = gapi.auth2.getAuthInstance();
+    var profile = auth2.currentUser.get().getBasicProfile();
+    model.data.statistikk.achievements = [];
+    await pointsCollection.where("pointGetter", "==", profile.getEmail()).onSnapshot(
+        function (meldingerCollection) {
+            meldingerCollection.forEach(function (pointsColl) {
+                let points = pointsColl.data();
+                model.data.statistikk.achievements.push({
+                    userName: points.userName,
+                    mottaker: points.motakker,
+                    taskId: points.taskId,
+                    tid: points.tid,
+                    pointsNotAdded: true
                 });
             });
         });
@@ -593,8 +623,8 @@ async function fetchClassData(parentId, url) {
 }
 
 function patchWork() {
-    var fix = model.data.statistikk.instanser.filter((x) => {return x.navn == "Amanda Celina Sydow Sæterdal"})
+    var fix = model.data.statistikk.instanser.filter((x) => { return x.navn == "Amanda Celina Sydow Sæterdal" })
     fix[0].parent = 23;
-    var losFixos = model.data.statistikk.instanser.filter((x) => {return x.userName != "24zahma1503@larvikskolen.no"});
+    var losFixos = model.data.statistikk.instanser.filter((x) => { return x.userName != "24zahma1503@larvikskolen.no" });
     model.data.statistikk.instanser = losFixos;
 }
