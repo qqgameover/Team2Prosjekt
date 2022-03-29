@@ -519,7 +519,13 @@ function aaaaaaaaaaddAch(_user, _kategori, _points, _motakker = "") {
 }
 
 function addAch(_user, _kategori, _points, _motakker = "") {
-    var point = { userName: _user, mottaker: _motakker, points: _points, kategori: _kategori, tid: new Date().toLocaleDateString("en-UK").replace(/\//g, '-') };
+    var point = {
+        userName: _user,
+        motakker: _motakker,
+        points: _points,
+        kategori: _kategori,
+        tid: new Date().toLocaleDateString("en-UK").replace(/\//g, '-')
+    };
     pointsCollection.add(point)
 }
 
@@ -548,13 +554,14 @@ async function getPointsPerson() {
     var auth2 = gapi.auth2.getAuthInstance();
     var profile = auth2.currentUser.get().getBasicProfile();
     await pointsCollection.where("userName", "==", profile.getEmail()).onSnapshot(
-        function (meldingerCollection) {
-            meldingerCollection.forEach(function (pointsColl) {
+        (pointCollectionn) => {
+            pointCollectionn.forEach(function (pointsColl) {
                 let points = pointsColl.data();
                 model.data.statistikk.achievements.push({
                     userName: points.userName,
-                    mottaker: points.motakker,
-                    taskId: points.taskId,
+                    mottaker: points.mottaker,
+                    taskId: points.kategori,
+                    points: points.points,
                     tid: points.tid,
                     pointsNotAdded: true
                 });
