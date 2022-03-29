@@ -41,7 +41,7 @@ let pointsL = 0;
 
 let date = new Date().toJSON().slice(0, 10);
 let dateSplit = date.split("-");
-let newDateString = dateSplit[2] + "." + dateSplit[1] + "." + dateSplit[0];
+let newDateString = dateSplit[2] + "-" + dateSplit[1] + "-" + dateSplit[0];
 console.log(newDateString);
 
 //Kasper fikser
@@ -53,7 +53,7 @@ function countPoints() {
 	pointsMs = 0;
 	pointsL = 0;
 	for (let i = 0; i < model.data.statistikk.achievements.length; i++) {
-		var splitTime = model.data.statistikk.achievements[i].tid.split(" ");
+		var splitTime = model.data.statistikk.achievements[i].tid;
 		if (splitTime[0].trim() != newDateString.trim()) continue;
 		if (profile.getEmail() == model.data.statistikk.achievements[i].userName) {
 			if (model.data.statistikk.achievements[i].taskId == 0) {
@@ -206,8 +206,8 @@ function addClassPoints() {
 function getSchoolsAvg() {
 	for (let i = 0; i < model.data.statistikk.instanser.length; i++) {
 		if (model.data.statistikk.instanser[i].totalClasses) {
-      model.data.statistikk.instanser[i].points = 
-        Number((model.data.statistikk.instanser[i].points / model.data.statistikk.instanser[i].totalClasses).toFixed(1));
+			model.data.statistikk.instanser[i].points =
+				Number((model.data.statistikk.instanser[i].points / model.data.statistikk.instanser[i].totalClasses).toFixed(1));
 		}
 	}
 }
@@ -215,9 +215,9 @@ function getSchoolsAvg() {
 function getClassAvg() {
 	for (let i = 0; i < model.data.statistikk.instanser.length; i++) {
 		if (model.data.statistikk.instanser[i].totalStudents) {
-      model.data.statistikk.instanser[i].points = 
-        Number((model.data.statistikk.instanser[i].points / model.data.statistikk.instanser[i].totalStudents).toFixed(1));
-    }
+			model.data.statistikk.instanser[i].points =
+				Number((model.data.statistikk.instanser[i].points / model.data.statistikk.instanser[i].totalStudents).toFixed(1));
+		}
 	}
 }
 
@@ -225,11 +225,11 @@ function addSchoolPoints() {
 	for (let i = 0; i < model.data.statistikk.instanser.length; i++) {
 		var current = model.data.statistikk.instanser[i];
 		if (current.parent != null) continue;
-      for (let j = 0; j < model.data.statistikk.instanser.length; j++) {
-      var currentJ = model.data.statistikk.instanser[j];
+		for (let j = 0; j < model.data.statistikk.instanser.length; j++) {
+			var currentJ = model.data.statistikk.instanser[j];
 			if (currentJ.parent == current.id) {
 				current.points += currentJ.points;
 			}
 		}
-  }
+	}
 }

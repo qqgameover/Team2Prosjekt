@@ -573,13 +573,14 @@ async function getPointsAll() {
     if (!gapi.auth2.getAuthInstance().isSignedIn.get()) return;
     var auth2 = gapi.auth2.getAuthInstance();
     await pointsCollection.onSnapshot(
-        function (meldingerCollection) {
-            meldingerCollection.forEach(function (pointsColl) {
+        (pointCollectionn) => {
+            pointCollectionn.forEach(function (pointsColl) {
                 let points = pointsColl.data();
                 model.data.statistikk.achievements.push({
                     userName: points.userName,
-                    mottaker: points.motakker,
-                    taskId: points.taskId,
+                    mottaker: points.mottaker,
+                    taskId: points.kategori,
+                    points: points.points,
                     tid: points.tid,
                     pointsNotAdded: true
                 });
