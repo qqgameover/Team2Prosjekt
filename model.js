@@ -333,7 +333,8 @@ async function getData() {
             model.data.statistikk.instanser[i].points = 0;
         }
         model.data.statistikk.achievements = [];
-        await getPointsPerson().then(() => { addPoints() });
+        await getPointsPerson();
+        addPoints();
     } catch (e) {
         console.error(e)
     }
@@ -406,7 +407,7 @@ const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/gmail/v1/r
 // Authorization scopes required by the API; multiple scopes can be
 // included, separated by spaces.
 // Modify mail, readonly, compose and send => user must accept in order for us to access mail and send. 
-const SCOPES = '';
+const SCOPES = '';;
 
 function handleClientLoad() {
     console.log("handleCLientLoad")
