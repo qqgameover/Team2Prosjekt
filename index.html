@@ -121,7 +121,7 @@
 				let destinationPage = model.app.previousPage.pop();
 				if (destinationPage.name == "main" || destinationPage.name == "leaderboard" || destinationPage.name == "meldinger") {
 					model.app.currentPage = destinationPage.name;
-					getData();
+					updateView();
 				}
 				else if (destinationPage.name == "kategorier") {
 					model.app.currentPage = destinationPage.name;
