@@ -519,7 +519,7 @@ function aaaaaaaaaaddAch(_user, _kategori, _points, _motakker = "") {
 }
 
 function addAch(_user, _kategori, _points, _motakker = "") {
-    var point = { userName: _user, mottaker: _motakker, points: _points, kategori: _kategori, tid: new Date() };
+    var point = { userName: _user, mottaker: _motakker, points: _points, kategori: _kategori, tid: new Date().toLocaleDateString("en-UK").replace(/\//g, '-') };
     pointsCollection.add(point)
 }
 
