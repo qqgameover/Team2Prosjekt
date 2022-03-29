@@ -310,6 +310,22 @@ const model = {
     }
 }
 
+const firebaseConfig = {
+    apiKey: "AIzaSyAdzRGnYxFXls-LxG8pBmgTN0aTDbfTJPw",
+    authDomain: "wishotherswell-82682.firebaseapp.com",
+    databaseURL: "https://wishotherswell-82682-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "wishotherswell-82682",
+    storageBucket: "wishotherswell-82682.appspot.com",
+    messagingSenderId: "416443676626",
+    appId: "1:416443676626:web:7e24c3d0ad353b17693a0b",
+    measurementId: "G-ZM70JWY8JE"
+};
+
+firebase.initializeApp(firebaseConfig);
+var db = firebase.firestore();
+var meldingerCollection = db.collection("meldinger")
+var pointsCollection = db.collection("points")
+
 async function getData() {
     if (!gapi.auth2.getAuthInstance().isSignedIn.get()) return;
     try {
@@ -317,22 +333,8 @@ async function getData() {
             model.data.statistikk.instanser[i].points = 0;
         }
         model.data.statistikk.achievements = [];
-        let response = await Papa.parse('https://docs.google.com/spreadsheets/d/e/2PACX-1vQNw10gr74fMdO2wuZGzBYwBzuJsTcJZXmEP3daKXHJO1fEJy0Af-qlusaIn_kBrSrSk7BSWog-xcC7/pub?output=csv', {
-            download: true,
-            worker: true,
-            complete: function (results) {
-                const mappedData = results.data.map((e, index) => {
-                    if (index == 0) return;
-                    return {
-                        tid: e[0], userName: e[1].trim(), mottaker: e[2].trim(), taskId: parseInt(e[3]),
-                        points: parseInt(e[4]), pointsNotAdded: true
-                    }
-                })
-                const filterdData = mappedData.filter((e) => e)
-                model.data.statistikk.achievements = filterdData;
-                addPoints();
-            }
-        })
+        await getPointsPerson();
+        addPoints();
     } catch (e) {
         console.error(e)
     }
@@ -516,24 +518,9 @@ function aaaaaaaaaaddAch(_user, _kategori, _points, _motakker = "") {
 
     return fetch(url, opts)
 }
-const firebaseConfig = {
-    apiKey: "AIzaSyAdzRGnYxFXls-LxG8pBmgTN0aTDbfTJPw",
-    authDomain: "wishotherswell-82682.firebaseapp.com",
-    databaseURL: "https://wishotherswell-82682-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "wishotherswell-82682",
-    storageBucket: "wishotherswell-82682.appspot.com",
-    messagingSenderId: "416443676626",
-    appId: "1:416443676626:web:7e24c3d0ad353b17693a0b",
-    measurementId: "G-ZM70JWY8JE"
-};
-
-firebase.initializeApp(firebaseConfig);
-var db = firebase.firestore();
-var meldingerCollection = db.collection("meldinger")
-var pointsCollection = db.collection("points")
 
 function addAch(_user, _kategori, _points, _motakker = "") {
-    var point = { userName: _user, mottaker: _motakker, points: _points, kategori: _kategori };
+    var point = { userName: _user, mottaker: _motakker, points: _points, kategori: _kategori, tid: new Date() };
     pointsCollection.add(point)
 }
 
@@ -562,7 +549,7 @@ async function getPointsPerson() {
     var auth2 = gapi.auth2.getAuthInstance();
     var profile = auth2.currentUser.get().getBasicProfile();
     model.data.statistikk.achievements = [];
-    await pointsCollection.where("pointGetter", "==", profile.getEmail()).onSnapshot(
+    await pointsCollection.where("userName", "==", profile.getEmail()).get(
         function (meldingerCollection) {
             meldingerCollection.forEach(function (pointsColl) {
                 let points = pointsColl.data();
@@ -575,6 +562,27 @@ async function getPointsPerson() {
                 });
             });
         });
+}
+
+async function getPointsAll() {
+    if (!gapi.auth2.getAuthInstance().isSignedIn.get()) return;
+    var auth2 = gapi.auth2.getAuthInstance();
+    var profile = auth2.currentUser.get().getBasicProfile();
+    model.data.statistikk.achievements = [];
+    await pointsCollection.get(
+        function (meldingerCollection) {
+            meldingerCollection.forEach(function (pointsColl) {
+                let points = pointsColl.data();
+                model.data.statistikk.achievements.push({
+                    userName: points.userName,
+                    mottaker: points.motakker,
+                    taskId: points.taskId,
+                    tid: points.tid,
+                    pointsNotAdded: true
+                });
+            });
+        });
+
 }
 
 function sendMsg(_sender, _reciver, _data) {
