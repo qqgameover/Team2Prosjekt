@@ -333,7 +333,7 @@ async function getData(full = false) {
             model.data.statistikk.instanser[i].points = 0;
         }
         model.data.statistikk.achievements = [];
-
+        if (full) console.log("Full");
         full == true ? await getPointsAll() : await getPointsPerson();
     } catch (e) {
         console.error(e)
@@ -493,7 +493,7 @@ async function getMsgs() {
     var profile = auth2.currentUser.get().getBasicProfile();
     model.app.inbox = [];
     await meldingerCollection.where("reciver", "==", profile.getEmail()).onSnapshot(
-        function (meldingerCollection) {
+        (meldingerCollection) => {
             meldingerCollection.forEach(function (meldingCollectionSS) {
                 let melding = meldingCollectionSS.data();
                 model.app.inbox.push({
@@ -503,7 +503,7 @@ async function getMsgs() {
                     reciver: melding.reciver,
                     id: meldingCollectionSS.id.toString()
                 });
-            });
+            }); updateView();
         });
 }
 
@@ -511,6 +511,7 @@ async function getPointsPerson() {
     if (!gapi.auth2.getAuthInstance().isSignedIn.get()) return;
     var auth2 = gapi.auth2.getAuthInstance();
     var profile = auth2.currentUser.get().getBasicProfile();
+    model.data.statistikk.achievements = [];
     await pointsCollection.where("userName", "==", profile.getEmail()).onSnapshot(
         (pointCollectionn) => {
             pointCollectionn.forEach(function (pointsColl) {
@@ -530,6 +531,7 @@ async function getPointsPerson() {
 async function getPointsAll() {
     if (!gapi.auth2.getAuthInstance().isSignedIn.get()) return;
     var auth2 = gapi.auth2.getAuthInstance();
+    model.data.statistikk.achievements = [];
     await pointsCollection.onSnapshot(
         (pointCollectionn) => {
             pointCollectionn.forEach(function (pointsColl) {
