@@ -326,18 +326,18 @@ var db = firebase.firestore();
 var meldingerCollection = db.collection("meldinger")
 var pointsCollection = db.collection("points")
 
-async function getData() {
+async function getData(full = false) {
     if (!gapi.auth2.getAuthInstance().isSignedIn.get()) return;
     try {
         for (let i = 0; i < model.data.statistikk.instanser.length; i++) {
             model.data.statistikk.instanser[i].points = 0;
         }
         model.data.statistikk.achievements = [];
-        await getPointsPerson();
+
+        full == true ? await getPointsAll() : await getPointsPerson();
     } catch (e) {
         console.error(e)
     }
-    addPoints();
 }
 async function loadClassList() {
     await fetchClassData(8, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/Hedrum%20barneskole%20-%205trinn%20-%205.csv')
@@ -457,49 +457,6 @@ async function handleSignoutClick(event, googleUser) {
     updateView();
     window.location.reload(true);
 }
-function sendEmail(target, message, motakker = "") {
-    const subject = 'Wishing others Well';
-    const content = message;
-    let mimeData = ""
-    if (motakker == "") {
-        mimeData = [
-            `From: ${model.app.currentUser}`,
-            "To: " + target,
-            "Subject: =?utf-8?B?" + window.btoa(unescape(encodeURIComponent(subject))) + "?=",
-            "MIME-Version: 1.0",
-            "Content-Type: text/plain; charset=UTF-8",
-            "Content-Transfer-Encoding: 7bit",
-            "",
-            "Du har fått en ny melding",
-            "",
-            content].join("\n").trim();
-    } else {
-        mimeData = [
-            `From: ${model.app.currentUser}`,
-            "To: " + target,
-            "Subject: =?utf-8?B?" + window.btoa(unescape(encodeURIComponent(subject))) + "?=",
-            "MIME-Version: 1.0",
-            "Content-Type: text/plain; charset=UTF-8",
-            "Content-Transfer-Encoding: 7bit",
-            "",
-            `Ny melding sendt til ${motakker}`,
-            "",
-            content].join("\n").trim();
-    }
-    //raw, data to latin-1/base64, avoids any special chars being removed.
-    const raw = window.btoa(unescape(encodeURIComponent(mimeData))).replace(/\+/g, '-').replace(/\//g, '_');
-    gapi.client.gmail.users.messages.send({
-        'userId': 'me',
-        'resource': {
-            'raw': raw
-        }
-    }).execute(res => {
-        console.log('Email sent', res);
-        console.log('Success', res.result)
-        getData();
-    });
-}
-
 
 function aaaaaaaaaaddAch(_user, _kategori, _points, _motakker = "") {
     const opts = {
@@ -566,7 +523,7 @@ async function getPointsPerson() {
                     tid: points.tid,
                     pointsNotAdded: true
                 });
-            });
+            }); addPoints();
         });
 }
 
@@ -585,7 +542,7 @@ async function getPointsAll() {
                     tid: points.tid,
                     pointsNotAdded: true
                 });
-            });
+            }); addPoints();
         });
 
 }

@@ -46,7 +46,6 @@ console.log(newDateString);
 
 //Kasper fikser
 function countPoints() {
-	console.log("Hei!!!!!")
 	var auth2 = gapi.auth2.getAuthInstance();
 	var profile = auth2.currentUser.get().getBasicProfile();
 	pointsM = 0;
@@ -55,7 +54,6 @@ function countPoints() {
 	pointsL = 0;
 	for (let i = 0; i < model.data.statistikk.achievements.length; i++) {
 		var timeScored = model.data.statistikk.achievements[i].tid;
-		console.log(timeScored);
 		if (timeScored != newDateString) continue;
 		if (profile.getEmail() == model.data.statistikk.achievements[i].userName) {
 			if (model.data.statistikk.achievements[i].taskId == 0) {

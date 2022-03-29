@@ -103,18 +103,16 @@
 		function gotoLederbrett() {
 			lastPage();
 			model.app.currentPage = "leaderboard";
-			getData();
+			getData(true);
 		}
 
 		function gotoMeldinger() {
 			lastPage();
 			model.app.currentPage = "meldinger";
-			getData();
 		}
 		function gotoInbox() {
 			lastPage();
 			model.app.currentPage = "inbox";
-			getData();
 		}
 
 		function goBack() {
