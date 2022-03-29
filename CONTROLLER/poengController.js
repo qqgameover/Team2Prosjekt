@@ -53,8 +53,8 @@ function countPoints() {
 	pointsMs = 0;
 	pointsL = 0;
 	for (let i = 0; i < model.data.statistikk.achievements.length; i++) {
-		var splitTime = model.data.statistikk.achievements[i].tid;
-		if (splitTime[0].trim() != newDateString.trim()) continue;
+		var timeScored = model.data.statistikk.achievements[i].tid;
+		if (timeScored != newDateString.trim()) continue;
 		if (profile.getEmail() == model.data.statistikk.achievements[i].userName) {
 			if (model.data.statistikk.achievements[i].taskId == 0) {
 				pointsM++;
