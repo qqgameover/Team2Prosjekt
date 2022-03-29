@@ -334,10 +334,10 @@ async function getData() {
         }
         model.data.statistikk.achievements = [];
         await getPointsPerson();
-        addPoints();
     } catch (e) {
         console.error(e)
     }
+    addPoints();
 }
 async function loadClassList() {
     await fetchClassData(8, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/Hedrum%20barneskole%20-%205trinn%20-%205.csv')
