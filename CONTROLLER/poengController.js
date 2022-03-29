@@ -46,6 +46,7 @@ console.log(newDateString);
 
 //Kasper fikser
 function countPoints() {
+	console.log("Hei!!!!!")
 	var auth2 = gapi.auth2.getAuthInstance();
 	var profile = auth2.currentUser.get().getBasicProfile();
 	pointsM = 0;
