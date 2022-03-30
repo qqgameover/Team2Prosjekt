@@ -406,8 +406,7 @@ const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/gmail/v1/r
 
 // Authorization scopes required by the API; multiple scopes can be
 // included, separated by spaces.
-// Modify mail, readonly, compose and send => user must accept in order for us to access mail and send. 
-const SCOPES = '';;
+const SCOPES = '';
 
 function handleClientLoad() {
     console.log("handleCLientLoad")
@@ -432,7 +431,6 @@ async function initClient() {
         updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
         authorizeButton.onclick = handleAuthClick;
         signoutButton.onclick = handleSignoutClick;
-        getData();
     } catch (error) {
         console.error(error)
     }
@@ -512,7 +510,6 @@ async function getPointsPerson() {
 
 async function getPointsAll() {
     if (!gapi.auth2.getAuthInstance().isSignedIn.get()) return;
-    var auth2 = gapi.auth2.getAuthInstance();
     await pointsCollection.get().then(
         (pointCollectionn) => {
             model.data.statistikk.achievements = [];

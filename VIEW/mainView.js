@@ -17,7 +17,8 @@ function updateViewMain() {
 	<div class="imgRight">
 		<img id="lhkBilde" src="https://i.ibb.co/Sf5F7MD/lhk.png" alt="lhk" border="0"></div>
 	<h1 class="headerMain mt-2">WOW</h1>
-	<h1 class="subHeader mb-2">I LARVIKSKOLEN</h1></div>
+	<h1 class="subHeader mb-2">I LARVIKSKOLEN</h1>
+	<h6 class="text-center mt-4">Max 3 oppgaver per kategori per dag :)</h6></div>
 <div class="container">
 <div class="mainGrid">
 	<div style="background-image: linear-gradient(to bottom right,${gradientMessage});"
