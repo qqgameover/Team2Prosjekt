@@ -22,6 +22,7 @@ function addFluff(kategori, point) {
 	if (desc == null || desc == "") return
 	else {
 		addAch(model.app.currentUser, kategori, point, desc);
+		gotoH();
 		return;
 	}
 }

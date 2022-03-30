@@ -57,6 +57,7 @@ function sendMessage(_ledd0, _ledd1, _ledd2, _ledd3, _motakker, _avsender) {
 	model.data.statistikk.meldinger.push(melding);
 	sendMsg(profile.getName(), _motakker, melding.melding);
 	addAch(_avsender, 0, 5, _motakker);
+	gotoH();
 	alert('Melding sendt!');
 }
 
