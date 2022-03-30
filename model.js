@@ -458,24 +458,6 @@ async function handleSignoutClick(event, googleUser) {
     window.location.reload(true);
 }
 
-function aaaaaaaaaaddAch(_user, _kategori, _points, _motakker = "") {
-    const opts = {
-        method: "POST",
-        mode: "no-cors",
-        redirect: "follow",
-        referrer: "no-referrer"
-    }
-
-    const url = `https://docs.google.com/forms/d/e/1FAIpQLSdEn9Gqb7Ie_ANQvMumGv1xidp1eqRO8PBl9y7PVeT5IKAflA/formResponse?usp=pp_url
-    &entry.2113492938=${_user}
-    &entry.940698215=${_motakker}
-    &entry.1627599794=${_kategori}
-    &entry.1541312260=${_points}
-    &submit=SUBMIT`;
-
-    return fetch(url, opts)
-}
-
 function addAch(_user, _kategori, _points, _motakker = "") {
     var point = {
         userName: _user,
@@ -492,7 +474,7 @@ async function getMsgs() {
     var auth2 = gapi.auth2.getAuthInstance();
     var profile = auth2.currentUser.get().getBasicProfile();
     model.app.inbox = [];
-    await meldingerCollection.where("reciver", "==", profile.getEmail()).onSnapshot(
+    await meldingerCollection.where("reciver", "==", profile.getEmail()).get().then(
         (meldingerCollection) => {
             meldingerCollection.forEach(function (meldingCollectionSS) {
                 let melding = meldingCollectionSS.data();
@@ -511,7 +493,7 @@ async function getPointsPerson() {
     if (!gapi.auth2.getAuthInstance().isSignedIn.get()) return;
     var auth2 = gapi.auth2.getAuthInstance();
     var profile = auth2.currentUser.get().getBasicProfile();
-    await pointsCollection.where("userName", "==", profile.getEmail()).onSnapshot(
+    await pointsCollection.where("userName", "==", profile.getEmail()).get().then(
         (pointCollectionn) => {
             model.data.statistikk.achievements = [];
             pointCollectionn.forEach(function (pointsColl) {
@@ -531,7 +513,7 @@ async function getPointsPerson() {
 async function getPointsAll() {
     if (!gapi.auth2.getAuthInstance().isSignedIn.get()) return;
     var auth2 = gapi.auth2.getAuthInstance();
-    await pointsCollection.onSnapshot(
+    await pointsCollection.get().then(
         (pointCollectionn) => {
             model.data.statistikk.achievements = [];
             pointCollectionn.forEach(function (pointsColl) {
@@ -586,7 +568,7 @@ async function fetchClassData(parentId, url) {
     let response = await fetch(url);
     let data = await response.text();
     let parsed = Papa.parse(data);
-    parsed.data.map((elev, index) => {
+    parsed.data.map((_, index) => {
         if (index != 0 && index != parsed.data.length - 1) model.data.statistikk.instanser.push({
             id: prevLen + index,
             parent: parentId, points: 0, navn: parsed.data[index][1], userName: parsed.data[index][0]

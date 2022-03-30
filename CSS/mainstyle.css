@@ -41,13 +41,14 @@
 }
 
 .grid-item {
-border: 2px solid  black;
-border-radius: 10px;
-padding: 2vh;
-margin: 5px; 
-max-width: 50vw;
-font-size: 40px;
-text-align: center;
+  border: 2px solid  black;
+  border-radius: 10px;
+  padding: 2vh;
+  margin: 5px; 
+  max-width: 50vw;
+  font-size: 40px;
+  text-align: center;
+  cursor: pointer;
 /* background-color: white; */
 }
 

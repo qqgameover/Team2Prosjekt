@@ -21,7 +21,7 @@ function updateViewMain() {
 <div class="container">
 <div class="mainGrid">
 	<div style="background-image: linear-gradient(to bottom right,${gradientMessage});"
-		class="grid-item" onclick="gotoMeldinger()"> Meldinger
+		class="grid-item" onclick=${pointsM == 3 ? "" : "gotoMeldinger()"}> Meldinger
 		<div class="gridInsideAGrid">
 			<div class="battery" id="pointsG" style="background-image: 
 			linear-gradient(to bottom right,${colorM1});"></div>
@@ -33,7 +33,7 @@ function updateViewMain() {
 	</div>
 
 	<div style="background-image: linear-gradient(to bottom right,${gradientMental});" 
-		class="grid-item" onclick="gotoKategorier(3)">Mental Styrke
+		class="grid-item" onclick=${pointsMs == 3 ? "" : "gotoKategorier(3)"}>Mental Styrke
 		<div class="gridInsideAGrid">
 			<div class="battery" id="pointsG" style="background-image: 
 				linear-gradient(to bottom right,${colorMs1});"></div>
@@ -45,7 +45,7 @@ function updateViewMain() {
 	</div>
 
 	<div style="background-image: linear-gradient(to bottom right,${gradientFysisk});" 
-		class="grid-item" onclick="gotoKategorier(2)">Fysisk Aktivitet
+		class="grid-item" onclick=${pointsF == 3 ? "" : "gotoKategorier(2)"}>Fysisk Aktivitet
 		<div class="gridInsideAGrid">
 			<div class="battery" id="pointsG" style="background-image: 
 				linear-gradient(to bottom right,${colorF1});"></div>
@@ -57,7 +57,7 @@ function updateViewMain() {
 	</div>
 
 	<div style="background-image: linear-gradient(to bottom right,${gradientLag});"
-		class="grid-item" onclick="gotoKategorier(4)">Lagånd
+		class="grid-item" onclick=${pointsL == 3 ? "" : "gotoKategorier(4)"}>Lagånd
 		<div class="gridInsideAGrid">
 			<div class="battery" id="pointsG" style="background-image: 
 				linear-gradient(to bottom right,${colorL1});"></div>
