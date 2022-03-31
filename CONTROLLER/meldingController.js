@@ -76,7 +76,7 @@ function findUserName(searchVal) {
 	const filteredNames = personNameUppercased.filter((p) => p);
 	const findPerson = filteredNames.find((person) => {
 		if (person.navn == searchValUppercased) {
-			return person.userName
+			return person.userName;
 		} else {
 			return false;
 		}
