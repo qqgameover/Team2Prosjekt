@@ -3,3 +3,4 @@ secret.js
 node_modules
 CONTROLLER/.meldingController.js.swp
 .eslintrc.js
+package-lock.json

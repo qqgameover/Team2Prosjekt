@@ -310,6 +310,9 @@ const model = {
     }
 }
 
+
+model.date = moment().format("DD-MM-YYYY");
+
 const firebaseConfig = {
     apiKey: "AIzaSyAdzRGnYxFXls-LxG8pBmgTN0aTDbfTJPw",
     authDomain: "wishotherswell-82682.firebaseapp.com",
@@ -462,7 +465,7 @@ function addAch(_user, _kategori, _points, _motakker = "") {
         motakker: _motakker,
         points: _points,
         kategori: _kategori,
-        tid: new Date().toLocaleDateString("en-UK").replace(/\//g, '-')
+        tid: moment().format("DD-MM-YYYY")
     };
     pointsCollection.add(point)
 }

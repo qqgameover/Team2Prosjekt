@@ -39,10 +39,6 @@ let pointsF = 0;
 let pointsMs = 0;
 let pointsL = 0;
 
-let date = new Date().toJSON().slice(0, 10);
-let dateSplit = date.split("-");
-let newDateString = dateSplit[2] + "-" + dateSplit[1] + "-" + dateSplit[0];
-console.log(newDateString);
 
 //Kasper fikser
 function countPoints() {
@@ -54,7 +50,7 @@ function countPoints() {
 	pointsL = 0;
 	for (let i = 0; i < model.data.statistikk.achievements.length; i++) {
 		var timeScored = model.data.statistikk.achievements[i].tid;
-		if (timeScored != newDateString) continue;
+		if (timeScored != model.date) continue;
 		if (profile.getEmail() == model.data.statistikk.achievements[i].userName) {
 			if (model.data.statistikk.achievements[i].taskId == 0) {
 				pointsM++;
