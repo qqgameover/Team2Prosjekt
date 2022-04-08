@@ -56,7 +56,7 @@ const model = {
             meldinger: [],
             instanser: [
                 { id: 1, skole: "Hedrum Ungdomsskole", totalClasses: 5, parent: null, klasse: null, points: 0, navn: null },
-                { id: 2, klasse: "8B", parent: 1, points: 0, totalStudents: 25, navn: null },
+                { id: 2, klasse: "8B", parent: 1, points: 0, totalStudents: 30, navn: null },
                 { id: 3, klasse: "8A", parent: 1, points: 0, totalStudents: 24, navn: null },
                 { id: 4, klasse: "8C", parent: 1, points: 0, totalStudents: 28, navn: null },
                 { id: 5, klasse: "8D", parent: 1, points: 0, totalStudents: 27, navn: null },
