@@ -1,4 +1,5 @@
 function updateViewMain() {
+    getInfo();
 	let html = ""
 	html = `
 
@@ -69,7 +70,11 @@ function updateViewMain() {
 		</div>
 	</div>	
 </div>		
+<div class="text-center">
+    <h1 class="mx-5">INFO: <span>${model.app.info}</span></h1>
+</div>
 </div>	
+
 
 `
 	return html

@@ -9,6 +9,7 @@ const model = {
         pageId: 1,
         previousPage: [],
         inbox: [],
+        info: ""
     },
     inputFields: {
         userName: null,
@@ -326,8 +327,9 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
-var meldingerCollection = db.collection("meldinger")
-var pointsCollection = db.collection("points")
+var meldingerCollection = db.collection("meldinger");
+var pointsCollection = db.collection("points");
+var infoCollection = db.collection("info");
 
 async function getData(full = false) {
     if (!gapi.auth2.getAuthInstance().isSignedIn.get()) return;
@@ -488,6 +490,17 @@ async function getMsgs() {
                 });
             }); updateView();
         });
+}
+
+async function getInfo() {
+    model.app.inbox = [];
+    await infoCollection.get().then(
+        (infoCol) => {
+            infoCol.forEach(function (currInfo) {
+                let info = currInfo.data();
+                model.app.info = info.infostr;
+            }); 
+        }), updateView();
 }
 
 async function getPointsPerson() {
