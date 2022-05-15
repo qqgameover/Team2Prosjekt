@@ -1,5 +1,4 @@
 function updateViewMain() {
-    getInfo();
 	let html = ""
 	html = `
 
