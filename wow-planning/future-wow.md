@@ -39,7 +39,7 @@ Så er det dette med tidsberegninger da, jeg tror nok det kommer til å ta **run
 
 ## Frontend:
 
-Per dags data bruker vi ikke noe rammeverk, og alt er skrevet i vanilla js, dette har sinne fordeler når det gjelder prestasjon og størrelse på prosjektet, men det har også en del ulemper.
+Per dags data bruker vi ikke noe rammeverk, og alt er skrevet i vanilla js, dette har sine fordeler når det gjelder prestasjon og størrelse på prosjektet, men det har også en del ulemper.
 Det er slik at mange av problemene jeg har i dag med kodebasen - uoversiktlig kode/rare hacky løsninger etc kunne vært løst med å refaktorere mye av koden i prosjektet, men jeg tror også at
 det ville gjort det **mye** lettere å videre utvikle applikasjonen, implementere nye funksjoner og gjøre utvikler opplevelsen et hakk bedre ved å ta i bruk et rammeverk.
 
