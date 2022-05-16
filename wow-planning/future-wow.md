@@ -7,7 +7,7 @@ selv om DigitalOcean er rimilig dyrt(150kr i månden), tror jeg at det ville væ
 Med firebase som vi i dag bruker, er det ikke lett å si hvor mye det kommer til å koste før regningen kommer. Ved bruk at DigitalOcean lar det meg også implementere et dotnet mellomlag(En slags måte å kommunisere mellom databasen vår og
 det en bruker ser.) Jeg tror også det hadde vært lurt å bruke en relasjons-database som MySQL - noe DigitalOcean tilbyr.
 
-Noen eksempler på ulike query opperasjoner vi kommer til å trenge:
+Noen eksempler på ulike query/command opperasjoner vi kommer til å trenge:
 ```sql
 select * from points
 
