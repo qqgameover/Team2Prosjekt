@@ -7,6 +7,33 @@ selv om DigitalOcean er rimilig dyrt(150kr i månden), tror jeg at det ville væ
 Med firebase som vi i dag bruker, er det ikke lett å si hvor mye det kommer til å koste før regningen kommer. Ved bruk at DigitalOcean lar det meg også implementere et dotnet mellomlag(En slags måte å kommunisere mellom databasen vår og
 det en bruker ser.) Jeg tror også det hadde vært lurt å bruke en relasjons-database som MySQL - noe DigitalOcean tilbyr.
 
+Noen eksempler på ulike query opperasjoner vi kommer til å trenge:
+```sql
+select * from points
+
+select * from points 
+where userId = student.id
+      and performedDate = GETDATE()
+      
+select * from messages
+where userId = reciverId
+
+if exists(select * from points 
+where userId = student.id 
+and category = 'messages'
+and performedDate = GETDATE()
+and reciver = student.reciver)
+begin
+  insert into points(userId, category, performedDate, reciver, points)
+  values($userId, 'messages', GETDATE(), student.reciver, 5)
+end
+else
+begin
+  insert into points(userId, category, performedDate, reciver, points)
+    values($userId, 'messages', GETDATE(), student.reciver, 15)
+end
+```
+
 Så er det dette med tidsberegninger da, jeg tror nok det kommer til å ta **rundt 60-80 timer** å implementere en solid og sikker backend med DigitalOcean. 
 
 
