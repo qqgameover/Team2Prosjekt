@@ -18,20 +18,20 @@ where userId = student.id
 select * from messages
 where userId = reciverId
 
-if exists(select * from points 
+IF EXSISTS(select * from points 
 where userId = student.id 
 and category = 'messages'
 and performedDate = GETDATE()
 and reciver = student.reciver)
-begin
+BEGIN
   insert into points(userId, category, performedDate, reciver, points)
   values($userId, 'messages', GETDATE(), student.reciver, 5)
-end
-else
-begin
+END
+ELSE
+BEGIN
   insert into points(userId, category, performedDate, reciver, points)
     values($userId, 'messages', GETDATE(), student.reciver, 15)
-end
+END
 ```
 
 Så er det dette med tidsberegninger da, jeg tror nok det kommer til å ta **rundt 60-80 timer** å implementere en solid og sikker backend med DigitalOcean. 
