@@ -30,7 +30,7 @@ END
 ELSE
 BEGIN
   insert into points(userId, category, performedDate, reciver, points)
-    values($userId, 'messages', GETDATE(), student.reciver, 15)
+  values($userId, 'messages', GETDATE(), student.reciver, 15)
 END
 ```
 
