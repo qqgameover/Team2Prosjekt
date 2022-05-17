@@ -11,7 +11,7 @@ function updateViewMain() {
 	</div>
 	<div class="container">
 	<img src="https://i.ibb.co/TqtZYpc/wowbg.png" 
-		style="display: block; margin-left: auto; margin-right: auto; max-height: 25vh;">
+		style="width: 75%; display: block; margin-left: auto; margin-right: auto; max-height: 25vh;">
 	<div class="imgLeft">
 		<img id="larvikBilde" src="https://i.ibb.co/rwn3rbj/larvik-Kom.png" alt="larvik-Kom" border="0"></div>
 	<div class="imgRight">
