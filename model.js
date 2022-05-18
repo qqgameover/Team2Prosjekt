@@ -120,6 +120,8 @@ const model = {
                 { id: 60, parent: 7, navn: "Merete", userName: "merete.berdal@gmail.com" },
                 { id: 9009, parent: 7, navn: "Jostein", userName: "jostein@getacademy.no" },
                 { id: 9010, parent: 7, navn: "Kasper", userName: "kasper@getacademy.no" },
+                { id: 9011, parent: 7, navn: "Guro Ramberg", userName: "guro.ramberg@icloud.com" },
+                { id: 9012, parent: 7, navn: "Thea Bakås", userName: "theabakaas@hotmail.com" },
 
                 //8A
                 { id: 60, parent: 3, points: 0, navn: "Omar Alali", userName: "24alaom1811@larvikskolen.no" },
