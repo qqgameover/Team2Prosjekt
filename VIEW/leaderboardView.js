@@ -65,6 +65,9 @@ function updateViewLeaderboard() {
 	}
 	bruh();
 	html += skoleRanking();
+    html += `<div class="text-center">
+            <h1 class="mx-5 my-4">INFO: <span>${model.app.info}</span></h1>
+            </div>`
 	return html;
 }
 

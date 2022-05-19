@@ -10,7 +10,7 @@ function updateViewMain() {
 		</a>
 	</div>
 	<div class="container">
-	<img src="https://i.ibb.co/yQg9yp1/Rush-Konkurranse-1400-x-720-1400-400-px-1.png" 
+	<img src="https://i.ibb.co/LPyNSGV/1.png" 
 		style="width: 75%; display: block; margin-left: auto; margin-right: auto; max-height: 25vh;">
 	<div class="imgLeft">
 		<img id="larvikBilde" src="https://i.ibb.co/rwn3rbj/larvik-Kom.png" alt="larvik-Kom" border="0"></div>
@@ -69,9 +69,6 @@ function updateViewMain() {
 		</div>
 	</div>	
 </div>		
-<div class="text-center">
-    <h1 class="mx-5">INFO: <span>${model.app.info}</span></h1>
-</div>
 </div>	
 
 
