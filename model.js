@@ -469,9 +469,19 @@ function addAch(_user, _kategori, _points, _motakker = "") {
         motakker: _motakker,
         points: _points,
         kategori: _kategori,
-        tid: moment().format("DD-MM-YYYY")
+        tid: moment(new Date(firebase.firestore.Timestamp.now().seconds*1000)).format("DD-MM-YYYY")
     };
     pointsCollection.add(point)
+}
+
+function sendMsg(_sender, _reciver, _data) {
+    var melding = {
+        sender: _sender,
+        reciver: _reciver,
+        data: _data,
+        date: moment(new Date(firebase.firestore.Timestamp.now().seconds*1000)).format("DD-MM-YYYY")
+    }
+    meldingerCollection.add(melding);
 }
 
 async function getMsgs() {
@@ -546,16 +556,6 @@ async function getPointsAll() {
 
 }
 
-function sendMsg(_sender, _reciver, _data) {
-    var d = new Date().toLocaleDateString("en-UK").replace(/\//g, '-');
-    var melding = {
-        sender: _sender,
-        reciver: _reciver,
-        data: _data,
-        date: d
-    }
-    meldingerCollection.add(melding);
-}
 
 async function _delete(id) {
     if (!firebase.auth().currentUser) return;
