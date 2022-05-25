@@ -50,7 +50,7 @@ function countPoints() {
 	pointsL = 0;
 	for (let i = 0; i < model.data.statistikk.achievements.length; i++) {
 		var timeScored = model.data.statistikk.achievements[i].tid;
-		if (timeScored != moment(new Date(firebase.firestore.Timestamp.now().seconds*1000)).format("DD-MM-YYYY") continue;
+		if (timeScored != moment(new Date(firebase.firestore.Timestamp.now().seconds*1000)).format("DD-MM-YYYY")) continue;
 		if (profile.getEmail() == model.data.statistikk.achievements[i].userName) {
 			if (model.data.statistikk.achievements[i].taskId == 0) {
 				pointsM++;
