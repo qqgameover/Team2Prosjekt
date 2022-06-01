@@ -122,6 +122,8 @@ const model = {
                 { id: 9010, parent: 7, navn: "Kasper", userName: "kasper@getacademy.no" },
                 { id: 9011, parent: 7, navn: "Guro Ramberg", userName: "guro.ramberg@icloud.com" },
                 { id: 9012, parent: 7, navn: "Thea Bakås", userName: "theabakaas@hotmail.com" },
+                { id: 9013, parent: 7, navn: "Trine", userName: "trine@larvikhk.no"},
+                { id: 9014, parent: 7, navn: "Espen", userName: "espen@larvikhk.no"},
 
                 //8A
                 { id: 60, parent: 3, points: 0, navn: "Omar Alali", userName: "24alaom1811@larvikskolen.no" },
@@ -314,7 +316,6 @@ const model = {
 }
 
 
-model.date = moment().format("DD-MM-YYYY");
 
 const firebaseConfig = {
     apiKey: "AIzaSyAdzRGnYxFXls-LxG8pBmgTN0aTDbfTJPw",
@@ -335,6 +336,7 @@ var infoCollection = db.collection("info");
 
 async function getData(full = false) {
     if (!gapi.auth2.getAuthInstance().isSignedIn.get()) return;
+    model.date = moment(new Date(firebase.firestore.Timestamp.now().seconds*1000)).format("DD-MM-YYYY");
     try {
         for (let i = 0; i < model.data.statistikk.instanser.length; i++) {
             model.data.statistikk.instanser[i].points = 0;
