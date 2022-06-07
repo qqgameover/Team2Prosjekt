@@ -122,7 +122,7 @@ const model = {
                 { id: 9010, parent: 7, navn: "Kasper", userName: "kasper@getacademy.no" },
                 { id: 9011, parent: 7, navn: "Guro Ramberg", userName: "guro.ramberg@icloud.com" },
                 { id: 9012, parent: 7, navn: "Thea Bakås", userName: "theabakaas@hotmail.com" },
-                { id: 9013, parent: 7, navn: "Trine", userName: "trine@larvikhk.no"},
+                { id: 9013, parent: 7, navn: "Trine", userName: "trine@bronsta.no"},
                 { id: 9014, parent: 7, navn: "Espen", userName: "espen@larvikhk.no"},
 
                 //8A
