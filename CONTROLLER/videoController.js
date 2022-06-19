@@ -28,10 +28,5 @@ function addFluff(kategori, point) {
 }
 
 function addDesc() {
-	let text = prompt("skriv en kort beskrivelse av hva du har gjort.");
-	if (text == null || text == "") {
-		alert("legg til en beskrivelse for å få poeng");
-		return false
-	}
-	return text;
+	return true;
 }

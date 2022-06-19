@@ -141,91 +141,14 @@ function visualNightmare(pointsM, pointsF, pointsMs, pointsL) {
 	}
 }
 
-//hjelp....
 function addPoints() {
 	for (let i = 0; i < model.data.statistikk.instanser.length; i++) {
 		for (let j = 0; j < model.data.statistikk.achievements.length; j++) {
-			if (model.data.statistikk.instanser[i].userName == model.data.statistikk.achievements[j].userName &&
-				model.data.statistikk.achievements[j].pointsNotAdded == true) {
-				model.data.statistikk.instanser[i] =
-				{
-					id: model.data.statistikk.instanser[i].id,
-					parent: model.data.statistikk.instanser[i].parent,
-					points: model.data.statistikk.instanser[i].points + model.data.statistikk.achievements[j].points,
-					navn: model.data.statistikk.instanser[i].navn,
-					userName: model.data.statistikk.instanser[i].userName
-				}
-				model.data.statistikk.achievements[j] =
-				{
-					userName: model.data.statistikk.achievements[j].userName,
-					tid: model.data.statistikk.achievements[j].tid,
-					taskId: model.data.statistikk.achievements[j].taskId,
-					points: model.data.statistikk.achievements[j].points,
-					pointsNotAdded: false
-				}
+			if (model.data.statistikk.instanser[i].lagnavn == model.data.statistikk.achievements[j].lagnavn) {
+				model.data.statistikk.instanser[i].points += model.data.statistikk.achievements[j].points;
 			}
 		}
 	}
-	addClassPoints();
-	getClassAvg();
-	addSchoolPoints();
-	getSchoolsAvg();
-	countPoints();
 	console.log("dataReady");
 	updateView();
-}
-
-function findPerson(person) {
-	var thePerson = null;
-	for (let i = 0; i < model.data.statistikk.instanser.length; i++) {
-		if (person.userName == model.data.statistikk.instanser[i].userName) {
-			thePerson = model.data.statistikk.instanser[i];
-		}
-	}
-	return thePerson;
-}
-
-function addClassPoints() {
-	for (let i = 0; i < model.data.statistikk.achievements.length; i++) {
-		var current = findPerson(model.data.statistikk.achievements[i]);
-		if (current == null) continue;
-		var currentParent = current.parent;
-		for (let index = 0; index < model.data.statistikk.instanser.length; index++) {
-			const instanse = model.data.statistikk.instanser[index];
-			if (currentParent == instanse.id) {
-				instanse.points += model.data.statistikk.achievements[i].points;
-			}
-		}
-	}
-}
-
-function getSchoolsAvg() {
-	for (let i = 0; i < model.data.statistikk.instanser.length; i++) {
-		if (model.data.statistikk.instanser[i].totalClasses) {
-			model.data.statistikk.instanser[i].points =
-				Number((model.data.statistikk.instanser[i].points / model.data.statistikk.instanser[i].totalClasses).toFixed(1));
-		}
-	}
-}
-
-function getClassAvg() {
-	for (let i = 0; i < model.data.statistikk.instanser.length; i++) {
-		if (model.data.statistikk.instanser[i].totalStudents) {
-			model.data.statistikk.instanser[i].points =
-				Number((model.data.statistikk.instanser[i].points / model.data.statistikk.instanser[i].totalStudents).toFixed(1));
-		}
-	}
-}
-
-function addSchoolPoints() {
-	for (let i = 0; i < model.data.statistikk.instanser.length; i++) {
-		var current = model.data.statistikk.instanser[i];
-		if (current.parent != null) continue;
-		for (let j = 0; j < model.data.statistikk.instanser.length; j++) {
-			var currentJ = model.data.statistikk.instanser[j];
-			if (currentJ.parent == current.id) {
-				current.points += currentJ.points;
-			}
-		}
-	}
 }

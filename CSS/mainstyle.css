@@ -9,7 +9,7 @@
 
 .mainGrid {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 33% 33% 33%;
   place-content: center;
   padding: 10px;
   margin: 0px;

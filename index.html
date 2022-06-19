@@ -33,6 +33,7 @@
 	<script src="VIEW/kategorierViews.js"></script>
 	<script src="VIEW/googleView.js"></script>
 	<script src="VIEW/inboxView.js"></script>
+    <script src="VIEW/teamselector.js"></script>
 
 
 	<script src="CONTROLLER/videoController.js"></script>
@@ -53,12 +54,11 @@
 	<div id="app"></div>
 
 	<script>
-		loadClassList();
 		updateView();
 		function updateView() {
 			if (model.app.currentPage == 'meldinger') {
 				html = updateViewMeldinger();
-			}   	//Kasper   
+			}   //Kasper   
 			if (model.app.currentPage == 'kategorier') {
 				html = updateViewKategorier();
 			} 	//Jostein
@@ -67,12 +67,15 @@
 			}	//Mailinn
 			if (model.app.currentPage == 'leaderboard') {
 				html = updateViewLeaderboard();
-			}   	//Mailinn og Kasper
+			}   //Mailinn og Kasper
 			if (model.app.currentPage == 'google') {
 				html = googleView();
 			} 	//Kasper
 			if (model.app.currentPage == "inbox") {
 				html = updateViewInbox();
+			}
+			if (model.app.currentPage == "teamSelector") {
+				html = updateViewTeamSelect();
 			}
 			document.getElementById("app").innerHTML = html;
 
@@ -92,6 +95,12 @@
 			model.app.currentPage = 'main';
 			getData();
 		}
+
+        function gotoTeamSelector() {
+            model.app.selectedTeam = null;
+            model.app.currentPage = 'teamSelector';
+            updateView();
+        }
 
 		function gotoKategorier(id) {
 			lastPage();
@@ -113,6 +122,7 @@
 		function gotoInbox() {
 			lastPage();
 			model.app.currentPage = "inbox";
+            updateView();
 		}
 
 		function goBack() {
