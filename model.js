@@ -433,7 +433,6 @@ function handleClientLoad() {
 
 
 async function initClient() {
-    return;
     console.log("initclient")
     try {
         await gapi.client.init({
