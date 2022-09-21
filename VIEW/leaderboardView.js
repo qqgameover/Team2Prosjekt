@@ -138,9 +138,10 @@ function findClassParent(c) {
 	for(let i = 0; i < model.data.statistikk.instanser.length; i++) {
 		if(model.data.statistikk.instanser[i].id == c.parent) {
 			p = model.data.statistikk.instanser[i];
-			break;
+            break;
 		}
 	}
+    console.log(p);
 	return p;
 }
 
