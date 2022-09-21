@@ -433,6 +433,7 @@ function handleClientLoad() {
 
 
 async function initClient() {
+    return;
     console.log("initclient")
     try {
         await gapi.client.init({
@@ -443,7 +444,7 @@ async function initClient() {
         });
 
         // Listen for sign-in state changes.
-        //gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+        gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
 
         // Handle the initial sign-in state.
         updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
