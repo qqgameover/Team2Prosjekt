@@ -424,7 +424,7 @@ const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/gmail/v1/r
 
 // Authorization scopes required by the API; multiple scopes can be
 // included, separated by spaces.
-const SCOPES = '';
+const SCOPES = 'profile';
 
 function handleClientLoad() {
     console.log("handleCLientLoad")
