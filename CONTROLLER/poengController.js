@@ -42,8 +42,6 @@ let pointsL = 0;
 
 //Kasper fikser
 function countPoints() {
-	var auth2 = gapi.auth2.getAuthInstance();
-	var profile = auth2.currentUser.get().getBasicProfile();
 	pointsM = 0;
 	pointsF = 0;
 	pointsMs = 0;
@@ -51,7 +49,7 @@ function countPoints() {
 	for (let i = 0; i < model.data.statistikk.achievements.length; i++) {
 		var timeScored = model.data.statistikk.achievements[i].tid;
 		if (timeScored != moment(new Date(firebase.firestore.Timestamp.now().seconds*1000)).format("DD-MM-YYYY")) continue;
-		if (profile.getEmail() == model.data.statistikk.achievements[i].userName) {
+        if (model.app.currentUser == model.data.statistikk.achievements[i].userName) {
 			if (model.data.statistikk.achievements[i].taskId == 0) {
 				pointsM++;
 			} if (model.data.statistikk.achievements[i].taskId == 2) {

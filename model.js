@@ -57,7 +57,9 @@ const model = {
             meldinger: [],
             instanser: [
                 { id: 1, skole: "Test Skole", totalClasses: 1, parent: null, klasse: null, points: 0, navn: null },
+                { id: 16, skole: "Test Skole 2", totalClasses: 1, parent: null, klasse: null, points: 0, navn: null },
                 { id: 2, klasse: "Test Klasse", parent: 1, totalStudents: 3, points: 0, navn: null },
+                { id: 17, klasse: "Test Klasse 2", parent: 16, totalStudents: 3, points: 0, navn: null },
 
                 //test klasse
 
@@ -163,7 +165,6 @@ var pointsCollection = db.collection("points");
 var infoCollection = db.collection("info");
 
 async function getData(full = false) {
-    if (!gapi.auth2.getAuthInstance().isSignedIn.get()) return;
     model.date = moment(new Date(firebase.firestore.Timestamp.now().seconds*1000)).format("DD-MM-YYYY");
     try {
         for (let i = 0; i < model.data.statistikk.instanser.length; i++) {
@@ -176,43 +177,6 @@ async function getData(full = false) {
         console.error(e)
     }
 }
-async function loadClassList() {
-    await fetchClassData(8, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/Hedrum%20barneskole%20-%205trinn%20-%205.csv')
-    addTeacherToClass(8, "Ole Lunde", 'ola.lunde@larvik.kommune.no');
-
-    await fetchClassData(11, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-8/Brunla%20ungdomsskole%20-%208trinn%20-%208A.csv')
-    await fetchClassData(12, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-8/Brunla%20ungdomsskole%20-%208trinn%20-%208B.csv')
-    await fetchClassData(13, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-8/Brunla%20ungdomsskole%20-%208trinn%20-%208C.csv')
-
-    await fetchClassData(15, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-8/Mellomhagen%20ungdomsskole%20-%208trinn%20-%208A.csv')
-    addTeacherToClass(15, "Gro Bjørnødegård", 'gro.bjornodegard@larvik.kommune.no');
-    await fetchClassData(16, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-8/Mellomhagen%20ungdomsskole%20-%208trinn%20-%208B.csv')
-    addTeacherToClass(16, "Eileen Langerud", 'eileen.langerud@larvik.kommune.no');
-    await fetchClassData(17, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-8/Mellomhagen%20ungdomsskole%20-%208trinn%20-%208C.csv')
-    addTeacherToClass(17, "Therese Nørberg", 'therese.norberg@larvik.kommune.no');
-
-    await fetchClassData(19, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-8/Tjodalyng%20skole%20-%208trinn%20-%208A.csv')
-    addTeacherToClass(19, "Kjetil Hobber", 'kjetil.hobber@larvik.kommune.no');
-    await fetchClassData(20, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-8/Tjodalyng%20skole%20-%208trinn%20-%208B.csv')
-    addTeacherToClass(20, "Nadya Acar", '24acana0602@larvikskolen.no');
-    addTeacherToClass(20, "Regitze Ravnsborg", 'regitze.ravnsborg@larvik.kommune.no');
-
-    await fetchClassData(22, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/Jordet%20skole%20-%205trinn%20-%205A.csv')
-    addTeacherToClass(22, "Line Solid", "line.sollid@larvik.kommune.no");
-    await fetchClassData(23, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/Jordet%20skole%20-%205trinn%20-%205B.csv')
-    addTeacherToClass(23, "Birte Stovland Riksfjord", 'birte.stovland@larvik.kommune.no');
-
-    await fetchClassData(25, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/%C2%A5stre%20Halsen%20skole%20-%205trinn%20-%205A.csv')
-    addTeacherToClass(25, "Lill Desiree Nilsen", "lill.desiree.nilsen@larvik.kommune.no")
-    await fetchClassData(26, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/%C2%A5stre%20Halsen%20skole%20-%205trinn%20-%205B.csv')
-    addTeacherToClass(26, 'Ole Kristian Rambo', "ole.kristian.rambo@larvik.kommune.no")
-    await fetchClassData(27, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/%C2%A5stre%20Halsen%20skole%20-%205trinn%20-%205C.csv')
-
-    addTeacherToClass(27, 'Marianne Ekenes Adamson', "marianne.ekenes.adamson@larvik.kommune.no")
-    await fetchClassData(29, 'https://www.getacademy.no/assets/Q3bafZUFSkWaSYcyTUkXzA/wow/trinn-5/Valby%20skole%20-%205trinn%20-%205.%20klasse%20Venus.csv')
-    addTeacherToClass(29, "Conny Vege", 'Conny.vege@larvik.kommune.no');
-    patchWork();
-}
 function addTeacherToClass(_parent, name, email) {
     let newId = model.data.statistikk.instanser.length + 15;
     model.data.statistikk.instanser.push({ id: newId, parent: _parent, points: 0, navn: name, userName: email });
@@ -223,9 +187,9 @@ let API_KEY = 'AIzaSyDObDZWxzHqPFghxyANvxwMbwmFFGumpTM';
 //brukernavn, epost, 
 //setter side til main og updater viewet
 function onSignIn(googleUser) {
-    const profile = googleUser.getBasicProfile();
-    model.app.currentName = profile.getName();
-    model.app.currentUser = profile.getEmail(); // This is null if the 'email' scope is not present.
+    const profile = googleUser; 
+    model.app.currentName = profile.name;
+    model.app.currentUser = profile.email; // This is null if the 'email' scope is not present.
     model.app.currentPage = 'main'
     model.app.currentUserKlasse = findP();
     getData();
@@ -247,46 +211,54 @@ const SCOPES = 'profile';
 
 function handleClientLoad() {
     console.log("handleCLientLoad")
-    gapi.load('client:auth2', initClient)
+}
+
+function parseJwt (token) {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
+}
+window.responsePayLoad = "";
+window.handleCredentialResponse = (response) => {
+
+    responsePayload = parseJwt(response.credential);
+    
+    window.responsePayLoad = responsePayLoad;
+    var user = {name: responsePayload.name, email: responsePayload.email}
+    console.log("ID: " + responsePayload.sub);
+    console.log('Full Name: ' + responsePayload.name);
+    console.log('Given Name: ' + responsePayload.given_name);
+    console.log('Family Name: ' + responsePayload.family_name);
+    console.log("Image URL: " + responsePayload.picture);
+    console.log("Email: " + responsePayload.email);
+    onSignIn(user);
 }
 
 
-async function initClient() {
-    console.log("initclient")
-    try {
-        await gapi.client.init({
-            apiKey: API_KEY,
-            clientId: CLIENT_ID,
-            discoveryDocs: DISCOVERY_DOCS,
-            scope: SCOPES
-        });
-
-        // Listen for sign-in state changes.
-        gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
-
-        // Handle the initial sign-in state.
-        updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-        authorizeButton.onclick = handleAuthClick;
-        signoutButton.onclick = handleSignoutClick;
-    } catch (error) {
-        console.error(error)
-    }
+const loginCB = function(payload) {
+    console.log(payload);
 }
+
+
 
 
 function updateSigninStatus(isSignedIn) {
     console.log("isSignedIn")
-    // if (isSignedIn) {
-    // 	getData().then(() => {
-    // 		console.log("signInStatusDone");
-    // 		updateView();
-    // 	})
-    // }
+    if (isSignedIn) {
+        getData().then(() => {
+            updateView();
+            console.log("You are signed in :)")
+        })
+    }
 }
 
 async function handleSignoutClick(event, googleUser) {
-    const signOut = await gapi.auth2.getAuthInstance().signOut();
-    await signOut, model.app.currentPage = 'google';
+    google.accounts.id.disableAutoSelect();
+    model.app.currentPage = 'google';
     model.app.currentName = ""
     model.app.currentUser = ""
     updateView();
@@ -315,11 +287,8 @@ function sendMsg(_sender, _reciver, _data) {
 }
 
 async function getMsgs() {
-    if (!gapi.auth2.getAuthInstance().isSignedIn.get()) return;
-    var auth2 = gapi.auth2.getAuthInstance();
-    var profile = auth2.currentUser.get().getBasicProfile();
     model.app.inbox = [];
-    await meldingerCollection.where("reciver", "==", profile.getEmail()).get().then(
+    await meldingerCollection.where("reciver", "==", model.app.currentUser).get().then(
         (meldingerCollection) => {
             meldingerCollection.forEach(function (meldingCollectionSS) {
                 let melding = meldingCollectionSS.data();
@@ -346,10 +315,7 @@ async function getInfo() {
 }
 
 async function getPointsPerson() {
-    if (!gapi.auth2.getAuthInstance().isSignedIn.get()) return;
-    var auth2 = gapi.auth2.getAuthInstance();
-    var profile = auth2.currentUser.get().getBasicProfile();
-    await pointsCollection.where("userName", "==", profile.getEmail()).get().then(
+    await pointsCollection.where("userName", "==", model.app.currentUser).get().then(
         (pointCollectionn) => {
             model.data.statistikk.achievements = [];
             pointCollectionn.forEach(function (pointsColl) {
@@ -367,7 +333,6 @@ async function getPointsPerson() {
 }
 
 async function getPointsAll() {
-    if (!gapi.auth2.getAuthInstance().isSignedIn.get()) return;
     await pointsCollection.get().then(
         (pointCollectionn) => {
             model.data.statistikk.achievements = [];
@@ -388,7 +353,6 @@ async function getPointsAll() {
 
 
 async function _delete(id) {
-    if (!firebase.auth().currentUser) return;
     await db.collection("meldinger").doc(id).delete();
     getMsgs();
     updateView();

@@ -99,10 +99,10 @@ function skoleRanking() {
 				<td class="skolepoeng">${rankingSkole[i].points}</td>
 			</tr>`;
 	}
-	for (let i = 0; i < 10; i++) {
+	for (let i = 0; i < rankingKlasse.length; i++) {
 		klasseRankingRows +=
 			`<tr>
-				<td class="klasse">${rankingKlasse[i].klasse} - ${findClassParent(rankingKlasse[i]).skole}</td>
+                <td class="klasse">${rankingKlasse[i].klasse} - ${findClassParent(rankingKlasse[i]).skole}</td>
 				<td class="klassepoeng">${rankingKlasse[i].points}</td>
 			</tr>`;
 	}
@@ -131,6 +131,7 @@ function bruh() {
 		return -1;
 	})
 	rankingKlasse = sortedArr;
+    console.log(sortedArr)
 }
 
 function findClassParent(c) {
