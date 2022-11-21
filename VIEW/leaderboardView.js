@@ -131,7 +131,6 @@ function bruh() {
 		return -1;
 	})
 	rankingKlasse = sortedArr;
-    console.log(sortedArr)
 }
 
 function findClassParent(c) {
@@ -142,7 +141,6 @@ function findClassParent(c) {
             break;
 		}
 	}
-    console.log(p);
 	return p;
 }
 

@@ -5,12 +5,12 @@ function updateViewMain() {
 	<div class="navbar navbar-expand-lg">
 		<a class="nav-item" href="#Lederbrett" onclick="getInfo(); gotoLederbrett()">Lederbrett</a>
 		<a class="nav-item" href="#Hjem" onclick="gotoH()">Hjem</a>
-        <a class="nav-item" onclick="getMsgs() ; gotoInbox()">Inbox</a> 
+        <a class="nav-item" onclick="getMsgs() ; gotoInbox()">Inbox</a>
 		<a class="nav-item" onclick="handleSignoutClick()">Logg ut
 		</a>
 	</div>
 	<div class="container">
-	<img src="https://i.ibb.co/LPyNSGV/1.png" 
+	<img src="https://i.ibb.co/LPyNSGV/1.png"
 		style="width: 75%; display: block; margin-left: auto; margin-right: auto; max-height: 25vh;">
 	<div class="imgLeft">
 		<img id="larvikBilde" src="https://i.ibb.co/rwn3rbj/larvik-Kom.png" alt="larvik-Kom" border="0"></div>
@@ -24,35 +24,35 @@ function updateViewMain() {
 	<div style="background-image: linear-gradient(to bottom right,${gradientMessage});"
 		class="grid-item" onclick=${pointsM >= 3 ? "" : "gotoMeldinger()"}> Meldinger
 		<div class="gridInsideAGrid">
-			<div class="battery" id="pointsG" style="background-image: 
+			<div class="battery" id="pointsG" style="background-image:
 			linear-gradient(to bottom right,${colorM1});"></div>
-			<div class="battery" id="pointsG" style="background-image: 
+			<div class="battery" id="pointsG" style="background-image:
 			linear-gradient(to bottom right,${colorM2});"></div>
-			<div class="battery" id="pointsG" style="background-image: 
+			<div class="battery" id="pointsG" style="background-image:
 			linear-gradient(to bottom right,${colorM3});"></div>
 		</div>		
 	</div>
 
-	<div style="background-image: linear-gradient(to bottom right,${gradientMental});" 
+	<div style="background-image: linear-gradient(to bottom right,${gradientMental});"
 		class="grid-item" onclick=${pointsMs >= 3 ? "" : "gotoKategorier(3)"}>Mental Styrke
 		<div class="gridInsideAGrid">
-			<div class="battery" id="pointsG" style="background-image: 
+			<div class="battery" id="pointsG" style="background-image:
 				linear-gradient(to bottom right,${colorMs1});"></div>
-			<div class="battery" id="pointsG" style="background-image: 
+			<div class="battery" id="pointsG" style="background-image:
 				linear-gradient(to bottom right,${colorMs2});"></div>
-			<div class="battery" id="pointsG" style="background-image: 
+			<div class="battery" id="pointsG" style="background-image:
 				linear-gradient(to bottom right,${colorMs3});"></div>
 	</div>
 	</div>
 
-	<div style="background-image: linear-gradient(to bottom right,${gradientFysisk});" 
+	<div style="background-image: linear-gradient(to bottom right,${gradientFysisk});"
 		class="grid-item" onclick=${pointsF >= 3 ? "" : "gotoKategorier(2)"}>Fysisk Aktivitet
 		<div class="gridInsideAGrid">
-			<div class="battery" id="pointsG" style="background-image: 
+			<div class="battery" id="pointsG" style="background-image:
 				linear-gradient(to bottom right,${colorF1});"></div>
-			<div class="battery" id="pointsG" style="background-image: 
+			<div class="battery" id="pointsG" style="background-image:
 				linear-gradient(to bottom right,${colorF2});"></div>
-			<div class="battery" id="pointsG" style="background-image: 
+			<div class="battery" id="pointsG" style="background-image:
 				linear-gradient(to bottom right,${colorF3});"></div>
 		</div>
 	</div>
@@ -60,17 +60,16 @@ function updateViewMain() {
 	<div style="background-image: linear-gradient(to bottom right,${gradientLag});"
 		class="grid-item" onclick=${pointsL >= 3 ? "" : "gotoKategorier(4)"}>Lagånd
 		<div class="gridInsideAGrid">
-			<div class="battery" id="pointsG" style="background-image: 
+			<div class="battery" id="pointsG" style="background-image:
 				linear-gradient(to bottom right,${colorL1});"></div>
-			<div class="battery" id="pointsG" style="background-image: 
+			<div class="battery" id="pointsG" style="background-image:
 				linear-gradient(to bottom right,${colorL2});"></div>
-			<div class="battery" id="pointsG" style="background-image: 
+			<div class="battery" id="pointsG" style="background-image:
 				linear-gradient(to bottom right,${colorL3});"></div>
 		</div>
 	</div>	
 </div>		
 </div>	
-
 
 `
 return html
