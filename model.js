@@ -233,24 +233,8 @@ window.handleCredentialResponse = (response) => {
 }
 
 
-const loginCB = function(payload) {
-    console.log(payload);
-}
 
-
-
-
-function updateSigninStatus(isSignedIn) {
-    console.log("isSignedIn")
-    if (isSignedIn) {
-        getData().then(() => {
-            updateView();
-            console.log("You are signed in :)")
-        })
-    }
-}
-
-async function handleSignoutClick(event, googleUser) {
+async function handleSignoutClick() {
     google.accounts.id.disableAutoSelect();
     model.app.currentPage = 'google';
     model.app.currentName = ""

@@ -6,7 +6,7 @@ function updateViewMain() {
 		<a class="nav-item" href="#Lederbrett" onclick="getInfo(); gotoLederbrett()">Lederbrett</a>
 		<a class="nav-item" href="#Hjem" onclick="gotoH()">Hjem</a>
         <a class="nav-item" onclick="getMsgs() ; gotoInbox()">Inbox</a> 
-		<a class="nav-item" onclick="handleSignoutClick(event)">Logg ut
+		<a class="nav-item" onclick="handleSignoutClick()">Logg ut
 		</a>
 	</div>
 	<div class="container">
