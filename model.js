@@ -229,12 +229,6 @@ window.handleCredentialResponse = (response) => {
     
     window.responsePayLoad = responsePayLoad;
     var user = {name: responsePayload.name, email: responsePayload.email}
-    console.log("ID: " + responsePayload.sub);
-    console.log('Full Name: ' + responsePayload.name);
-    console.log('Given Name: ' + responsePayload.given_name);
-    console.log('Family Name: ' + responsePayload.family_name);
-    console.log("Image URL: " + responsePayload.picture);
-    console.log("Email: " + responsePayload.email);
     onSignIn(user);
 }
 
