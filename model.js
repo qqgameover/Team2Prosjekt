@@ -145,6 +145,8 @@ const model = {
     }
 }
 
+
+
 const firebaseConfig = {
     apiKey: "AIzaSyAdzRGnYxFXls-LxG8pBmgTN0aTDbfTJPw",
     authDomain: "wishotherswell-82682.firebaseapp.com",
@@ -176,16 +178,14 @@ async function getData(full = false) {
     }
 }
 function addTeacherToClass(_parent, name, email) {
-    let newId = model.data.statistikk.instanser.length + 15;
+    let newId = model.data.statistikk.instanser.length;
     model.data.statistikk.instanser.push({ id: newId, parent: _parent, points: 0, navn: name, userName: email });
 }
 var CLIENT_ID = '<YOUR_CLIENT_ID>';
 let API_KEY = 'AIzaSyDObDZWxzHqPFghxyANvxwMbwmFFGumpTM';
-//{input/googleuser} =>
-//brukernavn, epost,
-//setter side til main og updater viewet
+
 function onSignIn(googleUser) {
-    const profile = googleUser;
+    const profile = googleUser; 
     model.app.currentName = profile.name;
     model.app.currentUser = profile.email; // This is null if the 'email' scope is not present.
     model.app.currentPage = 'main'
@@ -224,11 +224,13 @@ window.responsePayLoad = "";
 window.handleCredentialResponse = (response) => {
 
     responsePayload = parseJwt(response.credential);
-
+    
     window.responsePayLoad = responsePayLoad;
     var user = {name: responsePayload.name, email: responsePayload.email}
     onSignIn(user);
 }
+
+
 
 async function handleSignoutClick() {
     google.accounts.id.disableAutoSelect();
@@ -284,7 +286,7 @@ async function getInfo() {
             infoCol.forEach(function (currInfo) {
                 let info = currInfo.data();
                 model.app.info = info.infostr;
-            });
+            }); 
         }), updateView();
 }
 
@@ -324,6 +326,7 @@ async function getPointsAll() {
         });
 
 }
+
 
 async function _delete(id) {
     await db.collection("meldinger").doc(id).delete();
