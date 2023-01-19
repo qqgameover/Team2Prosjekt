@@ -6,6 +6,7 @@ import client from "ssh2-sftp-client"
 import fs from "fs"
 import papa from "papaparse"
 import path from "path"
+import http from "http"
 
 class SFTPClient {
     client;
@@ -58,14 +59,20 @@ class SFTPClient {
 
 
 const app = express();
+const httpServer = http.createServer(app);
 const dirArray = [];
 const pathArr = [];
 const jsonArr = []
 
 app.use(cors());
 
+const hostname = "0.0.0.0"
+const port = 8080;
+httpServer.listen(port);
+
 app.get("/", (req, res) => {
     res.send(jsonArr);
+    console.log("GET Request");
 });
 
 
@@ -91,7 +98,12 @@ app.get("/", (req, res) => {
             worker: true,
             header: true,
             complete: (results, file) => {
-                jsonArr.push(results.data);
+                const className = file.path.replace("/home/admin/expressapi/datafiles/", "")
+                    .replace("/Trinn 8/", " ")
+                    .replace("/Trinn 5/", " ")
+                    .replace("/Trinn larere/", " ")
+                    .replace("/", " ");
+                jsonArr.push({klasse: className, data: results.data});
             }
         })
     }
@@ -99,7 +111,6 @@ app.get("/", (req, res) => {
         files.forEach(file => {
             let absolutePath;
             if(file.includes("8")) {
-                console.log(file);
                 absolutePath = path.resolve((dirPath + "/Trinn 8"), file)
                 if(absolutePath) {
                     pathArr.push(absolutePath);
@@ -127,7 +138,7 @@ app.get("/", (req, res) => {
     }
 
     let _cb = async (_err, files) => {
-        if(files.length === 0) await client.downloadDirLoc() 
+        if(files.length === 0) await client.downloadDirLoc().then(fs.readdir(dirPath, _cb))
         else {
             files.forEach(file => {
                 const absolutePath = path.resolve(dirPath , file);
@@ -137,14 +148,9 @@ app.get("/", (req, res) => {
         }
     } 
 
-    fs.readdir(dirPath, _cb)
+    fs.readdir(dirPath, _cb);
+
     
     //* Close the connection
     await client.disconnect();
 })();
-
-
-
-app.listen(3000, () => console.log('Port 3000 open'));
-
-
