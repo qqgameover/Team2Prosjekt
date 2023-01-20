@@ -166,6 +166,26 @@ var infoCollection = db.collection("info");
 async function getData(full = false) {
     model.date = moment(new Date(firebase.firestore.Timestamp.now().seconds*1000)).format("DD-MM-YYYY");
     try {
+        const expectedDepth = 5;
+        const apiRes = await fetch("http://34.88.246.255:8080/");
+        const flattened = Object.values(await apiRes
+            .json())
+            .map(o => [Object.values(o)])
+            .flat(expectedDepth);
+
+        console.log(flattened);
+        const findHighestId = () => {
+            let highestId = 0;
+            model.data.statistikk.instanser.forEach((instance) => {
+                if(instance.id > highestId)
+                    highestId = instance.id;
+            })
+            return highestId;
+        }
+        let highestId = findHighestId() + 1;
+        for(let index = 0; index < flattened.length ; index++, highestId++) {
+            model.data.statistikk.instanser.push({...flattened[index], id: highestId}) //Jobbe mer paa dette i morgen.
+        }
         for (let i = 0; i < model.data.statistikk.instanser.length; i++) {
             model.data.statistikk.instanser[i].points = 0;
         }
@@ -323,9 +343,7 @@ async function getPointsAll() {
                 });
             }); addPoints();
         });
-
 }
-
 
 async function _delete(id) {
     await db.collection("meldinger").doc(id).delete();
