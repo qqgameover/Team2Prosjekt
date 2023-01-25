@@ -238,7 +238,6 @@ const sortIngest = (data, highestId) => { //Returns a sorted and organized list 
         }
         unsortedArr.push(createFieldObject(createFieldObject(dataField(data[index]))));
     }
-    console.log(unsortedArr);
     return unsortedArr;
 }
 const findClassParentWithName = (_class) => {
@@ -254,11 +253,9 @@ const findClassParentWithName = (_class) => {
     let schoolI = className.indexOf("-");
     let strippedClassName = className.substring(0, schoolI);
     let schoolId;
-    console.log(strippedClassName);
     model.data.statistikk.instanser.forEach((x) => {
         if(x.skole) {
             if(x.skole.includes(strippedClassName.trim())) {
-                console.log("Match found!")
                 schoolId = x.id;
             }
         }
