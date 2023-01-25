@@ -167,7 +167,7 @@ async function getData(full = false) {
     model.date = moment(new Date(firebase.firestore.Timestamp.now().seconds*1000)).format("DD-MM-YYYY");
     try {
         const expectedDepth = 5;
-        const apiRes = await fetch("http://34.88.246.255:8080/");
+        const apiRes = await fetch("https://34.88.246.255:8080/");
         const flattened = Object.values(await apiRes
             .json())
             .map(o => [Object.values(o)])

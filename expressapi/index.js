@@ -7,6 +7,11 @@ import fs from "fs"
 import papa from "papaparse"
 import path from "path"
 import http from "http"
+import https from "https"
+var privateKey  = fs.readFileSync('privatekey.pem', 'utf8');
+var certificate = fs.readFileSync('certificate.pem', 'utf8');
+
+var credentials = {key: privateKey, cert: certificate};
 
 class SFTPClient {
     client;
@@ -59,7 +64,7 @@ class SFTPClient {
 
 
 const app = express();
-const httpServer = http.createServer(app);
+const httpsServer = https.createServer(credentials, app)
 const dirArray = [];
 const pathArr = [];
 const jsonArr = []
@@ -68,7 +73,7 @@ app.use(cors());
 
 const hostname = "0.0.0.0"
 const port = 8080;
-httpServer.listen(port);
+httpsServer.listen(port);
 
 app.get("/", (req, res) => {
     res.send(jsonArr);
