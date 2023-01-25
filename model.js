@@ -275,6 +275,7 @@ function onSignIn(googleUser) {
     model.app.currentUser = profile.email; // This is null if the 'email' scope is not present.
     model.app.currentPage = 'main'
     model.app.currentUserKlasse = findP();
+    initList();
     getData();
 }
 function findP() {
