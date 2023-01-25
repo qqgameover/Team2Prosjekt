@@ -269,14 +269,14 @@ const findClassParentWithName = (_class) => {
 
 
 
-function onSignIn(googleUser) {
+async function onSignIn(googleUser) {
     const profile = googleUser; 
     model.app.currentName = profile.name;
     model.app.currentUser = profile.email; // This is null if the 'email' scope is not present.
     model.app.currentPage = 'main'
     model.app.currentUserKlasse = findP();
-    initList();
-    getData();
+    await initList();
+    await getData();
 }
 function findP() {
     var x = model.data.statistikk.instanser.find((p) => {
