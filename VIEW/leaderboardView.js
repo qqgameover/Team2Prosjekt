@@ -92,14 +92,14 @@ function skoleRanking() {
 	elevRankingRows = "";
 	skoleRankingRows = "";
 	klasseRankingRows = "";
-	for (let i = 0; i < rankingSkole.length; i++) {
+	for (let i = 0; i < 10; i++) {
 		skoleRankingRows +=
 			`<tr>
 				<td class="skole">${rankingSkole[i].skole}</td>
 				<td class="skolepoeng">${rankingSkole[i].points}</td>
 			</tr>`;
 	}
-	for (let i = 0; i < rankingKlasse.length; i++) {
+	for (let i = 0; i < 10; i++) {
 		klasseRankingRows +=
 			`<tr>
                 <td class="klasse">${rankingKlasse[i].klasse} - ${findClassParent(rankingKlasse[i]).skole}</td>

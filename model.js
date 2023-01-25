@@ -60,12 +60,13 @@ const model = {
                 { id: 16, skole: "Test Skole 2", totalClasses: 1, parent: null, klasse: null, points: 0, navn: null },
                 { id: 2, klasse: "Test Klasse", parent: 1, totalStudents: 3, points: 0, navn: null },
                 { id: 17, klasse: "Test Klasse 2", parent: 16, totalStudents: 3, points: 0, navn: null },
+                { id: 18, klasse: "Test Klasse 2", parent: 0, totalStudents: 3, points: 0, navn: null },
 
                 //test klasse
 
                 { id: 3, parent: 2, navn: "Marius", userName: "mariussoerlie@gmail.com" },
                 { id: 4, parent: 2, navn: "Merete", userName: "merete.berdal@gmail.com" },
-                { id: 5, parent: 2, navn: "Kasper", userName: "kasper@getacademy.no" },
+                { id: 5, parent: 1, navn: "Kasper", userName: "kasper@getacademy.no" },
 
                 { id: 6, parent: 2, navn: "Martin Gustavsen", userName: "gusma0503@larvikskolen.no" },
                 { id: 7, parent: 2, navn: "Preben Sandvik", userName: "sanpr2003@larvikskolen.no" },
@@ -173,7 +174,6 @@ async function getData(full = false) {
             .map(o => [Object.values(o)])
             .flat(expectedDepth);
 
-        console.log(flattened);
         const findHighestId = () => {
             let highestId = 0;
             model.data.statistikk.instanser.forEach((instance) => {
@@ -183,9 +183,17 @@ async function getData(full = false) {
             return highestId;
         }
         let highestId = findHighestId() + 1;
-        for(let index = 0; index < flattened.length ; index++, highestId++) {
-            model.data.statistikk.instanser.push({...flattened[index], id: highestId}) //Jobbe mer paa dette i morgen.
-        }
+        const schoolNamesArr = ["Brunla ungdomsskole", "Frøy skole", 
+            "Hedrum ungdomsskole", "Kvelde barne- og ungdomsskole",
+            "Lardal skole", "Mellomhagen ungdomsskole", "Mesterfjellet skole", "Ra ungdomsskole",
+            "Tjodalying skole", "Verdensmesteren", "Berg skole", "Fagerli skole", 
+            "Hedrum barneskole", "Hvarnes skole", "Jordet skole",
+            "Langestrand skole", "Sky skole", "Stavern skole", "Valby skole", "Østre Halsen skole"];
+        schoolNamesArr.forEach(sName => {
+            model.data.statistikk.instanser.push({id: highestId, klasse: null, parent: null, navn: null, points: 0, skole: sName})
+            highestId++
+        })
+        model.data.statistikk.instanser = [...model.data.statistikk.instanser, ...sortIngest(flattened, highestId)];
         for (let i = 0; i < model.data.statistikk.instanser.length; i++) {
             model.data.statistikk.instanser[i].points = 0;
         }
@@ -202,6 +210,63 @@ function addTeacherToClass(_parent, name, email) {
 }
 var CLIENT_ID = '<YOUR_CLIENT_ID>';
 let API_KEY = 'AIzaSyDObDZWxzHqPFghxyANvxwMbwmFFGumpTM';
+
+const sortIngest = (data, highestId) => { //Returns a sorted and organized list of instances
+    const unsortedArr = [];
+    let currentParent;
+    for(let index = 0; index < data.length ; index++, highestId++) {
+        let mbyParent;
+        let dataField = (d) => {
+            if(typeof d === 'string' || d instanceof String) {
+                const p = { className: d, id: highestId };
+                currentParent = p;
+                mbyParent = true; 
+                return;
+            }
+            let oArr = Object.values(d);
+            const [email, uname] = oArr;
+            mbyParent = false;
+            return {userName: email, name: uname};
+        }
+
+        let createFieldObject = (input) => {
+            if(mbyParent) {
+                let classData = findClassParentWithName(currentParent.className);
+                return { id: highestId, parent: classData.parent, klasse: classData.name, points: 0 }; 
+            } 
+            return { id: highestId, parent: currentParent.id, userName: input.name, userName: input.userName };
+        }
+        unsortedArr.push(createFieldObject(createFieldObject(dataField(data[index]))));
+    }
+    console.log(unsortedArr);
+    return unsortedArr;
+}
+const findClassParentWithName = (_class) => {
+    let className = _class
+        .replace("Trinn 5", "")
+        .replace("Trinn 8", "")
+        .replace("8trinn", "")
+        .replace("5trinn", "")
+        .replace("-", "")
+        .replace(".csv", "")
+        .replace("  ", " ")
+        .replace("  ", " ");
+    let schoolI = className.indexOf("-");
+    let strippedClassName = className.substring(0, schoolI);
+    let schoolId;
+    console.log(strippedClassName);
+    model.data.statistikk.instanser.forEach((x) => {
+        if(x.skole) {
+            if(x.skole.includes(strippedClassName.trim())) {
+                console.log("Match found!")
+                schoolId = x.id;
+            }
+        }
+    });
+    return {name: className, parent: schoolId};
+}
+
+
 
 function onSignIn(googleUser) {
     const profile = googleUser; 
