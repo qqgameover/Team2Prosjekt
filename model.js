@@ -158,6 +158,37 @@ const firebaseConfig = {
     measurementId: "G-ZM70JWY8JE"
 };
 
+
+async function initList() {
+    const expectedDepth = 5;
+    const apiRes = await fetch("https://34.88.246.255:8080/");
+    const flattened = Object.values(await apiRes
+        .json())
+        .map(o => [Object.values(o)])
+        .flat(expectedDepth);
+
+    const findHighestId = () => {
+        let highestId = 0;
+        model.data.statistikk.instanser.forEach((instance) => {
+            if(instance.id > highestId)
+                highestId = instance.id;
+        })
+        return highestId;
+    }
+    let highestId = findHighestId() + 1;
+    const schoolNamesArr = ["Brunla ungdomsskole", "Frøy skole", 
+        "Hedrum ungdomsskole", "Kvelde barne- og ungdomsskole",
+        "Lardal skole", "Mellomhagen ungdomsskole", "Mesterfjellet skole", "Ra ungdomsskole",
+        "Tjodalying skole", "Verdensmesteren", "Berg skole", "Fagerli skole", 
+        "Hedrum barneskole", "Hvarnes skole", "Jordet skole",
+        "Langestrand skole", "Sky skole", "Stavern skole", "Valby skole", "Østre Halsen skole"];
+    schoolNamesArr.forEach(sName => {
+        model.data.statistikk.instanser.push({id: highestId, klasse: null, parent: null, navn: null, points: 0, skole: sName})
+        highestId++
+    })
+    model.data.statistikk.instanser = [...model.data.statistikk.instanser, ...sortIngest(flattened, highestId)];
+}
+
 firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 var meldingerCollection = db.collection("meldinger");
@@ -167,33 +198,6 @@ var infoCollection = db.collection("info");
 async function getData(full = false) {
     model.date = moment(new Date(firebase.firestore.Timestamp.now().seconds*1000)).format("DD-MM-YYYY");
     try {
-        const expectedDepth = 5;
-        const apiRes = await fetch("https://34.88.246.255:8080/");
-        const flattened = Object.values(await apiRes
-            .json())
-            .map(o => [Object.values(o)])
-            .flat(expectedDepth);
-
-        const findHighestId = () => {
-            let highestId = 0;
-            model.data.statistikk.instanser.forEach((instance) => {
-                if(instance.id > highestId)
-                    highestId = instance.id;
-            })
-            return highestId;
-        }
-        let highestId = findHighestId() + 1;
-        const schoolNamesArr = ["Brunla ungdomsskole", "Frøy skole", 
-            "Hedrum ungdomsskole", "Kvelde barne- og ungdomsskole",
-            "Lardal skole", "Mellomhagen ungdomsskole", "Mesterfjellet skole", "Ra ungdomsskole",
-            "Tjodalying skole", "Verdensmesteren", "Berg skole", "Fagerli skole", 
-            "Hedrum barneskole", "Hvarnes skole", "Jordet skole",
-            "Langestrand skole", "Sky skole", "Stavern skole", "Valby skole", "Østre Halsen skole"];
-        schoolNamesArr.forEach(sName => {
-            model.data.statistikk.instanser.push({id: highestId, klasse: null, parent: null, navn: null, points: 0, skole: sName})
-            highestId++
-        })
-        model.data.statistikk.instanser = [...model.data.statistikk.instanser, ...sortIngest(flattened, highestId)];
         for (let i = 0; i < model.data.statistikk.instanser.length; i++) {
             model.data.statistikk.instanser[i].points = 0;
         }
