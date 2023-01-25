@@ -179,7 +179,7 @@ async function initList() {
     const schoolNamesArr = ["Brunla ungdomsskole", "Frøy skole", 
         "Hedrum ungdomsskole", "Kvelde barne- og ungdomsskole",
         "Lardal skole", "Mellomhagen ungdomsskole", "Mesterfjellet skole", "Ra ungdomsskole",
-        "Tjodalying skole", "Verdensmesteren", "Berg skole", "Fagerli skole", 
+        "Tjodalyng skole", "Verdensmesteren", "Berg skole", "Fagerli skole", 
         "Hedrum barneskole", "Hvarnes skole", "Jordet skole",
         "Langestrand skole", "Sky skole", "Stavern skole", "Valby skole", "Østre Halsen skole"];
     schoolNamesArr.forEach(sName => {
