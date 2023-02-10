@@ -161,7 +161,7 @@ const firebaseConfig = {
 
 async function initList() {
     const expectedDepth = 5;
-    const apiRes = await fetch("https://34.88.246.255:8080/");
+    const apiRes = await fetch("https://wowapi.getacademy.no/");
     const flattened = Object.values(await apiRes
         .json())
         .map(o => [Object.values(o)])
@@ -177,7 +177,7 @@ async function initList() {
     }
     let highestId = findHighestId() + 1;
     const schoolNamesArr = ["Brunla ungdomsskole", "Frøy skole", 
-        "Hedrum ungdomsskole", "Kvelde barne- og ungdomsskole",
+        "Hedrum ungdomsskole", "Kvelde barne og ungdomsskole",
         "Lardal skole", "Mellomhagen ungdomsskole", "Mesterfjellet skole", "Ra ungdomsskole",
         "Tjodalyng skole", "Verdensmesteren", "Berg skole", "Fagerli skole", 
         "Hedrum barneskole", "Hvarnes skole", "Jordet skole",
