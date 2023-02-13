@@ -60,24 +60,13 @@ const model = {
                 { id: 16, skole: "Test Skole 2", totalClasses: 1, parent: null, klasse: null, points: 0, navn: null },
                 { id: 2, klasse: "Test Klasse", parent: 1, totalStudents: 3, points: 0, navn: null },
                 { id: 17, klasse: "Test Klasse 2", parent: 16, totalStudents: 3, points: 0, navn: null },
-                { id: 18, klasse: "Test Klasse 2", parent: 0, totalStudents: 3, points: 0, navn: null },
+                { id: 18, klasse: "Test Klasse 2", parent: 1, totalStudents: 3, points: 0, navn: null },
 
                 //test klasse
 
                 { id: 3, parent: 2, navn: "Marius", userName: "mariussoerlie@gmail.com" },
                 { id: 4, parent: 2, navn: "Merete", userName: "merete.berdal@gmail.com" },
-                { id: 5, parent: 1, navn: "Kasper", userName: "kasper@getacademy.no" },
-
-                { id: 6, parent: 2, navn: "Martin Gustavsen", userName: "gusma0503@larvikskolen.no" },
-                { id: 7, parent: 2, navn: "Preben Sandvik", userName: "sanpr2003@larvikskolen.no" },
-                { id: 8, parent: 2, navn: "Kristian Lilleskaret", userName: "lilkr0410@larvikskolen.no"},
-                { id: 9, parent: 2, navn: "Ida Amalie Hedegaard Steffens", userName: "steid2002@larvikskolen.no"},
-                { id: 10, parent: 2, navn: "Nina Oritsland", userName: "sorini2008@larvikskolen.no"},
-                { id: 11, parent: 2, navn: "Stine Nesse Langemyr", userName: "snesst1903@larvikskolen.no"},
-                { id: 12, parent: 2, navn: "Sverre Diesen", userName: "sdiesv2403@larvikskolen.no"},
-                { id: 13, parent: 2, navn: "Kari Thorås", userName: "THOKA2812@larvikskolen.no"},
-                { id: 14, parent: 2, navn: "Linnea Evensen Pedersen", userName: "pedli0803@larvikskolen.no"},
-                { id: 15, parent: 2, navn: "Øyvind Skilbred", userName: "sskioy3003@larvikskolen.no"},
+                { id: 5, parent: 2, navn: "Kasper", userName: "kasper@getacademy.no" },
             ],
             achievements: [],
         },
@@ -166,6 +155,12 @@ async function initList() {
         .json())
         .map(o => [Object.values(o)])
         .flat(expectedDepth);
+    const schoolNamesArr = ["Brunla ungdomsskole", "Frøy skole", 
+        "Hedrum ungdomsskole", "Kvelde barne og ungdomsskole",
+        "Lardal skole", "Mellomhagen ungdomsskole", "Mesterfjellet skole", "Ra ungdomsskole",
+        "Tjodalyng skole", "Verdensmesteren", "Berg skole", "Fagerli skole", 
+        "Hedrum barneskole", "Hvarnes skole", "Jordet skole",
+        "Langestrand skole", "Sky skole", "Stavern skole", "Valby skole", "Østre Halsen skole"];
 
     const findHighestId = () => {
         let highestId = 0;
@@ -176,12 +171,6 @@ async function initList() {
         return highestId;
     }
     let highestId = findHighestId() + 1;
-    const schoolNamesArr = ["Brunla ungdomsskole", "Frøy skole", 
-        "Hedrum ungdomsskole", "Kvelde barne og ungdomsskole",
-        "Lardal skole", "Mellomhagen ungdomsskole", "Mesterfjellet skole", "Ra ungdomsskole",
-        "Tjodalyng skole", "Verdensmesteren", "Berg skole", "Fagerli skole", 
-        "Hedrum barneskole", "Hvarnes skole", "Jordet skole",
-        "Langestrand skole", "Sky skole", "Stavern skole", "Valby skole", "Østre Halsen skole"];
     schoolNamesArr.forEach(sName => {
         model.data.statistikk.instanser.push({id: highestId, klasse: null, parent: null, navn: null, points: 0, skole: sName})
         highestId++

@@ -10,12 +10,6 @@ function updateViewMain() {
 		</a>
 	</div>
 	<div class="container">
-	<img src="https://i.ibb.co/LPyNSGV/1.png"
-		style="width: 75%; display: block; margin-left: auto; margin-right: auto; max-height: 25vh;">
-	<div class="imgLeft">
-		<img id="larvikBilde" src="https://i.ibb.co/rwn3rbj/larvik-Kom.png" alt="larvik-Kom" border="0"></div>
-	<div class="imgRight">
-		<img id="lhkBilde" src="https://i.ibb.co/Sf5F7MD/lhk.png" alt="lhk" border="0"></div>
 	<h1 class="headerMain mt-2">WOW</h1>
 	<h1 class="subHeader mb-2">I LARVIKSKOLEN</h1>
 	<h6 class="text-center mt-4">Max 3 oppgaver per kategori per dag :)</h6></div>

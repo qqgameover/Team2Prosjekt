@@ -54,7 +54,8 @@ function updateViewLeaderboard() {
 			});
 			rankingSkole = sortedArray;
 
-		}  if (model.app.currentUserKlasse == model.data.statistikk.instanser[i].parent) {
+		} if (model.app.currentUserKlasse == model.data.statistikk.instanser[i].parent) {
+			if(model.data.statistikk.instanser[i].navn == null) continue;
 			rankingIndivid.push(model.data.statistikk.instanser[i]);
 			const sortedArray = rankingIndivid.sort((a, b) => {
 				if (a.points < b.points) return 1;
@@ -63,7 +64,7 @@ function updateViewLeaderboard() {
 			rankingIndivid = sortedArray;
 		}
 	}
-	bruh();
+	sortCobweb();
 	html += skoleRanking();
     html += `<div class="text-center">
             <h1 class="mx-5 my-4">INFO: <span>${model.app.info}</span></h1>
@@ -82,7 +83,7 @@ function createTableRow(rankingParam, klasseRankingParam, elevRankingParam) {
 				${klasseRankingParam}
 		</table>
 
-		<table class="leaderboardTable">
+	<table class="leaderboardTable">
 			${elevRankingParam}
 		</table>
 	</div>
@@ -102,12 +103,12 @@ function skoleRanking() {
 	for (let i = 0; i < 10; i++) {
 		klasseRankingRows +=
 			`<tr>
-                <td class="klasse">${rankingKlasse[i].klasse} - ${findClassParent(rankingKlasse[i]).skole}</td>
+                <td class="klasse">${rankingKlasse[i].klasse}</td>
 				<td class="klassepoeng">${rankingKlasse[i].points}</td>
 			</tr>`;
 	}
 	for (let i = 0; i < 5; i++) {
-		if (!rankingIndivid[i]) continue;
+		if (!rankingIndivid[i] || !rankingIndivid[i].navn) continue; //HACK: Jeg aner ikke hvorfor det er slik
 		elevRankingRows +=
 			`<tr>
 				<td class="elev">${rankingIndivid[i].navn}</td>
@@ -117,7 +118,7 @@ function skoleRanking() {
 	return createTableRow(skoleRankingRows, klasseRankingRows, elevRankingRows);
 }
 
-function bruh() {
+function sortCobweb() {
 	let arr = []
 	for(let i = 0; i < model.data.statistikk.instanser.length; i++) {
     	if(model.data.statistikk.instanser[i].parent != null &&
