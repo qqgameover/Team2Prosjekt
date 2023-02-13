@@ -16,27 +16,23 @@
     registrere poeng for å sende meldinger. Merk at innhenting og utsending av meldinger er async. 
 
     ##### Funksjoner det er verdt å nevne
-    * `searchName(input: string): string || null`
-        searchName tar inn en string som input og retunerer
+    * `searchName(input: string): string || null` </br> searchName tar inn en string som input og retunerer
         et elev navn om den finner en match, eller null.
-    * `makeSuggestions(terms: Array<string>): Array<HTMLElement>`
-        makeSuggestions tar inn et string array, og retunerer et array med ulike forslag 
+    * `makeSuggestions(terms: Array<string>): Array<HTMLElement>` </br> makeSuggestions tar inn et string array, og retunerer et array med ulike forslag 
         formatert som en HTML liste.
-    * `findUserName(searchVal: string): string || null`
-        denne funskjonen søker gjennom instanser arrayet og forsøker å finne en match på
-        søkeverdien vi har sendt inn. 
+    * `findUserName(searchVal: string): string || null` </br> denne funskjonen søker gjennom instanser arrayet og forsøker å finne en match på søkeverdien vi har sendt inn. 
 * #### <s>papaparse.js</s> *deprecated*
     - Ikke lenger i bruk. 
 * #### poengController.js 
     Poeng controlleren brukes til å beregne poeng til klassen/skolen, og til å holde styr på at
     elever ikke overgår gresen på 3 oppgaver per dag, per kategori. Den inneholder en del hjelpe
-    funksjoner for å gjøre koden lettere og lese. 
+    funksjoner for å gjøre koden lettere å lese. 
 
     ##### Funksjoner det er verdt å nevne
-    * `addPoints(): void`
+    * `addPoints(): void` </br>
     Funksjonen addPoints tar ingen parametere og brukes til å beregne poeng for alle
     instanser i applikasjonen. For øyeblikket er den o(n<sup>2</sup>).
-    * `findPerson(person: string): Instanse || null` 
+    * `findPerson(person: string): Instanse || null` </br>
 * #### videoController.js
     Navnet på video controller kan være litt forvirrende, men videoController brukes til å styre
     hvilke side vi er på. Hver side er en node i en node-liste, vi bruker controlleren til dette.
