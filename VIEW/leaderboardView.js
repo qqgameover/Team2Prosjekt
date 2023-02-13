@@ -83,8 +83,8 @@ function createTableRow(rankingParam, klasseRankingParam, elevRankingParam) {
 				${klasseRankingParam}
 		</table>
 
-	<table class="leaderboardTable">
-			${elevRankingParam}
+		<table class="leaderboardTable">
+				${elevRankingParam}
 		</table>
 	</div>
 `;
@@ -105,6 +105,7 @@ function skoleRanking() {
 			`<tr>
                 <td class="klasse">${rankingKlasse[i].klasse}</td>
 				<td class="klassepoeng">${rankingKlasse[i].points}</td>
+
 			</tr>`;
 	}
 	for (let i = 0; i < 5; i++) {
