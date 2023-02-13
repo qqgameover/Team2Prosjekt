@@ -29,10 +29,8 @@
     funksjoner for å gjøre koden lettere å lese. 
 
     ##### Funksjoner det er verdt å nevne
-    * `addPoints(): void` </br>
-    Funksjonen addPoints tar ingen parametere og brukes til å beregne poeng for alle
-    instanser i applikasjonen. For øyeblikket er den o(n<sup>2</sup>).
-    * `findPerson(person: string): Instanse || null` </br>
+    * `addPoints(): void` </br> Funksjonen addPoints tar ingen parametere og brukes til å beregne poeng for alle instanser i applikasjonen. For øyeblikket er den o(n<sup>2</sup>). Resultatet blir lagret i modellen. Dette er dataen som vises til brukeren. 
+    * `findPerson(person: string): Instanse || null` </br> En hjelpe funksjon for å søke gjennom instanser arrayet og retunere instansen som deler brukernavn med søkeverdien.
 * #### videoController.js
     Navnet på video controller kan være litt forvirrende, men videoController brukes til å styre
     hvilke side vi er på. Hver side er en node i en node-liste, vi bruker controlleren til dette.
