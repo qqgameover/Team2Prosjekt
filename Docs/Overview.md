@@ -1,6 +1,6 @@
 # Wishing others well dokumentasjon
 
-#Table of conents
+## Table of conents
 1. [Prinsipper](#prinsipper)
 2. [Controllere](#controllere)
 
