@@ -57,16 +57,15 @@ const model = {
             meldinger: [],
             instanser: [
                 { id: 1, skole: "Test Skole", totalClasses: 1, parent: null, klasse: null, points: 0, navn: null },
-                { id: 16, skole: "Test Skole 2", totalClasses: 1, parent: null, klasse: null, points: 0, navn: null },
-                { id: 2, klasse: "Test Klasse", parent: 1, totalStudents: 3, points: 0, navn: null },
-                { id: 17, klasse: "Test Klasse 2", parent: 16, totalStudents: 3, points: 0, navn: null },
-                { id: 18, klasse: "Test Klasse 2", parent: 1, totalStudents: 3, points: 0, navn: null },
+                { id: 2, skole: "Test Skole 2", totalClasses: 1, parent: null, klasse: null, points: 0, navn: null },
+                { id: 3, klasse: "Test Klasse", parent: 1, totalStudents: 3, points: 0, navn: null },
+                { id: 4, klasse: "Test Klasse 2", parent: 1, totalStudents: 3, points: 0, navn: null },
 
                 //test klasse
 
-                { id: 3, parent: 2, navn: "Marius", userName: "mariussoerlie@gmail.com" },
-                { id: 4, parent: 2, navn: "Merete", userName: "merete.berdal@gmail.com" },
-                { id: 5, parent: 2, navn: "Kasper", userName: "kasper@getacademy.no" },
+                { id: 5, parent: 1, navn: "Marius", userName: "mariussoerlie@gmail.com" },
+                { id: 6, parent: 1, navn: "Merete", userName: "merete.berdal@gmail.com" },
+                { id: 7, parent: 1, navn: "Kasper", userName: "kasper@getacademy.no" },
             ],
             achievements: [],
         },
