@@ -229,7 +229,7 @@ const sortIngest = (data, highestId) => { //Returns a sorted and organized list 
             } 
             return { id: highestId, parent: currentParent.id, userName: input.userName, navn: input.name };
         }
-        unsortedArr.push(createFieldObject(createFieldObject(dataField(data[index]))));
+        unsortedArr.push(createFieldObject(dataField(data[index])));
     }
     return unsortedArr;
 }
