@@ -222,8 +222,7 @@ const sortIngest = (data, highestId) => { //Returns a sorted and organized list 
         }
 
         let createFieldObject = (input) => {
-            console.log(input);
-            if(mbyParent) {
+            if(input == undefined) {
                 let classData = findClassParentWithName(currentParent.className);
                 return { id: highestId, parent: classData.parent, klasse: classData.name, points: 0 }; 
             } 
