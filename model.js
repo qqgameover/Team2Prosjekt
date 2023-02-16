@@ -216,13 +216,13 @@ const sortIngest = (data, highestId) => { //Returns a sorted and organized list 
                 return;
             }
             let oArr = Object.values(d);
-            console.log(oArr);
             const [email, uname] = oArr;
             mbyParent = false;
             return {userName: email, name: uname};
         }
 
         let createFieldObject = (input) => {
+            console.log(input);
             if(mbyParent) {
                 let classData = findClassParentWithName(currentParent.className);
                 return { id: highestId, parent: classData.parent, klasse: classData.name, points: 0 }; 
