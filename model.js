@@ -238,6 +238,8 @@ const findClassParentWithName = (_class) => {
         .replace("Trinn 8", "")
         .replace("8trinn", "")
         .replace("5trinn", "")
+        .replace("Trinn larere")
+        .replace("larer", "lærer")
         .replace("-", "")
         .replace(".csv", "")
         .replace("  ", " ")
