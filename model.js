@@ -226,7 +226,7 @@ const sortIngest = (data, highestId) => { //Returns a sorted and organized list 
                 let classData = findClassParentWithName(currentParent.className);
                 return { id: highestId, parent: classData.parent, klasse: classData.name, points: 0 }; 
             } 
-            return { id: highestId, parent: currentParent.id, userName: input.userName, navn: input.name };
+            return { id: highestId, parent: currentParent.id, userName: input.userName.toLowerCase(), navn: input.name };
         }
         unsortedArr.push(createFieldObject(dataField(data[index])));
     }
