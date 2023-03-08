@@ -260,7 +260,7 @@ const findClassParentWithName = (_class) => {
 async function onSignIn(googleUser) {
     const profile = googleUser; 
     model.app.currentName = profile.name;
-    model.app.currentUser = 'thoka2812@larvikskolen.no'; // This is null if the 'email' scope is not present.
+    model.app.currentUser = profile.email; // This is null if the 'email' scope is not present.
     model.app.currentPage = 'main'
     await initList();
     await getData();
